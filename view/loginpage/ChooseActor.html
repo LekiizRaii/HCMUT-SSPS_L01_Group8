@@ -4,11 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Choose Actor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <style>
+        #actor-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .actor-button {
+            width: 80%;
+            /* background-color: #1e90ff; */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            margin: 5px 0;
+            text-align: center;
+            text-decoration: none;
+        }
+    </style>
 
     <!-- Dark mode -->
     <script>
@@ -49,31 +72,17 @@
         </div>
     </nav>
     
-    <section class="mx-auto bg-gray-50 dark:bg-gray-900 min-h-screen">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-6 grid lg:grid-cols-1 gap-8 lg:gap-7">
-            <h1 class="text-2xl font-bold text-black dark:text-white m-auto w-full lg:max-w-xl space-y-0">Log In</h1>
+    <section class="m-auto bg-gray-50 dark:bg-gray-900 min-h-screen">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-1 gap-8 lg:gap-16">
             <div>
-                <div class="m-auto w-full lg:max-w-xl p-6 sm:p-8 bg-white rounded-lg shadow-xl dark:bg-gray-800">
-                    <h3 class="text-base font-semibold text-gray-900 dark:text-white">
-                        Log in to use the SSPS Service
-                    </h3>
-                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white">
-                        Log In to SPSS
+                <div class="m-auto mt-24 w-full lg:max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow-xl dark:bg-gray-800">
+                    <h2 class="text-4xl text-center font-bold text-gray-900 dark:text-white">
+                        Login for
                     </h2>
                     <form class="mt-8 space-y-6" action="#">
-                        <div>
-                            <label for="username" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">Username</label>
-                            <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your username" required>
-                        </div>
-                        <div>
-                            <label for="password" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" name="password" id="password" placeholder="6+ Characters, 1 Capital letter" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                        </div>
-                        <div class="flex flex-col justify-center">
-                            <button id="login-button" type="submit" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign In</button>
-                            <div class="m-auto text-base lg:py-6 font-medium text-gray-900 dark:text-white">
-                                Don’t have any account? <a class="text-blue-600 hover:underline dark:text-blue-500">Sign Up</a>
-                            </div>
+                        <div id="actor-buttons">
+                            <a class="actor-button bg-blue-600 dark:bg-blue-600" href="Login.html?actor=student" style="font-size: large;">Student</a>
+                            <a class="actor-button bg-blue-600 dark:bg-blue-600" href="Login.html?actor=SPSO" style="font-size: large;">SPSO</a>
                         </div>
                     </form>
                 </div>
@@ -81,7 +90,7 @@
         </div>
     </section>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <script src="../navbar/darkmode.js"></script>
-    <script src="./Login.js"></script>
 </body>
