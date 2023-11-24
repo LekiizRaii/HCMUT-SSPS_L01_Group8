@@ -1,6 +1,3 @@
-if (!localStorage.getItem("idRole")) {
-    window.location.replace('../loginpage/ChooseActor.html')
-}
 var user = {
     name: 'Mai Hoàng Danh',
     dob: new Date(2003, 3, 1),
@@ -16,16 +13,25 @@ $(document).ready(function () {
 });
 function loadNav() {
     var idRole = localStorage.getItem('idRole');
-    if (idRole === "1") {
+    if (!localStorage.getItem("idRole")) {
+        $('#nav__user').remove();
+        $('#homepage1').remove();
+        $('#homepage2').remove();
+        $('#nav__login__button').click(function () {
+            window.location.replace("../loginpage/ChooseActor.html");
+        });
+    }
+    else if (idRole === "1") {
         $('#nav__login').remove();
         $('#user__SPSO').remove();
+        $('#homepage0').remove();
+        $('#homepage2').remove();
     }
     else if (idRole === "2") {
         $('#nav__login').remove();
         $('#user__student').remove();
-    }
-    else {
-        $('#nav__user').remove();
+        $('#homepage0').remove();
+        $('#homepage1').remove();
     }
     // $('#my-class-link').attr('href', '../MyCourses/myCourses.html');
     // $('#my-page-link').attr('href', '../MyPage/myPage.html');
@@ -177,7 +183,7 @@ function signout() {
                 }).then(() => {
                     localStorage.removeItem('idRole');
                     localStorage.removeItem('userInfo');
-                    window.location.replace("../loginpage/ChooseActor.html");
+                    window.location.replace("../homepage/homepage.html");
                 });
             }
         });

@@ -26,3 +26,8 @@ document.getElementById("login-button").addEventListener("click", function (even
     // Ngăn chặn hành động mặc định của nút submit trong form
     event.preventDefault();
 });
+
+document.getElementById("nav__login_button").addEventListener("click", function () {
+    window.location.href = "./ChooseActor.html";
+});
+

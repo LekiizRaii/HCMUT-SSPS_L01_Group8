@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
+    <script src="https://"></script>
 
     <!-- Dark mode -->
     <script>
@@ -22,7 +23,7 @@
     </script>
 </head>
 
-<body>
+<body class="bg-gray-100 dark:bg-gray-900">
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-full flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="./homepage.html" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
@@ -33,13 +34,12 @@
                 </div>
             </a>
             <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <div class="flex items-center ml-3 mr-4" id="nav__user">
-                    <!-- Dark mode -->
-                    <button id="theme-toggle" type="button" class=" mr-3 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
-                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                    </button>
-
+                <!-- Dark mode -->
+                <button id="theme-toggle" type="button" class=" mr-3 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+                <div class="flex items-center ml-3 mr-4" id="nav__user"> 
                     <button class="mr-5">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 21">
@@ -61,7 +61,7 @@
                         <div class="self-center text-right text-sm whitespace-nowrap dark:text-white" id="user__student">Student</div>
                         <div class="self-center text-right text-sm whitespace-nowrap dark:text-white" id="user__SPSO">SPSO</div>
                     </div>
-                    <button id="dropdownInformationButton" aria-expanded="false" data-dropdown-toggle="dropdown-user" class="ml-1 dark:text-white bg-white focus:ring-4 focus:outline-none focus:bg-blue-500 focus:ring-blue-600 font-medium rounded-lg text-sm px-1 py-1 text-center inline-flex items-center dark:bg-gray-900 dark:hover:bg-blue-500 dark:focus:ring-blue-600" type="button">
+                    <button id="dropdownInformationButton" aria-expanded="false" data-dropdown-toggle="dropdown-user" class="ml-1 mr-4 dark:text-white bg-white focus:ring-4 focus:outline-none focus:bg-blue-500 focus:ring-blue-600 font-medium rounded-lg text-sm px-1 py-1 text-center inline-flex items-center dark:bg-gray-900 dark:hover:bg-blue-500 dark:focus:ring-blue-600" type="button">
                         <img class="w-10 h-10 rounded-full"
                                 src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
                                 alt="user photo">
@@ -95,12 +95,7 @@
                 </div>
 
                 <div class="flex items-center ml-3 mr-4" id="nav__login">
-                    <button id="theme-toggle" type="button" class=" mr-3 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
-                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                    </button>
-
-                    <button href="../loginpage/ChooseActor.html" type="button" class="w-24 text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium font-bold rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
+                    <button id="nav__login__button" type="button" class="mr-7 w-24 text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium font-bold rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
                         style="font-family: Montserrat;
                         font-weight: 900;">
                         LOGIN
@@ -139,7 +134,62 @@
         </div>
     </div>
 
-    <h1> WELCOME TO SPSS</h1>
+    <div id="homepage0">
+        <h1 class="mt-10 mb-12 text-6xl text-center font-extrabold leading-none tracking-tight text-blue-800 md:text-5xl lg:text-6xl" 
+            style="font-size: 96px;">WELCOME TO SSPS</h1>
+        <div class="flex items-center justify-center">
+            <div class="rounded-4xl py-6 px-20 bg-indigo-300" style="border-radius: 40px;">
+                <img class="" src="../img/homepage0.png" alt="homepage0">
+            </div>
+        </div>
+        <h2 class="text-4xl font-bold dark:text-white text-center mt-10">A Smart Printing Service for Students at HCMUT</h2>
+        <br>
+        <br>
+    </div>
+
+    <div id="homepage1">
+        <h1 class="mt-10 mb-6 md:mt-20 md:mb-12 text-6xl md:text-7xl lg:text-8xl text-center font-extrabold leading-none tracking-tight text-blue-800">WELCOME TO SSPS</h1>
+        <div class="flex flex-col md:flex-row items-center justify-center">
+            <a href="#" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
+                <img class="m-auto mt-4 w-48 h-48" src="../img/printer1.png" alt="homepage0">
+                <h2 class="text-3xl font-bold text-center mt-5 py-1 px-1">PRINT NOW</h2>
+            </a>
+            <a href="#" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
+                <img class="m-auto mt-4 w-48 h-48" src="../img/history1.png" alt="homepage0">
+                <h2 class="text-3xl font-bold text-center mt-5 py-1 px-1">HISTORY</h2>
+            </a>
+        </div>
+        <br>
+    </div>
+
+    <div id="homepage2">
+        <h1 class="mt-10 mb-6 md:mt-18 md:mb-8 text-6xl md:text-7xl lg:text-8xl text-center font-extrabold leading-none tracking-tight text-blue-800">WELCOME TO SSPS</h1>
+        <div class="flex flex-col md:flex-row items-center justify-center">
+            <a href="#" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
+                <img class="m-auto mt-0 w-36 h-36" src="../img/printer1.png" alt="homepage0">
+                <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">PRINT NOW</h2>
+            </a>
+            <a href="#" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
+                <img class="m-auto mt-0 w-36 h-36" src="../img/history1.png" alt="homepage0">
+                <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">HISTORY</h2>
+            </a>
+            <a href="#" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
+                <img class="m-auto mt-0 w-36 h-36" src="../img/report.png" alt="homepage0">
+                <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">REPORT</h2>
+            </a>
+        </div>
+        <div class="flex flex-col md:flex-row items-center justify-center">
+            <a href="#" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-4/12 lg:w-3/12 xl:w-3/12" style="border-radius: 40px;">
+                <img class="m-auto mt-0 w-36 h-36" src="../img/setting.png" alt="homepage0">
+                <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">SETTING</h2>
+            </a>
+            <a href="#" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-4/12 lg:w-3/12 xl:w-3/12" style="border-radius: 40px;">
+                <img class="m-auto mt-0 w-36 h-36" src="../img/management.png" alt="homepage0">
+                <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">MANAGEMENT</h2>
+            </a>
+        </div>
+    </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <script src="../navbar/darkmode.js"></script>
     <script src="../navbar/nav.js"></script>
