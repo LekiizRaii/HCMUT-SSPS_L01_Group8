@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Settings Page</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
-    <script src="https://"></script>
 
     <!-- Dark mode -->
     <script>
@@ -58,7 +57,6 @@
                     </button>
                     <div class="mr-0.5">
                         <div class="self-center text-right text-base font-semibold whitespace-nowrap dark:text-white">Danh Hoang</div>
-                        <div class="self-center text-right text-sm whitespace-nowrap dark:text-white" id="user__student">Student</div>
                         <div class="self-center text-right text-sm whitespace-nowrap dark:text-white" id="user__SPSO">SPSO</div>
                     </div>
                     <button id="dropdownInformationButton" aria-expanded="false" data-dropdown-toggle="dropdown-user" class="ml-1 mr-4 dark:text-white bg-white focus:ring-4 focus:outline-none focus:bg-blue-500 focus:ring-blue-600 font-medium rounded-lg text-sm px-1 py-1 text-center inline-flex items-center dark:bg-gray-900 dark:hover:bg-blue-500 dark:focus:ring-blue-600" type="button">
@@ -93,14 +91,6 @@
                         </ul>
                     </div>
                 </div>
-
-                <div class="flex items-center ml-3 mr-4" id="nav__login">
-                    <button id="nav__login__button" type="button" class="mr-7 w-24 text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium font-bold rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
-                        style="font-family: Montserrat;
-                        font-weight: 900;">
-                        LOGIN
-                    </button>
-                </div>
             </div>
         </div>
     </nav>
@@ -133,63 +123,94 @@
             </div>
         </div>
     </div>
+    
+    <section class="mx-auto bg-gray-100 dark:bg-gray-900">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-6 grid lg:grid-cols-1 gap-8 lg:gap-7">
+            <h1 class="text-3xl font-bold text-black dark:text-white m-auto w-full lg:max-w-xl space-y-0">Print Configuration Settings</h1>
+            <div>
+                <div class="m-auto w-full lg:max-w-xl p-6 bg-white rounded-lg shadow-xl dark:bg-gray-800">
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                        Print Configuration
+                    </h3>
+                    <hr class="m-auto w-full lg:max-w-xl my-3 border-zinc-400">
+                    <form class="">
+                        <div class="">
+                            <label for="base-input" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Sheets Provided Each Semester</label>
+                            <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 pl-6 text-gray-900 text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter number of sheets provided for students each semester">
+                        </div>
+                        <br>
+                        <label for="TimeforSheetsProvision" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Time for Sheets Provision</label>
+                        <select id="TimeforSheetsProvision" class="bg-gray-50 border border-gray-300 pl-6 text-gray-400 text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option>Every 15 weeks</option>
+                            <option>Every month</option>
+                            <option>Every 2 weeks</option>
+                            <option>Everyday</option>
+                        </select>
+                        <br>
+                        <label for="FileFormats" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">File Formats</label>
+                        <br>
+                        <fieldset>
+                            <legend class="sr-only">Checkbox variants</legend>
 
-    <div id="homepage0">
-        <h1 class="mt-10 mb-12 text-6xl text-center font-extrabold leading-none tracking-tight text-blue-800 md:text-5xl lg:text-6xl" 
-            style="font-size: 96px;">WELCOME TO SSPS</h1>
-        <div class="flex items-center justify-center">
-            <div class="rounded-4xl py-6 px-20 bg-indigo-300" style="border-radius: 40px;">
-                <img class="" src="../img/homepage0.png" alt="homepage0">
+                            <div class="flex flex-row m-auto">
+                                <div class="flex-col m-auto">
+                                    <div class="flex items-center m-auto">
+                                        <input id="PPTX" type="checkbox" value="" class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="PPTX" class="ms-2 text-lg text-gray-500 dark:text-gray-300">PPTX</label>
+                                    </div>
+                                    <br>
+                                    <div class="flex items-center m-auto">
+                                        <input id="GIF" type="checkbox" value="" class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="GIF" class="ms-2 text-lg text-gray-500 dark:text-gray-300">GIF</label>
+                                    </div>
+                                </div>
+
+                                <div class="flex-col  m-auto">
+                                    <div class="flex items-center m-auto">
+                                        <input checked id="PDF" type="checkbox" value="" class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="PDF" class="ms-2 text-lg text-gray-500 dark:text-gray-300">PDF</label>
+                                    </div>
+                                    <br>
+                                    <div class="flex items-center m-auto">
+                                        <input checked id="XLSX" type="checkbox" value="" class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="XLSX" class="ms-2 text-lg text-gray-500 dark:text-gray-300">XLSX</label>
+                                    </div>
+                                </div>    
+                                <div class="flex-col  m-auto">
+                                    <div class="flex items-center m-auto">
+                                        <input checked id="DOCX" type="checkbox" value="" class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="DOCX" class="ms-2 text-lg text-gray-500 dark:text-gray-300">DOCX</label>
+                                    </div>
+                                    <br>
+                                    <div class="flex items-center m-auto">
+                                        <input id="PDS" type="checkbox" value="" class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="PDS" class="ms-2 text-lg text-gray-500 dark:text-gray-300">PDS</label>
+                                    </div>
+                                </div>
+
+                                <div class="flex-col  m-auto">
+                                    <div class="flex items-center m-auto">
+                                        <input checked id="JPG" type="checkbox" value="" class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="JPG" class="ms-2 text-lg text-gray-500 dark:text-gray-300">JPG</label>
+                                    </div>
+                                    <br>
+                                    <div class="flex items-center m-auto">
+                                        <input checked id="EPS" type="checkbox" value="" class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="EPS" class="ms-2 text-lg text-gray-500 dark:text-gray-300">EPS</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <p class="h-10"></p>
+                        <div class="flex flex-col justify-center">
+                            <a href="../homepage/homepage.html" id="login-button" type="submit" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-xl w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</a>
+                        </div>
+                      </form>
+                </div>
             </div>
         </div>
-        <h2 class="text-4xl font-bold dark:text-white text-center mt-10">A Smart Printing Service for Students at HCMUT</h2>
-        <br>
-        <br>
-    </div>
+    </section>
 
-    <div id="homepage1">
-        <h1 class="mt-10 mb-6 md:mt-20 md:mb-12 text-6xl md:text-7xl lg:text-8xl text-center font-extrabold leading-none tracking-tight text-blue-800">WELCOME TO SSPS</h1>
-        <div class="flex flex-col md:flex-row items-center justify-center">
-            <a href="../printpage/printpage.html" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
-                <img class="m-auto mt-4 w-48 h-48" src="../img/printer1.png" alt="homepage0">
-                <h2 class="text-3xl font-bold text-center mt-5 py-1 px-1">PRINT NOW</h2>
-            </a>
-            <a href="#" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
-                <img class="m-auto mt-4 w-48 h-48" src="../img/history1.png" alt="homepage0">
-                <h2 class="text-3xl font-bold text-center mt-5 py-1 px-1">HISTORY</h2>
-            </a>
-        </div>
-        <br>
-    </div>
-
-    <div id="homepage2">
-        <h1 class="mt-10 mb-5 text-6xl md:text-7xl lg:text-8xl text-center font-extrabold leading-none tracking-tight text-blue-800">WELCOME TO SSPS</h1>
-        <div class="flex flex-col md:flex-row items-center justify-center">
-            <a href="../printpage/printpage.html" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
-                <img class="m-auto mt-0 w-36 h-36" src="../img/printer1.png" alt="homepage0">
-                <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">PRINT NOW</h2>
-            </a>
-            <a href="#" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
-                <img class="m-auto mt-0 w-36 h-36" src="../img/history1.png" alt="homepage0">
-                <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">HISTORY</h2>
-            </a>
-            <a href="#" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
-                <img class="m-auto mt-0 w-36 h-36" src="../img/report.png" alt="homepage0">
-                <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">REPORT</h2>
-            </a>
-        </div>
-        <div class="flex flex-col md:flex-row items-center justify-center">
-            <a href="../settingspage/settingspage.html" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-4/12 lg:w-3/12 xl:w-3/12" style="border-radius: 40px;">
-                <img class="m-auto mt-0 w-36 h-36" src="../img/setting.png" alt="homepage0">
-                <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">SETTING</h2>
-            </a>
-            <a href="#" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-4/12 lg:w-3/12 xl:w-3/12" style="border-radius: 40px;">
-                <img class="m-auto mt-0 w-36 h-36" src="../img/management.png" alt="homepage0">
-                <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">MANAGEMENT</h2>
-            </a>
-        </div>
-    </div>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <script src="../navbar/darkmode.js"></script>
     <script src="../navbar/nav.js"></script>
