@@ -26,13 +26,19 @@ function loadNav() {
         $('#user__SPSO').remove();
         $('#homepage0').remove();
         $('#homepage2').remove();
+        $('#history2').remove();
+        $('#history3').remove();
+        
     }
     else if (idRole === "2") {
         $('#nav__login').remove();
         $('#user__student').remove();
         $('#homepage0').remove();
         $('#homepage1').remove();
+        $('#history1').remove();
+        $('#history3').remove();
     }
+    
     // $('#my-class-link').attr('href', '../MyCourses/myCourses.html');
     // $('#my-page-link').attr('href', '../MyPage/myPage.html');
 }
