@@ -27,7 +27,7 @@ document.getElementById("login-button").addEventListener("click", function (even
     event.preventDefault();
 });
 
-document.getElementById("nav__login_button").addEventListener("click", function () {
+document.getElementById("nav__login__button").addEventListener("click", function () {
     window.location.href = "./ChooseActor.html";
 });
 

@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Print Page</title>
+    <title>Trang In</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
+    <script src="https://unpkg.com/pdfjs-dist/build/pdf.min.js"></script>
 
     <!-- Dark mode -->
     <script>
@@ -28,7 +29,7 @@
             <a href="../homepage/homepage.html" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="../img/hcmut.png" class="h-8" alt="HCMUT Logo" />
                 <div class="ml-4">
-                    <div class="self-center text-base font-semibold whitespace-nowrap dark:text-white">Ho Chi Minh University of Technology</div>
+                    <div class="self-center text-base font-semibold whitespace-nowrap dark:text-white">Trường Đại học Bách Khoa - ĐHQG TP.HCM</div>
                     <div class="self-center text-sm whitespace-nowrap dark:text-white">Student Smart Printing Service</div>
                 </div>
             </a>
@@ -57,7 +58,7 @@
                     </button>
                     <div class="mr-0.5">
                         <div class="self-center text-right text-base font-semibold whitespace-nowrap dark:text-white">Danh Hoang</div>
-                        <div class="self-center text-right text-sm whitespace-nowrap dark:text-white" id="user__student">Student</div>
+                        <div class="self-center text-right text-sm whitespace-nowrap dark:text-white" id="user__student">Sinh viên</div>
                         <div class="self-center text-right text-sm whitespace-nowrap dark:text-white" id="user__SPSO">SPSO</div>
                     </div>
                     <button id="dropdownInformationButton" aria-expanded="false" data-dropdown-toggle="dropdown-user" class="ml-1 mr-4 dark:text-white bg-white focus:ring-4 focus:outline-none focus:bg-blue-500 focus:ring-blue-600 font-medium rounded-lg text-sm px-1 py-1 text-center inline-flex items-center dark:bg-gray-900 dark:hover:bg-blue-500 dark:focus:ring-blue-600" type="button">
@@ -126,16 +127,17 @@
     </div>
     
     <section class="bg-gray-100 dark:bg-gray-900">
-        <h1 class="mt-4 text-3xl font-bold text-black dark:text-white ml-4 sm:ml-40">In ngay</h1>
+        <h1 class="mt-4 text-3xl font-bold text-black dark:text-white ml-4 sm:ml-40">In Ngay</h1>
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-6 grid lg:grid-cols-2 gap-8 lg:gap-7">
             <div>
                 <div class="m-auto w-full lg:max-w-xl p-6 bg-white rounded-lg shadow-xl dark:bg-gray-800">
                     <h3 class="text-xl font-medium text-gray-900 dark:text-white">
-                        Xem trước
+                        Xem trước bản in
                     </h3>
                     <hr class="m-auto w-full lg:max-w-xl my-3 border-zinc-400">
                     <div class="m-auto p-6">
                         <img src="../img/image1.png" alt="print_preview">
+                        <!-- <div id="preview"></div> -->
                     </div>
                 </div>
             </div>
@@ -148,17 +150,17 @@
                     <form class="">
                         <div class="mb-2">     
                             <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-white" for="file_input">Tải tệp lên</label>
-                            <input data-modal-target="upload-modal" data-modal-toggle="upload-modal" class="block w-full text-lg text-gray-900 border border-gray-300 rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
-                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">DOCX, PDF, JPG or PNG (max, 500MBs)</p>
+                            <input data-modal-target="upload-modal" data-modal-toggle="upload-modal" accept=".docx, .pdf, .jpg, .png" class="block w-full text-lg text-gray-900 border border-gray-300 rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" onchange="previewFile(this);"/>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">DOCX, PDF, JPG hoặc PNG (tối đa 500MBs)</p>
                         </div>
                         <div class="mb-2">
-                            <label for="numberofcopy" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Số bản sao</label>
-                            <input type="text" id="numberofcopy" class="bg-gray-50 border border-gray-300 pl-3 sm:pl-5 text-gray-900 text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nhập số bản sao">
+                            <label for="numberofcopy" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Số lượng bản in</label>
+                            <input type="text" id="numberofcopy" class="bg-gray-50 border border-gray-300 pl-3 sm:pl-5 text-gray-900 text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nhập số lượng bản in">
                         </div>
                         <div class="flex flew-col sm:flex-row mb-2">
                             <div class="mr-auto" style="width: 48%">
-                                <label for="pages" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Các trang</label>
-                                <input type="text" id="pages" class="bg-gray-50 border border-gray-300 pl-3 sm:pl-5 text-gray-900 sm:text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="VD: tất cả, chẵn, lẻ, 1-14">
+                                <label for="pages" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Số trang</label>
+                                <input type="text" id="pages" class="bg-gray-50 border border-gray-300 pl-3 sm:pl-5 text-gray-900 sm:text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="VD: tất cả, chẵn, 1-14">
                             </div>
                             <div class="ml-auto" style="width: 48%">
                                 <label for="size" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Cỡ giấy</label>
@@ -173,39 +175,67 @@
                         </div>
                         <div class="flex flew-col sm:flex-row mb-2">
                             <div class="mr-auto" style="width: 48%">
-                                <label for="pages" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Bố trí</label>
+                                <label for="pages" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Chế độ in</label>
                                 <fieldset class="flex m-auto">
                                     <div class="flex items-center mb-4 mr-auto">
                                         <input id="option-1" type="radio" name="countries" value="Dọc" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
                                         <label for="option-1" class="block ms-2  text-lg text-gray-900 dark:text-gray-300">
-                                            Dọc
+                                            In dọc
                                         </label>
                                     </div>
                                     <div class="flex items-center mb-4 m-auto">
                                         <input id="option-2" type="radio" name="countries" value="Ngang" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
                                         <label for="option-2" class="block ms-2 text-lg text-gray-900 dark:text-gray-300">
-                                            Ngang
+                                            In ngang
                                         </label>
                                     </div>
                                 </fieldset>
                             </div>
                             <div class="ml-auto" style="width: 48%">
-                                <label for="size" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Mặt in</label>
+                                <label for="size" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Tùy chọn</label>
                                 <label class="relative inline-flex items-center cursor-pointer m-auto">
                                     <input type="checkbox" value="" class="sr-only peer">
                                     <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                                    <span class="ms-3 text-lg text-gray-900 dark:text-gray-300">In cho cả 2 mặt</span>
+                                    <span class="ms-3 text-lg text-gray-900 dark:text-gray-300">In cả 2 mặt</span>
                                 </label>
                             </div>
                         </div>
                         <div class="flex flex-col justify-center mb-2">
-                            <a href="./chooseprinter.html" id="login-button" type="submit" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-xl w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Lưu</a>
+                            <a data-modal-target="bug-modal" data-modal-toggle="bug-modal" href="#" id="save-button" type="button" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-xl w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Lưu</a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
+    <div id="bug-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-2xl max-h-full">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <div class="space-y-0">
+                    <div id="Modal1"
+                        class="grid grid-cols-1 gap-4 p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div id="bodyModal"></div>
+                        <button id="bug1" type="button" data-modal-hide="bug-modal" class="block text-lg m-auto px-28 py-2 
+                            bg-blue-500 text-white rounded-md mb-3">
+                            Trở về trang Cài đặt in
+                        </button>
+                        <div class="flex flex-row m-auto" id="bug2">
+                            <button type="button" data-modal-hide="bug-modal" class="block text-lg m-auto px-8 py-2 
+                                bg-white border border-blue-500 text-blue-500 rounded-md mb-3 mx-6">
+                                Điều chỉnh lại
+                            </button>
+                            <a href="../homepage/homepage.html" type="button" class="block text-lg m-auto px-8 py-2 
+                                bg-blue-500 text-white rounded-md mb-3 mx-6">
+                                Mua thêm giấy
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- <div id="upload-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -246,4 +276,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <script src="../navbar/darkmode.js"></script>
     <script src="../navbar/nav.js"></script>
+    <script src="./printpage.js"></script>
 </body>
