@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings Page</title>
+    <title>Trang Cài đặt In</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -28,7 +28,7 @@
             <a href="../homepage/homepage.html" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="../img/hcmut.png" class="h-8" alt="HCMUT Logo" />
                 <div class="ml-4">
-                    <div class="self-center text-base font-semibold whitespace-nowrap dark:text-white">Ho Chi Minh University of Technology</div>
+                    <div class="self-center text-base font-semibold whitespace-nowrap dark:text-white">Trường Đại học Bách Khoa - ĐHQG TP.HCM</div>
                     <div class="self-center text-sm whitespace-nowrap dark:text-white">Student Smart Printing Service</div>
                 </div>
             </a>
@@ -126,32 +126,30 @@
     
     <section class="mx-auto bg-gray-100 dark:bg-gray-900">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-6 grid lg:grid-cols-1 gap-8 lg:gap-7">
-            <h1 class="text-3xl font-bold text-black dark:text-white m-auto w-full lg:max-w-xl space-y-0">Print Configuration Settings</h1>
+            <h1 class="text-3xl font-bold text-black dark:text-white m-auto w-full lg:max-w-xl space-y-0">Quản lý cài đặt in</h1>
             <div>
                 <div class="m-auto w-full lg:max-w-xl p-6 bg-white rounded-lg shadow-xl dark:bg-gray-800">
                     <h3 class="text-xl font-medium text-gray-900 dark:text-white">
-                        Print Configuration
+                        Thông số cài đặt in
                     </h3>
                     <hr class="m-auto w-full lg:max-w-xl my-3 border-zinc-400">
                     <form class="">
                         <div class="">
-                            <label for="base-input" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Sheets Provided Each Semester</label>
-                            <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 pl-6 text-gray-900 text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter number of sheets provided for students each semester">
+                            <label for="base-input" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Số lượng giấy được cung cấp mỗi học kỳ</label>
+                            <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 pl-6 text-gray-900 text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nhập số lượng giấy">
                         </div>
                         <br>
-                        <label for="TimeforSheetsProvision" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Time for Sheets Provision</label>
+                        <label for="TimeforSheetsProvision" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Thời gian cung cấp giấy</label>
                         <select id="TimeforSheetsProvision" class="bg-gray-50 border border-gray-300 pl-6 text-gray-400 text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option>Every 15 weeks</option>
-                            <option>Every month</option>
-                            <option>Every 2 weeks</option>
-                            <option>Everyday</option>
+                            <option>Mỗi 15 tuần học</option>
+                            <option>Mỗi tháng</option>
+                            <option>Mỗi 2 tuần học</option>
+                            <option>Mồi tuần học</option>
                         </select>
                         <br>
-                        <label for="FileFormats" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">File Formats</label>
+                        <label for="FileFormats" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Tệp cho phép</label>
                         <br>
                         <fieldset>
-                            <legend class="sr-only">Checkbox variants</legend>
-
                             <div class="flex flex-row m-auto">
                                 <div class="flex-col m-auto">
                                     <div class="flex items-center m-auto">
@@ -203,7 +201,7 @@
                         </fieldset>
                         <p class="h-10"></p>
                         <div class="flex flex-col justify-center">
-                            <a href="../homepage/homepage.html" id="login-button" type="submit" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-xl w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</a>
+                            <a href="../homepage/homepage.html" id="login-button" type="submit" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-xl w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Lưu</a>
                         </div>
                       </form>
                 </div>
