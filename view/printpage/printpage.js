@@ -64,3 +64,71 @@ function loadBugModal() {
         }
     });
 }
+
+$(document).ready(function () {
+    // Load default preview image on document ready
+    showDefaultPreview();
+    
+    // Attach event listener to file input change
+    $('#file_input').change(function () {
+        previewFile(this);
+    });
+});
+
+function previewFile(input) {
+    var fileInput = $('#file_input')[0];
+    var previewContainer = $('#preview');
+
+    // Clear previous content in the preview container
+    previewContainer.empty();
+
+    // Hide the default image
+    $('#default-preview-image').hide();
+
+    // Check if a file is selected
+    if (fileInput.files && fileInput.files[0]) {
+        var reader = new FileReader();
+
+        // Display the selected file in the preview container
+        reader.onload = function (e) {
+            var file = fileInput.files[0];
+
+            // Check if the file is a PDF
+            if (file.type === 'application/pdf') {
+                var pdfViewer = $('<object>');
+                pdfViewer.attr({
+                    'data': e.target.result,
+                    'type': 'application/pdf',
+                    'width': '100%',
+                    'height': '400px'
+                });
+                previewContainer.append(pdfViewer);
+            } else if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+                // Check if the file is a DOCX
+                var docxViewer = $('<object>');
+                docxViewer.attr({
+                    'data': e.target.result,
+                    'type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                    'width': '100%',
+                    'height': '400px'
+                });
+                previewContainer.append(docxViewer);
+            } else {
+                // If not a PDF, display an image preview
+                var previewImage = $('<img>');
+                previewImage.attr({
+                    'src': e.target.result,
+                    'alt': 'Print Preview'
+                });
+                previewContainer.append(previewImage);
+            }
+        };
+
+        // Read the selected file as a data URL
+        reader.readAsDataURL(fileInput.files[0]);
+
+        // Hide the default image
+        $('#default_preview').hide();
+    }
+}
+
