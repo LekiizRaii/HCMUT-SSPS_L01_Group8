@@ -1,4 +1,6 @@
 <?php
+    $currentDirectory = __DIR__;
+    $url = dirname($currentDirectory);
     $month = $_GET['month'] ?? 11;
 ?>
 
@@ -31,8 +33,8 @@
 <body class="bg-gray-100 :dark:bg-gray-900">
     <nav class="bg-white border-gray-200 :dark:bg-gray-900">
         <div class="max-w-screen-full flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="/../homepage/homepage.html" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="/../img/hcmut.png" class="h-8" alt="HCMUT Logo" />
+            <a href="/view/homepage/homepage.html" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="/view/img/hcmut.png" class="h-8" alt="HCMUT Logo" />
                 <div class="ml-4">
                     <div class="self-center text-base font-semibold whitespace-nowrap :dark:text-white">Ho Chi Minh
                         University of Technology</div>
@@ -201,63 +203,63 @@
             class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 :dark:bg-gray-700">
             <ul class="py-2 text-sm text-gray-700 :dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                 <li>
-                    <a href="report.php?month=1"
+                    <a href="/view/report/report.php?month=1"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">January
                         2023</a>
                 </li>
                 <li>
-                    <a href="report.php?month=2"
+                    <a href="/view/report/report.php?month=2"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">February
                         2023</a>
                 </li>
                 <li>
-                    <a href="report.php?month=3"
+                    <a href="/view/report/report.php?month=3"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">
                         March 2023</a>
                 </li>
                 <li>
-                    <a href="report.php?month=4"
+                    <a href="/view/report/report.php?month=4"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">April
                         2023</a>
                 </li>
                 <li>
-                    <a href="report.php?month=5"
+                    <a href="/view/report/report.php?month=5"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">May
                         2023
                     </a>
                 </li>
                 <li>
-                    <a href="report.php?month=6"
+                    <a href="/view/report/report.php?month=6"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">June
                         2023
                     </a>
                 </li>
                 <li>
-                    <a href="report.php?month=7"
+                    <a href="/view/report/report.php?month=7"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">July
                         2023
                     </a>
                 </li>
                 <li>
-                    <a href="report.php?month=8"
+                    <a href="/view/report/report.php?month=8"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">August
                         2023
                     </a>
                 </li>
                 <li>
-                    <a href="report.php?month=9"
+                    <a href="/view/report/report.php?month=9"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">September
                         2023
                     </a>
                 </li>
                 <li>
-                    <a href="report.php?month=10"
+                    <a href="/view/report/report.php?month=10"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">October
                         2023
                     </a>
                 </li>
                 <li>
-                    <a href="report.php?month=11"
+                    <a href="/view/report/report.php?month=11"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">November
                         2023
                     </a>
@@ -424,7 +426,7 @@
             </div>
         </div>
         <script>
-            fetch('fileStats.php')
+            fetch('/models/fileStats.php')
                 .then(response => response.json())
                 .then(dataPHP => {
                 // Process and convert the data into an array with {x, y} format
@@ -551,7 +553,7 @@
             </div>
 
             <script>
-                fetch("printerStats.php")
+                fetch("/models/printerStats.php")
                     .then(response => response.json())
                     .then(dataPHP => {
                         var printerID = [];
@@ -773,7 +775,7 @@
     </div>
     <script>
         // ApexCharts options and config
-        fetch('printStatsByMonth.php?month=<?php echo $month ?>', {
+        fetch('/models/printStatsByMonth.php?month=<?php echo $month ?>', {
             method: 'GET',
         })
         .then(response => response.json())
@@ -881,6 +883,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-    <script src="/../navbar/darkmode.js"></script>
-    <script src="/../navbar/nav.js"></script>
+    <script src="/view/navbar/darkmode.js"></script>
+    <script src="/view/navbar/nav.js"></script>
 </body>
