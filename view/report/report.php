@@ -1,3 +1,7 @@
+<?php
+    $month = $_GET['month'] ?? 11;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,8 +31,8 @@
 <body class="bg-gray-100 :dark:bg-gray-900">
     <nav class="bg-white border-gray-200 :dark:bg-gray-900">
         <div class="max-w-screen-full flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="../homepage/homepage.html" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="../img/hcmut.png" class="h-8" alt="HCMUT Logo" />
+            <a href="/../homepage/homepage.html" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="/../img/hcmut.png" class="h-8" alt="HCMUT Logo" />
                 <div class="ml-4">
                     <div class="self-center text-base font-semibold whitespace-nowrap :dark:text-white">Ho Chi Minh
                         University of Technology</div>
@@ -147,7 +151,45 @@
         <button id="dropdownDefaultButton" data-dropdown-toggle="lastDaysdropdown" data-dropdown-placement="bottom"
             class="text-sm float-right font-medium text-gray-500 :dark:text-gray-400 hover:text-gray-900 text-center inline-flex items-center :dark:hover:text-white"
             type="button">
-            November 2023
+            <?php 
+                switch ($month) {
+                    case '1':
+                        echo "January 2023";
+                        break;
+                    case '2':
+                        echo "February 2023";
+                        break;
+                    case '3':
+                        echo "March 2023";
+                        break;
+                    case '4':
+                        echo "April 2023";
+                        break;
+                    case '5':
+                        echo "May 2023";
+                        break;
+                    case '6':
+                        echo "June 2023";
+                        break;
+                    case '7':
+                        echo "July 2023";
+                        break;
+                    case '8':
+                        echo "August 2023";
+                        break;
+                    case '9':
+                        echo "January 2023";
+                        break;
+                    case '10':
+                        echo "October 2023";
+                        break;
+                    case '11':
+                        echo "November 2023";
+                        break;
+                    default:
+                        echo "November 2023";
+                }
+            ?>
             <svg class="w-2.5 m-2.5 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -159,65 +201,71 @@
             class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 :dark:bg-gray-700">
             <ul class="py-2 text-sm text-gray-700 :dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                 <li>
-                    <a href="#"
+                    <a href="report.php?month=1"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">January
                         2023</a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="report.php?month=2"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">February
                         2023</a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="report.php?month=3"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">
                         March 2023</a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="report.php?month=4"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">April
                         2023</a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="report.php?month=5"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">May
                         2023
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="report.php?month=6"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">June
                         2023
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="report.php?month=7"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">July
                         2023
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="report.php?month=8"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">August
                         2023
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="report.php?month=9"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">September
                         2023
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="report.php?month=10"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">October
+                        2023
+                    </a>
+                </li>
+                <li>
+                    <a href="report.php?month=11"
+                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">November
                         2023
                     </a>
                 </li>
             </ul>
         </div>
         <div class="flex flex-left">
-            <h1 class="mt-4 text-3xl font-bold text-black :dark:text-white ml-4">Print Counts Analytics</h1>
+            <h1 class="mt-4 text-3xl font-bold text-black :dark:text-white ml-4">Thống kê số lượt in</h1>
         </div>
 
         <div id="column-chart"></div>
@@ -320,8 +368,7 @@
 
             <div class="flex justify-between mb-3">
                 <div class="flex justify-center items-center">
-                    <h5 class="text-xl font-bold leading-none text-gray-900 :dark:text-white pe-1">File Formats
-                        Analytics
+                    <h5 class="text-xl font-bold leading-none text-gray-900 :dark:text-white pe-1"> Thống kê các loại File
                     </h5>
                     <svg data-popover-target="chart-info" data-popover-placement="bottom"
                         class="w-3.5 h-3.5 text-gray-500 :dark:text-gray-400 hover:text-gray-900 :dark:hover:text-white cursor-pointer ms-1"
@@ -377,107 +424,126 @@
             </div>
         </div>
         <script>
-            // ApexCharts options and config
-            window.addEventListener("load", function () {
-                const getChartOptions = () => {
-                    return {
-                        series: [301, 235, 24, 54],
-                        colors: ["#80CAEE", "#0FADCF", "#3C50E0", "#6577F3"],
-                        chart: {
-                            height: 400,
-                            width: "100%",
-                            type: "donut",
-                        },
-                        stroke: {
-                            colors: ["transparent"],
-                            lineCap: "",
-                        },
-                        plotOptions: {
-                            pie: {
-                                donut: {
-                                    labels: {
-                                        show: true,
-                                        name: {
-                                            show: true,
-                                            fontFamily: "Inter, sans-serif",
-                                            offsetY: 20,
-                                        },
-                                        total: {
-                                            showAlways: true,
-                                            show: true,
-                                            label: "Files",
-                                            fontFamily: "Inter, sans-serif",
-                                            formatter: function (w) {
-                                                const sum = w.globals.seriesTotals.reduce((a, b) => {
-                                                    return a + b
-                                                }, 0)
-                                                return `${sum}`
+            fetch('fileStats.php')
+                .then(response => response.json())
+                .then(dataPHP => {
+                // Process and convert the data into an array with {x, y} format
+                    var fileTypes = [];
+                    var fileCountsString = [];
+
+                    dataPHP.forEach(item => {
+                        fileTypes.push(item.file_type);
+                        fileCountsString.push(item.file_count);
+                    });
+
+                    var fileCounts = fileCountsString.map(function(str) {
+                        return parseInt(str, 10); // 10 specifies base 10 (decimal)
+                    });
+
+                    // Log or use the converted data as needed
+                    // ApexCharts options and config
+                    window.addEventListener("load", function () {
+                        const getChartOptions = () => {
+                            return {
+                                series: fileCounts,
+                                colors: ["#80CAEE", "#0FADCF", "#3C50E0", "#6577F3"],
+                                chart: {
+                                    height: 400,
+                                    width: "100%",
+                                    type: "donut",
+                                },
+                                stroke: {
+                                    colors: ["transparent"],
+                                    lineCap: "",
+                                },
+                                plotOptions: {
+                                    pie: {
+                                        donut: {
+                                            labels: {
+                                                show: true,
+                                                name: {
+                                                    show: true,
+                                                    fontFamily: "Inter, sans-serif",
+                                                    offsetY: 20,
+                                                },
+                                                total: {
+                                                    showAlways: true,
+                                                    show: true,
+                                                    label: "Files",
+                                                    fontFamily: "Inter, sans-serif",
+                                                    formatter: function (w) {
+                                                        const sum = w.globals.seriesTotals.reduce((a, b) => {
+                                                            return a + b
+                                                        }, 0)
+                                                        return `${sum}`
+                                                    },
+                                                },
+                                                value: {
+                                                    show: true,
+                                                    fontFamily: "Inter, sans-serif",
+                                                    offsetY: -20,
+                                                    formatter: function (value) {
+                                                        return value
+                                                    },
+                                                },
                                             },
-                                        },
-                                        value: {
-                                            show: true,
-                                            fontFamily: "Inter, sans-serif",
-                                            offsetY: -20,
-                                            formatter: function (value) {
-                                                return value
-                                            },
+                                            size: "60%",
                                         },
                                     },
-                                    size: "60%",
                                 },
-                            },
-                        },
-                        grid: {
-                            padding: {
-                                top: -2,
-                            },
-                        },
-                        labels: ["DOCX", "PDF", "XLSX", "EPS"],
-                        dataLabels: {
-                            enabled: true,
-                        },
-                        legend: {
-                            position: "bottom",
-                            fontFamily: "Inter, sans-serif",
-                        },
-                        yaxis: {
-                            labels: {
-                                formatter: function (value) {
-                                    return value 
+                                grid: {
+                                    padding: {
+                                        top: -2,
+                                    },
                                 },
-                            },
-                        },
-                        xaxis: {
-                            labels: {
-                                formatter: function (value) {
-                                    return value 
+                                labels: fileTypes,
+                                dataLabels: {
+                                    enabled: true,
                                 },
-                            },
-                            axisTicks: {
-                                show: false,
-                            },
-                            axisBorder: {
-                                show: false,
-                            },
-                        },
-                    }
-                }
+                                legend: {
+                                    position: "bottom",
+                                    fontFamily: "Inter, sans-serif",
+                                },
+                                yaxis: {
+                                    labels: {
+                                        formatter: function (value) {
+                                            return value 
+                                        },
+                                    },
+                                },
+                                xaxis: {
+                                    labels: {
+                                        formatter: function (value) {
+                                            return value 
+                                        },
+                                    },
+                                    axisTicks: {
+                                        show: false,
+                                    },
+                                    axisBorder: {
+                                        show: false,
+                                    },
+                                },
+                            }
+                        }
 
-                if (document.getElementById("donut-chart") && typeof ApexCharts !== 'undefined') {
-                    const chart = new ApexCharts(document.getElementById("donut-chart"), getChartOptions());
-                    chart.render();
+                        if (document.getElementById("donut-chart") && typeof ApexCharts !== 'undefined') {
+                            const chart = new ApexCharts(document.getElementById("donut-chart"), getChartOptions());
+                            chart.render();
 
-                    // Get all the checkboxes by their class name
-                    const checkboxes = document.querySelectorAll('#devices input[type="checkbox"]');
-                }
-            });
+                            // Get all the checkboxes by their class name
+                            const checkboxes = document.querySelectorAll('#devices input[type="checkbox"]');
+                        }
+                    });
+                })
+                .catch(error => console.error('Error:', error));
         </script>
         <div class="grid grid-rows-2 col-span-5 ">
 
             <div class="my-3 bg-white rounded-lg shadow :dark:bg-gray-800 p-4 md:p-6">
 
                 <div class="grid grid-cols-2 py-3">
-                    <h5 class="text-lg font-bold leading-none text-gray-900 :dark:text-white pe-1">Printers Use Counts
+                    <h5 class="text-lg font-bold leading-none text-gray-900 :dark:text-white pe-1">Lượt sử dụng máy in
                     </h5>
                 </div>
 
@@ -485,102 +551,115 @@
             </div>
 
             <script>
-                // ApexCharts options and config
-                window.addEventListener("load", function () {
-                    var options = {
-                        series: [
-                            {
-                                name: "Printer counts",
-                                color: "#80CAEE",
-                                data: ["142", "162", "182", "142", "165"],
-                            },
-                        ],
-                        chart: {
-                            sparkline: {
-                                enabled: false,
-                            },
-                            type: "bar",
-                            width: "100%",
-                            height: 200,
-                            toolbar: {
-                                show: false,
-                            }
-                        },
-                        fill: {
-                            opacity: 1,
-                        },
-                        plotOptions: {
-                            bar: {
-                                horizontal: true,
-                                columnWidth: "100%",
-                                borderRadiusApplication: "end",
-                                borderRadius: 6,
-                                dataLabels: {
-                                    position: "top",
-                                },
-                            },
-                        },
-                        legend: {
-                            show: true,
-                            position: "bottom",
-                        },
-                        dataLabels: {
-                            enabled: false,
-                        },
-                        tooltip: {
-                            shared: true,
-                            intersect: false,
-                            formatter: function (value) {
-                                return value
-                            }
-                        },
-                        xaxis: {
-                            labels: {
-                                show: true,
-                                style: {
-                                    fontFamily: "Inter, sans-serif",
-                                    cssClass: 'text-xs font-normal fill-gray-500 :dark:fill-gray-400'
-                                },
-                                formatter: function (value) {
-                                    return value
-                                }
-                            },
-                            categories: ["BoySiTinh2k3", "OptimusPrime", "Printer#2", "NormalPrinter", "Printer#1"],
-                            axisTicks: {
-                                show: false,
-                            },
-                            axisBorder: {
-                                show: false,
-                            },
-                        },
-                        yaxis: {
-                            labels: {
-                                show: true,
-                                style: {
-                                    fontFamily: "Inter, sans-serif",
-                                    cssClass: 'text-xs font-normal fill-gray-500 :dark:fill-gray-400'
-                                }
-                            }
-                        },
-                        grid: {
-                            show: true,
-                            strokeDashArray: 4,
-                            padding: {
-                                left: 2,
-                                right: 2,
-                                top: -20
-                            },
-                        },
-                        fill: {
-                            opacity: 1,
-                        }
-                    }
+                fetch("printerStats.php")
+                    .then(response => response.json())
+                    .then(dataPHP => {
+                        var printerID = [];
+                        var count = [];
 
-                    if (document.getElementById("bar-chart") && typeof ApexCharts !== 'undefined') {
-                        const chart = new ApexCharts(document.getElementById("bar-chart"), options);
-                        chart.render();
-                    }
-                });
+                        dataPHP.forEach(item => {
+                            printerID.push(item.ID);
+                            count.push(item.SoLuotIn);
+                        });
+                        // ApexCharts options and config
+                        window.addEventListener("load", function () {
+                            var options = {
+                                series: [
+                                    {
+                                        name: "Printer counts",
+                                        color: "#80CAEE",
+                                        data: count,
+                                    },
+                                ],
+                                chart: {
+                                    sparkline: {
+                                        enabled: false,
+                                    },
+                                    type: "bar",
+                                    width: "100%",
+                                    height: 200,
+                                    toolbar: {
+                                        show: false,
+                                    }
+                                },
+                                fill: {
+                                    opacity: 1,
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: true,
+                                        columnWidth: "100%",
+                                        borderRadiusApplication: "end",
+                                        borderRadius: 6,
+                                        dataLabels: {
+                                            position: "top",
+                                        },
+                                    },
+                                },
+                                legend: {
+                                    show: true,
+                                    position: "bottom",
+                                },
+                                dataLabels: {
+                                    enabled: false,
+                                },
+                                tooltip: {
+                                    shared: true,
+                                    intersect: false,
+                                    formatter: function (value) {
+                                        return value
+                                    }
+                                },
+                                xaxis: {
+                                    labels: {
+                                        show: true,
+                                        style: {
+                                            fontFamily: "Inter, sans-serif",
+                                            cssClass: 'text-xs font-normal fill-gray-500 :dark:fill-gray-400'
+                                        },
+                                        formatter: function (value) {
+                                            return value
+                                        }
+                                    },
+                                    categories: printerID,
+                                    axisTicks: {
+                                        show: false,
+                                    },
+                                    axisBorder: {
+                                        show: false,
+                                    },
+                                },
+                                yaxis: {
+                                    labels: {
+                                        show: true,
+                                        style: {
+                                            fontFamily: "Inter, sans-serif",
+                                            cssClass: 'text-xs font-normal fill-gray-500 :dark:fill-gray-400'
+                                        }
+                                    }
+                                },
+                                grid: {
+                                    show: true,
+                                    strokeDashArray: 4,
+                                    padding: {
+                                        left: 2,
+                                        right: 2,
+                                        top: -20
+                                    },
+                                },
+                                fill: {
+                                    opacity: 1,
+                                }
+                            }
+
+                            if (document.getElementById("bar-chart") && typeof ApexCharts !== 'undefined') {
+                                const chart = new ApexCharts(document.getElementById("bar-chart"), options);
+                                chart.render();
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error:', error));
+                
             </script>
             <div class="my-3 bg-white rounded-lg shadow :dark:bg-gray-800 p-4 md:p-6">
 
@@ -694,133 +773,114 @@
     </div>
     <script>
         // ApexCharts options and config
-        window.addEventListener("load", function () {
-            const options = {
-                colors: ["#1A56DB", "#FDBA8C"],
-                series: [
-                    {
-                        name: "Print count",
-                        color: "#1A56DB",
-                        data: [
-                            { x: "1", y: 231 },
-                            { x: "2", y: 122 },
-                            { x: "3", y: 63 },
-                            { x: "4", y: 421 },
-                            { x: "5", y: 122 },
-                            { x: "6", y: 323 },
-                            { x: "7", y: 111 },
-                            { x: "8", y: 231 },
-                            { x: "9", y: 122 },
-                            { x: "10", y: 63 },
-                            { x: "11", y: 421 },
-                            { x: "12", y: 122 },
-                            { x: "13", y: 323 },
-                            { x: "14", y: 111 },
-                            { x: "15", y: 231 },
-                            { x: "16", y: 122 },
-                            { x: "17", y: 63 },
-                            { x: "18", y: 421 },
-                            { x: "19", y: 122 },
-                            { x: "20", y: 323 },
-                            { x: "21", y: 111 },
-                            { x: "22", y: 231 },
-                            { x: "23", y: 122 },
-                            { x: "24", y: 63 },
-                            { x: "25", y: 421 },
-                            { x: "26", y: 122 },
-                            { x: "27", y: 323 },
-                            { x: "28", y: 111 },
-                            { x: "29", y: 111 },
-                            { x: "30", y: 111 },
-                        ],
-                    },
+        fetch('printStatsByMonth.php?month=<?php echo $month ?>', {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(item => {
+            const reformattedArray = item.map(({ Day, RecordsCount }) => ({
+                x: new Date(Day).getDate(), // Extract the day from the date string
+                y: RecordsCount,
+            }));
 
-                ],
-                chart: {
-                    type: "bar",
-                    height: "320px",
-                    fontFamily: "Inter, sans-serif",
-                    toolbar: {
-                        show: false,
-                    },
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: "70%",
-                        borderRadiusApplication: "end",
-                        borderRadius: 8,
-                    },
-                },
-                tooltip: {
-                    shared: true,
-                    intersect: false,
-                    style: {
+            window.addEventListener("load", function () {
+                const options = {
+                    colors: ["#1A56DB", "#FDBA8C"],
+                    series: [
+                        {
+                            name: "Print count",
+                            color: "#1A56DB",
+                            data: reformattedArray,
+                        },
+
+                    ],
+                    chart: {
+                        type: "bar",
+                        height: "320px",
                         fontFamily: "Inter, sans-serif",
-                    },
-                },
-                states: {
-                    hover: {
-                        filter: {
-                            type: "darken",
-                            value: 1,
+                        toolbar: {
+                            show: false,
                         },
                     },
-                },
-                stroke: {
-                    show: true,
-                    width: 0,
-                    colors: ["transparent"],
-                },
-                grid: {
-                    show: false,
-                    strokeDashArray: 4,
-                    padding: {
-                        left: 2,
-                        right: 2,
-                        top: -14
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: "70%",
+                            borderRadiusApplication: "end",
+                            borderRadius: 8,
+                        },
                     },
-                },
-                dataLabels: {
-                    enabled: false,
-                },
-                legend: {
-                    show: false,
-                },
-                xaxis: {
-                    floating: false,
-                    labels: {
-                        show: true,
+                    tooltip: {
+                        shared: true,
+                        intersect: false,
                         style: {
                             fontFamily: "Inter, sans-serif",
-                            cssClass: 'text-xs font-normal fill-gray-500 :dark:fill-gray-400'
-                        }
+                        },
                     },
-                    axisBorder: {
+                    states: {
+                        hover: {
+                            filter: {
+                                type: "darken",
+                                value: 1,
+                            },
+                        },
+                    },
+                    stroke: {
+                        show: true,
+                        width: 0,
+                        colors: ["transparent"],
+                    },
+                    grid: {
+                        show: false,
+                        strokeDashArray: 4,
+                        padding: {
+                            left: 2,
+                            right: 2,
+                            top: -14
+                        },
+                    },
+                    dataLabels: {
+                        enabled: false,
+                    },
+                    legend: {
                         show: false,
                     },
-                    axisTicks: {
+                    xaxis: {
+                        floating: false,
+                        labels: {
+                            show: true,
+                            style: {
+                                fontFamily: "Inter, sans-serif",
+                                cssClass: 'text-xs font-normal fill-gray-500 :dark:fill-gray-400'
+                            }
+                        },
+                        axisBorder: {
+                            show: false,
+                        },
+                        axisTicks: {
+                            show: false,
+                        },
+                    },
+                    yaxis: {
                         show: false,
                     },
-                },
-                yaxis: {
-                    show: false,
-                },
-                fill: {
-                    opacity: 1,
-                },
-            }
+                    fill: {
+                        opacity: 1,
+                    },
+                }
 
-            if (document.getElementById("column-chart") && typeof ApexCharts !== 'undefined') {
-                const chart = new ApexCharts(document.getElementById("column-chart"), options);
-                chart.render();
-            }
-        });
+                if (document.getElementById("column-chart") && typeof ApexCharts !== 'undefined') {
+                    const chart = new ApexCharts(document.getElementById("column-chart"), options);
+                    chart.render();
+                }
+            });
+        })
+        .catch(error => console.error('Error:', error));
     </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-    <script src="../navbar/darkmode.js"></script>
-    <script src="../navbar/nav.js"></script>
+    <script src="/../navbar/darkmode.js"></script>
+    <script src="/../navbar/nav.js"></script>
 </body>
