@@ -3,6 +3,7 @@ $servername = "localhost:3307";
 $username = "root";
 $password = "";
 $dbname = "smart_printing";
+
 class DataBase
 {
     public static $instance = NULL;
