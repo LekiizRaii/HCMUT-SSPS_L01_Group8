@@ -2,9 +2,9 @@
 // File: getprintcounts.php
 
 // Connect to the database (replace with your actual database credentials)
-$servername = "localhost";
+$servername = "localhost:3307";
 $username = "root";
-$password = "Danh@mysql@23";
+$password = "";
 $dbname = "smart_printing";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

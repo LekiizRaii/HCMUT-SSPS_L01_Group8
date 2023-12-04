@@ -161,14 +161,14 @@ INSERT INTO QuanLyMayIn (ID_MayIn, ID_QuanTriVien) VALUES
 
 
 -- Insert data into LuotIn table
-SOURCE LuotIn.sql;
+-- SOURCE LuotIn.sql;
 
 
 
--- Insert more data into TaiLieu table with 2-3 documents for each ID_LuotIn
-SOURCE TaiLieu.sql;
+-- -- Insert more data into TaiLieu table with 2-3 documents for each ID_LuotIn
+-- SOURCE TaiLieu.sql;
 
 
 
--- Insert data into InAn table with shuffled values for ID_MayIn and ID_NguoiDung
-SOURCE InAn.sql;
+-- -- Insert data into InAn table with shuffled values for ID_MayIn and ID_NguoiDung
+-- SOURCE InAn.sql;
