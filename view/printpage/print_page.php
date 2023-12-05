@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
-    <script src="https://unpkg.com/pdfjs-dist/build/pdf.min.js"></script>
+    <!-- <script src="https://unpkg.com/pdfjs-dist/build/pdf.min.js"></script> -->
 
     <!-- Dark mode -->
     <script>
@@ -27,7 +27,7 @@
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-full flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="../homepage/homepage.html" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="view/img/hcmut.png" class="h-8" alt="HCMUT Logo" />
+                <img src="../img/hcmut.png" class="h-8" alt="HCMUT Logo" />
                 <div class="ml-4">
                     <div class="self-center text-base font-semibold whitespace-nowrap dark:text-white">Trường Đại học Bách Khoa - ĐHQG TP.HCM</div>
                     <div class="self-center text-sm whitespace-nowrap dark:text-white">Student Smart Printing Service</div>
@@ -151,12 +151,13 @@
                     <form class="" action="controllers/print_page_controller.php" method="post">
                         <div class="mb-2">     
                             <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-white" for="file_input">Tải tệp lên</label>
-                            <input name='file_input' data-modal-target="upload-modal" data-modal-toggle="upload-modal" accept=".docx, .pdf, .jpg, .png" class="block w-full text-lg text-gray-900 border border-gray-300 rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" onchange="previewFile(this);"/>
+                            <!-- <input name='file_input' data-modal-target="upload-modal" data-modal-toggle="upload-modal" accept=".docx, .pdf, .jpg, .png" class="block w-full text-lg text-gray-900 border border-gray-300 rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" onchange="previewFile(this);"/> -->
+                            <input name='file_input' accept=".docx, .pdf, .jpg, .png" class="block w-full text-lg text-gray-900 border border-gray-300 rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" onchange="previewFile(this);"/>
                             <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">DOCX, PDF, JPG hoặc PNG (tối đa 500MBs)</p>
                         </div>
                         <div class="mb-2">
                             <label for="numberofcopy" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Số lượng bản in</label>
-                            <input name="numberofcopy" type="text" id="numberofcopy" class="bg-gray-50 border border-gray-300 pl-3 sm:pl-5 text-gray-900 text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nhập số lượng bản in">
+                            <input name="numberofcopy" required="required" type="text" id="numberofcopy" class="bg-gray-50 border border-gray-300 pl-3 sm:pl-5 text-gray-900 text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nhập số lượng bản in">
                         </div>
                         <div class="flex flew-col sm:flex-row mb-2">
                             <div class="mr-auto" style="width: 48%">
@@ -177,15 +178,15 @@
                         <div class="flex flew-col sm:flex-row mb-2">
                             <div class="mr-auto" style="width: 48%">
                                 <label for="pages" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Chế độ in</label>
-                                <fieldset class="flex m-auto">
+                                <fieldset class="flex m-auto" id="xxxx">
                                     <div class="flex items-center mb-4 mr-auto">
-                                        <input name="pagelandscape" id="option-1" type="radio" name="countries" value="Dọc" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
+                                        <input name="pagelandscape" id="option-1" type="radio" value="Dọc" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
                                         <label for="option-1" class="block ms-2  text-lg text-gray-900 dark:text-gray-300">
                                             In dọc
                                         </label>
                                     </div>
                                     <div class="flex items-center mb-4 m-auto">
-                                        <input name="pagelandscape" id="option-2" type="radio" name="countries" value="Ngang" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                        <input name="pagelandscape" id="option-2" type="radio" value="Ngang" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
                                         <label for="option-2" class="block ms-2 text-lg text-gray-900 dark:text-gray-300">
                                             In ngang
                                         </label>
@@ -195,14 +196,13 @@
                             <div class="ml-auto" style="width: 48%">
                                 <label for="size" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Tùy chọn</label>
                                 <label class="relative inline-flex items-center cursor-pointer m-auto">
-                                    <input name="twofaced" type="checkbox" value="" class="sr-only peer">
+                                    <input name="twofaced" id="twofaced" type="checkbox" value="twofaced" class="sr-only peer">
                                     <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                                     <span class="ms-3 text-lg text-gray-900 dark:text-gray-300">In cả 2 mặt</span>
                                 </label>
                             </div>
                         </div>
                         <div class="flex flex-col justify-center mb-2">
-                            <button type="submit">Test</button>
                             <a data-modal-target="bug-modal" data-modal-toggle="bug-modal" href="#" id="save-button" type="button" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-xl w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Lưu</a>
                         </div>
                     </form>
@@ -276,7 +276,7 @@
     </div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-    <script src="view/navbar/darkmode.js"></script>
-    <script src="view/navbar/nav.js"></script>
-    <script src="view/printpage/printpage.js"></script>
+    <script src="../navbar/darkmode.js"></script>
+    <script src="../navbar/nav.js"></script>
+    <script src="./print_page.js"></script>
 </body>

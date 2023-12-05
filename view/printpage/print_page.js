@@ -4,11 +4,27 @@ $(document).ready(function () {
 function loadBugModal() {
     $('#save-button').click(function (e) {
         e.preventDefault();
-        fetch('controllers/print_page_controller.php?test=2')
+
+        print_page_params = {};
+        print_page_params["file_input"] = document.getElementById("file_input").value;
+        print_page_params["numberofcopy"] = document.getElementById("numberofcopy").value;
+        print_page_params["numberofpages"] = document.getElementById("pages").value;
+        print_page_params["pagesize"] = document.getElementById("size").value;
+        print_page_params["pagelandscape"] = $('input:radio[name=pagelandscape]:checked').val();
+        print_page_params["twofaced"] = $('input:checkbox[name=twofaced]:checked').val();
+
+        var params = new FormData();
+        for (var key in print_page_params) {
+            params.append(key, print_page_params[key]);
+        }
+
+        fetch('../../controllers/print_page_controller.php?action=validate', {
+            method: 'POST',
+            body: params
+        })
         .then(response => response.json())
-        .then(error_type => {
-            alert(typeof(error_type));
-            if (error_type === 1) {
+        .then(response => {
+            if (response['status'] === 'OK') {
                 $('#bug-modal').remove();
                 Swal.fire({
                     title: "Thành công",
@@ -31,9 +47,9 @@ function loadBugModal() {
                     if (result.dismiss === Swal.DismissReason.timer) {
                         console.log("I was closed by the timer");
                     }
-                    window.location.replace("view/printpage/choose_printer.php");
+                    window.location.replace("./choose_printer.php");
                 });
-            } else if (error_type === 0) { //Lỗi cài đặt in
+            } else if (response['status'] === 'SETTING') { //Lỗi cài đặt in
                 var str = '';
                 str += `
                         <div class="flex flex-col m-auto max-w-screen p-4">
@@ -72,7 +88,7 @@ function loadBugModal() {
 
 $(document).ready(function () {
     // Load default preview image on document ready
-    showDefaultPreview();
+    // showDefaultPreview();
     
     // Attach event listener to file input change
     $('#file_input').change(function () {
