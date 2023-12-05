@@ -6,8 +6,6 @@ $rootPath = '/HCMUT-SSPS_L01_Group8';
 
 // Connect to the database
 require_once '../../db/db_connection.php';
-// include_once 'connectionController.php';
-// include_once 'statusController.php';
 ?>
 
 <!DOCTYPE html>
@@ -248,11 +246,13 @@ require_once '../../db/db_connection.php';
                                                         <?= $row['DiaChiIP']?>
                                                     </td>
                                                     <td class="px-6 py-4 text-center">
-                                                        <button type="button" class="text-blue-700 hover:text-white border border-blue-700 
-                                        hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-100 
-                                         rounded-lg text-lg px-5 py-1 text-center me-2 mb-2 
-                                        :dark:border-blue-500 :dark:text-blue-500 :dark:hover:text-white 
-                                        :dark:hover:bg-blue-500 :dark:focus:ring-blue-800">Connect</button>
+                                                        <button type="button" class="text-blue-700 hover:text-white border border-blue-700
+                                                                hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-100 
+                                                                rounded-lg text-lg px-5 py-1 text-center me-2 mb-2 
+                                                                :dark:border-blue-500 :dark:text-blue-500 :dark:hover:text-white 
+                                                                :dark:hover:bg-blue-500 :dark:focus:ring-blue-800">
+                                                        <a href="../../controllers/spso/printerManagement/connectPrinter.php?id=<?=$row['ID']?>">Connect</a>
+                                                        </button>
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -376,7 +376,9 @@ require_once '../../db/db_connection.php';
                                                                     onclick="changeConnection('connectionToggle<?php echo $row['ID']?>','connectionToggleButton<?php echo $row['ID']?>')"
                                                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
                                                                             focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 
-                                                                            dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Disconnect</button>
+                                                                            dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                                                    <a href="../../controllers/spso/printerManagement/disconnectPrinter.php?id=<?=$row['ID']?>">Disconnect</a>
+                                                                </button>
                                                             </div>
                                                             <div class="">
                                                                 <div class="my-2 text-gray-900">
@@ -386,7 +388,11 @@ require_once '../../db/db_connection.php';
                                                                     onclick="changeStatus('statusToggle<?php echo $row['ID']?>', 'statusToggleButton<?php echo $row['ID']?>')"
                                                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
                                                                             focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 
-                                                                            dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><?php echo ($row['TinhTrang'] == 'Enabled') ? 'Disable' : 'Enable'; ?></button>
+                                                                            dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                                                            <a href="../../controllers/spso/printerManagement/<?php echo ($row['TinhTrang'] == 'Enabled') ? 'disablePrinter.php' : 'enablePrinter.php'; ?>?id=<?=$row['ID']?>">
+                                                                                <?php echo ($row['TinhTrang'] == 'Enabled') ? 'Disable' : 'Enable'; ?>
+                                                                            </a>
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -406,12 +412,11 @@ require_once '../../db/db_connection.php';
                                                         </div>
                                                     </div>
                                                     <!-- Modal footer -->
-                                                    <div
-                                                        class="text-right p-4 md:p-5 border-t border-gray-200 rounded-b :dark:border-gray-600">
+                                                    <div class="text-right p-4 md:p-5 border-t border-gray-200 rounded-b :dark:border-gray-600">
+                                                        <!-- <button data-modal-hide="<?= $modalId ?>" type="button"
+                                                            class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Cancel</button> -->
                                                         <button data-modal-hide="<?= $modalId ?>" type="button"
-                                                            class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Cancel</button>
-                                                        <button data-modal-hide="<?= $modalId ?>" type="button"
-                                                            class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Apply</button>
+                                                            class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Exit</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -514,10 +519,6 @@ require_once '../../db/db_connection.php';
                 x.innerHTML = "Enabled";
                 y.innerHTML = "Disable"
             }
-        }
-
-        function concac () {
-            
         }
     </script>
 </body>
