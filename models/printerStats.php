@@ -1,5 +1,5 @@
 <?php
-// File: getprintcounts.php
+// File: getprintcounts.php get print counts for each day in each month
 
 // Connect to the database (replace with your actual database credentials)
 $servername = "localhost:3307";
