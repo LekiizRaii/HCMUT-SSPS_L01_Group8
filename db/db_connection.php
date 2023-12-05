@@ -1,5 +1,5 @@
 <?php
-$hostName = 'localhost';
+$hostName = 'localhost:3307';
 $userName = 'root';
 $password = '';
 $database = 'smart_printing';

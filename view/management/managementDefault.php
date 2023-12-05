@@ -6,7 +6,8 @@ $rootPath = '/HCMUT-SSPS_L01_Group8';
 
 // Connect to the database
 require_once '../../db/db_connection.php';
-include_once 'connectionController.php';
+// include_once 'connectionController.php';
+// include_once 'statusController.php';
 ?>
 
 <!DOCTYPE html>
@@ -159,7 +160,7 @@ include_once 'connectionController.php';
                 <div class="m-auto w-full lg:max-w-full p-6 bg-white rounded-lg shadow-xl :dark:bg-gray-800">
                     <div class="flex flex-row">
                         <h3 class="text-2xl font-bold text-gray-900 :dark:text-white">
-                            Danh sách máy in
+                            Danh sách máy in đã kết nối
                         </h3>
                         <!-- <h3 class="ml-auto mr-24 text-lg text-gray-500 :dark:text-white">
                             Your Paper Quantity (Sheets): 69
@@ -184,7 +185,7 @@ include_once 'connectionController.php';
                                 <div
                                     class="flex items-center justify-between p-4 md:p-5 border-b rounded-t :dark:border-gray-600">
                                     <h3 class="text-xl font-semibold text-gray-900 :dark:text-white">
-                                        Danh Sách Thiết Bị
+                                        Danh sách máy in chưa kết nối
                                     </h3>
                                     <button type="button"
                                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center :dark:hover:bg-gray-600 :dark:hover:text-white"
@@ -260,32 +261,33 @@ include_once 'connectionController.php';
                                         </table>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div><!-- Main modal -->
                     <hr class="m-auto w-full lg:max-w-full my-3 border-zinc-400">
                     <?php
-                    if ($printers->num_rows > 0) {
-                        $totalPrinters = $printers->num_rows;
+                    $sqlConnectedPrinter = "SELECT * FROM mayin WHERE KetNoi = 'Connected'";
+                    $tmp = $conn->query($sqlConnectedPrinter);
+                    if ($tmp->num_rows > 0) {
+                        $totalConnectedPrinter = $tmp->num_rows;
                         $currentPage = 1;
                         if (isset($_GET['page'])) {
                             settype($_GET['page'], 'int');
                             $currentPage = $_GET['page'];
                         }
                         $limit = 7;
-                        $totalPage = ceil($totalPrinters/$limit);
+                        $totalPage = ceil($totalConnectedPrinter/$limit);
 
                         // giới hạn phân trang trong 1-totalPage
                         if ($currentPage > $totalPage) {
                             $currentPage = $totalPage;
                         } elseif ($currentPage < 1) { 
                             $currentPage = 1;
-                        }
+                        }                    
 
                         $start = ($currentPage - 1) * $limit;
-                        $sqlShowPrinters = $sqlShowPrinters." LIMIT $start, $limit";
-                        $printers = $conn->query($sqlShowPrinters);
+                        $sqlConnectedPrinter = $sqlConnectedPrinter." LIMIT $start, $limit";
+                        $printers = $conn->query($sqlConnectedPrinter);
                     ?>
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-xl text-left rtl:text-right text-gray-500 :dark:text-gray-400">
@@ -311,29 +313,28 @@ include_once 'connectionController.php';
                             <tbody>
                                 <?php
                                     while ($row = $printers->fetch_assoc()) {
-                                        $ketNoi = isset($row['KetNoi']) ? $row['KetNoi'] : null;
-                                        if ($ketNoi == "Connected") {
+                                        $modalId = 'setting-modal-' . $row['ID'];
                                 ?>
 								<tr class="bg-white border-b :dark:bg-gray-800 :dark:border-gray-700 hover:bg-gray-50 :dark:hover:bg-gray-600">
-                                    <th scope="row"
+                                    <td scope="row"
                                         class="flex px-6 py-4 font-medium text-gray-900 whitespace-nowrap :dark:text-white">
                                         <img src="../img/printer_icon.png" alt="" class="w-10 h-10 mr-4">
                                         <p class="my-auto"><?=$row['ID']?></p>
-                                    </th>
+                                    </td>
 									<td class="px-6 py-4 text-center"><?= $row['Hang'] . ' - ' . $row['Model'] ?></td>
 									<td class="px-6 py-4 text-center <?php echo ($row['TinhTrang'] === 'Enabled') ? 'text-green-500' : (($row['TinhTrang'] === 'Disabled') ? 'text-red-500' : ''); ?>">
                                         <div class="bg-gray-100 rounded-full"><?=$row['TinhTrang']?></div>
                                     </td>
-									<td class="px-6 py-4 text-center"><?= $row['SoGiayA4'] + $row['SoGiayA3'] ?></td>
+									<td class="px-6 py-4 text-center"><?= $row['SoGiayA4'] + 2*$row['SoGiayA3'] ?></td>
                                     <td class="px-6 py-4 text-center">
-                                        <button type="button" data-modal-target="setting-modal-1"
-                                            data-modal-toggle="setting-modal-1" class="text-blue-700 hover:text-white border border-blue-700 
-                                            hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-100 
-                                             rounded-lg text-lg px-5 py-1 text-center me-2 mb-2 
-                                            :dark:border-blue-500 :dark:text-blue-500 :dark:hover:text-white 
-                                            :dark:hover:bg-blue-500 :dark:focus:ring-blue-800">Setting</button>
+                                    <button type="button" data-modal-target="<?= $modalId ?>"
+                                        data-modal-toggle="<?= $modalId ?>" class="text-blue-700 hover:text-white border border-blue-700 
+                                        hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-100 
+                                        rounded-lg text-lg px-5 py-1 text-center me-2 mb-2 
+                                        :dark:border-blue-500 :dark:text-blue-500 :dark:hover:text-white 
+                                        :dark:hover:bg-blue-500 :dark:focus:ring-blue-800">Setting</button>
                                         <!-- Main modal -->
-                                        <div id="setting-modal-1" tabindex="-1" aria-hidden="true"
+                                        <div id="<?= $modalId ?>" tabindex="-1" aria-hidden="true"
                                             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                             <div class="relative p-4 w-full max-w-screen-md max-h-full">
                                                 <!-- Modal content -->
@@ -342,8 +343,7 @@ include_once 'connectionController.php';
                                                     <div
                                                         class="grid grid-cols-2 gap-4 p-4 md:p-5 border-b rounded-t :dark:border-gray-600">
                                                         <div class="text-left">
-                                                            <h3
-                                                                class="my-2 text-xl font-semibold text-gray-900 :dark:text-white">
+                                                            <h3 class="my-2 text-xl font-semibold text-gray-900 :dark:text-white">
                                                                 Properties
                                                             </h3>
 
@@ -365,83 +365,61 @@ include_once 'connectionController.php';
                                                         </div>
                                                     </div>
                                                     <!-- Modal body -->
-                                                    <div
-                                                        class="gap-4 p-4 md:p-5 border-b rounded-t :dark:border-gray-600">
-                                                        <h3
-                                                            class="text-left my-2 text-xl font-semibold text-gray-900 :dark:text-white">
-                                                            Connection
-                                                        </h3>
+                                                    <div class="gap-4 p-4 md:p-5 border-b rounded-t :dark:border-gray-600">
+                                                        <h3 class="text-left my-2 text-xl font-semibold text-gray-900 :dark:text-white">Connection</h3>
                                                         <div class="grid grid-cols-2 gap-4">
                                                             <div class="">
-                                                                <div class="my-2 text-gray-900">Status: <span
-                                                                        id="myToggle1"> Connected</span>
+                                                                <div class="my-2 text-gray-900">
+                                                                    Status: <span id="connectionToggle<?php echo $row['ID']?>">Connected to System</span>
                                                                 </div>
-                                                                
-                                                                <button type="button" id="myToggleButton1"
-                                                                    onclick="myFunction('myToggle1','myToggleButton1')"
+                                                                <button type="button" id="connectionToggleButton<?php echo $row['ID']?>"
+                                                                    onclick="changeConnection('connectionToggle<?php echo $row['ID']?>','connectionToggleButton<?php echo $row['ID']?>')"
                                                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
-                                                                focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 
-                                                                dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Disconnect</button>
+                                                                            focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 
+                                                                            dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Disconnect</button>
                                                             </div>
                                                             <div class="">
-                                                            <div class="my-2 text-gray-900">
-                                                                <span id="myToggle2">Mode: <?php echo $row['TinhTrang']; ?></span>
-                                                            </div>
-                                                                <button type="button" id="myToggleButton2"
-                                                                    onclick="myFunction1('myToggle2', 'myToggleButton2')"
+                                                                <div class="my-2 text-gray-900">
+                                                                    Mode: <span id="statusToggle<?php echo $row['ID']?>"><?php echo $row['TinhTrang']; ?></span>
+                                                                </div>
+                                                                <button type="button" id="statusToggleButton<?php echo $row['ID']?>"
+                                                                    onclick="changeStatus('statusToggle<?php echo $row['ID']?>', 'statusToggleButton<?php echo $row['ID']?>')"
                                                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
-                                                                focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 
-                                                                dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Disable</button>
+                                                                            focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 
+                                                                            dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><?php echo ($row['TinhTrang'] == 'Enabled') ? 'Disable' : 'Enable'; ?></button>
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                     <div
                                                         class="gap-4 p-4 md:p-5 border-b rounded-t :dark:border-gray-600">
-                                                        <div id="alert-border-4"
+                                                        <div id="alert-border-5"
                                                             class="flex p-4 mb-4 text-yellow-800 border-s-4 border-yellow-300 bg-yellow-50 :dark:text-yellow-300 :dark:bg-gray-800 :dark:border-yellow-800"
                                                             role="alert">
-                                                            <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true"
-                                                                xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                                                viewBox="0 0 20 20">
-                                                                <path
-                                                                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                                                            <svg class="w-[28px] h-[28px] text-yellow-800 dark:text-yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
                                                             </svg>
                                                             <div class="ms-3 text-lg text-left">
                                                                 <div class="font-medium">Attention needed</div>
-                                                                <span class="ms-3 text-base">You can only enable/disable
-                                                                    printers that are connected to the system.</span>
+                                                                <span class="text-base">You can only enable/disable printers that are connected to the system.</span>
                                                             </div>
-                                                            <button type="button"
-                                                                class="ms-auto -mx-1.5 -my-1.5 bg-yellow-50 text-yellow-500 rounded-lg focus:ring-2 focus:ring-yellow-400 p-1.5 hover:bg-yellow-200 inline-flex items-center justify-center h-8 w-8 :dark:bg-gray-800 :dark:text-yellow-300 :dark:hover:bg-gray-700"
-                                                                data-dismiss-target="#alert-border-4"
-                                                                aria-label="Close">
-                                                                <span class="sr-only">Dismiss</span>
-                                                                <svg class="w-3 h-3" aria-hidden="true"
-                                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                    viewBox="0 0 14 14">
-                                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                                        stroke-linejoin="round" stroke-width="2"
-                                                                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                                                </svg>
-                                                            </button>
-
                                                         </div>
                                                     </div>
                                                     <!-- Modal footer -->
                                                     <div
                                                         class="text-right p-4 md:p-5 border-t border-gray-200 rounded-b :dark:border-gray-600">
-                                                        <button data-modal-hide="setting-modal-1" type="button"
+                                                        <button data-modal-hide="<?= $modalId ?>" type="button"
                                                             class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Cancel</button>
-                                                        <button data-modal-hide="setting-modal-1" type="button"
+                                                        <button data-modal-hide="<?= $modalId ?>" type="button"
                                                             class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Apply</button>
                                                     </div>
-
                                                 </div>
-                                            </div><!-- Main modal -->
+                                            </div>
+                                        </div>
                                     </td>
 								</tr>
 								<?php
-								}}
+								}
 								?>
 							</tbody>
 						</table>
@@ -509,37 +487,37 @@ include_once 'connectionController.php';
 
 
 
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <script src="../navbar/darkmode.js"></script>
     <script src="../navbar/nav.js"></script>
     <script>
-        function myFunction(toggle, toggleButton) {
+        function changeConnection(toggle, toggleButton) {
             var x = document.getElementById(toggle);
             var y = document.getElementById(toggleButton)
-            if (x.innerHTML === "Connected to system") {
-                x.innerHTML = "Disconnected to system";
+            if (x.innerHTML === "Connected to System") {
+                x.innerHTML = "Disconnected to System";
                 y.innerHTML = "Connect"
             } else {
-                x.innerHTML = "Connected to system";
+                x.innerHTML = "Connected to System";
                 y.innerHTML = "Disconnect"
 
             }
         }
-    </script>
-    <script>
-        function myFunction1(toggle, toggleButton) {
+
+        function changeStatus(toggle, toggleButton) {
             var x = document.getElementById(toggle);
             var y = document.getElementById(toggleButton)
             if (x.innerHTML === "Enabled") {
                 x.innerHTML = "Disabled";
-                y.innerHTML = "Enabled"
+                y.innerHTML = "Enable"
             } else {
                 x.innerHTML = "Enabled";
                 y.innerHTML = "Disable"
-
             }
+        }
+
+        function concac () {
+            
         }
     </script>
 </body>
