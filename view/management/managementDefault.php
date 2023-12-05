@@ -6,6 +6,7 @@ $rootPath = '/HCMUT-SSPS_L01_Group8';
 
 // Connect to the database
 require_once '../../db/db_connection.php';
+include_once 'connectionController.php';
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +35,7 @@ require_once '../../db/db_connection.php';
 
 <body class="bg-gray-100 :dark:bg-gray-900">
     <?php
-        $sqlShowPrinters = "SELECT ID, Hang, Model, KetNoi, TinhTrang, SoGiayA4, SoGiayA3 FROM mayin";
+        $sqlShowPrinters = "SELECT ID, Hang, Model, DiaChiIP, KetNoi, TinhTrang, SoGiayA4, SoGiayA3 FROM mayin";
         $printers = $conn->query($sqlShowPrinters);
     ?>
 
@@ -222,23 +223,28 @@ require_once '../../db/db_connection.php';
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php
+                                                    while ($row = $printers->fetch_assoc()) {
+                                                        $ketNoi = isset($row['KetNoi']) ? $row['KetNoi'] : null;
+                                                        if ($ketNoi == "Disconnected") {
+                                                ?>
                                                 <tr
                                                     class="bg-white border-b :dark:bg-gray-800 :dark:border-gray-700 hover:bg-gray-50 :dark:hover:bg-gray-600">
                                                     <th scope="row"
                                                         class="flex px-6 py-4 font-medium text-gray-900 whitespace-nowrap :dark:text-white">
                                                         <img src="../img/printer_icon.png" alt=""
                                                             class="w-10 h-10 mr-4">
-                                                        <p class="my-auto">Printer#1</p>
+                                                        <p class="my-auto"><?=$row['ID']?></p>
                                                     </th>
                                                     <td class="px-6 py-4 text-center">
-                                                        HP Laser Jet Pro M20w
+                                                        <?= $row['Hang'] . ' - ' . $row['Model'] ?>
                                                     </td>
-                                                    <td class="px-6 py-4 text-center text-green-500">
-                                                        <div class="bg-gray-100 rounded-full">Online</div>
+                                                    <td class="px-6 py-4 text-center text-red-500">
+                                                        <div class="bg-gray-100 rounded-full">Disconnected</div>
 
                                                     </td>
                                                     <td class="px-6 py-4 text-center">
-                                                        174.059.2.432
+                                                        <?= $row['DiaChiIP']?>
                                                     </td>
                                                     <td class="px-6 py-4 text-center">
                                                         <button type="button" class="text-blue-700 hover:text-white border border-blue-700 
@@ -248,108 +254,8 @@ require_once '../../db/db_connection.php';
                                         :dark:hover:bg-blue-500 :dark:focus:ring-blue-800">Connect</button>
                                                     </td>
                                                 </tr>
-                                                <tr
-                                                    class="bg-white border-b :dark:bg-gray-800 :dark:border-gray-700 hover:bg-gray-50 :dark:hover:bg-gray-600">
-                                                    <th scope="row"
-                                                        class="flex px-6 py-4 font-medium text-gray-900 whitespace-nowrap :dark:text-white">
-                                                        <img src="../img/printer_icon.png" alt=""
-                                                            class="w-10 h-10 mr-4">
-                                                        <p class="my-auto">Printer#2</p>
-                                                    </th>
-                                                    <td class="px-6 py-4 text-center">
-                                                        Canon 2900 LBM
-                                                    </td>
-                                                    <td class="px-6 py-4 text-center text-green-500">
-                                                        <div class="bg-gray-100 rounded-full">Online</div>
-
-                                                    </td>
-                                                    <td class="px-6 py-4 text-center">
-                                                        544.059.0.324
-                                                    </td>
-                                                    <td class="px-6 py-4 text-center">
-                                                        <button type="button" class="text-blue-700 hover:text-white border border-blue-700 
-                                        hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-100 
-                                         rounded-lg text-lg px-5 py-1 text-center me-2 mb-2 
-                                        :dark:border-blue-500 :dark:text-blue-500 :dark:hover:text-white 
-                                        :dark:hover:bg-blue-500 :dark:focus:ring-blue-800">Connect</button>
-                                                    </td>
-                                                </tr>
-                                                <tr
-                                                    class="bg-white border-b :dark:bg-gray-800 :dark:border-gray-700 hover:bg-gray-50 :dark:hover:bg-gray-600">
-                                                    <th scope="row"
-                                                        class="flex px-6 py-4 font-medium text-gray-900 whitespace-nowrap :dark:text-white">
-                                                        <img src="../img/printer_icon.png" alt=""
-                                                            class="w-10 h-10 mr-4">
-                                                        <p class="my-auto">OptimusPrime</p>
-                                                    </th>
-                                                    <td class="px-6 py-4 text-center">
-                                                        MayInVjpPr0
-                                                    </td>
-                                                    <td class="px-6 py-4 text-center text-green-500">
-                                                        <div class="bg-gray-100 rounded-full">Online</div>
-
-                                                    </td>
-                                                    <td class="px-6 py-4 text-center">
-                                                        420.123.4.452
-                                                    </td>
-                                                    <td class="px-6 py-4 text-center">
-                                                        <button type="button" class="text-blue-700 hover:text-white border border-blue-700 
-                                        hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-100 
-                                         rounded-lg text-lg px-5 py-1 text-center me-2 mb-2 
-                                        :dark:border-blue-500 :dark:text-blue-500 :dark:hover:text-white 
-                                        :dark:hover:bg-blue-500 :dark:focus:ring-blue-800">Connect</button>
-                                                    </td>
-                                                </tr>
-                                                <tr
-                                                    class="bg-white border-b :dark:bg-gray-800 :dark:border-gray-700 hover:bg-gray-50 :dark:hover:bg-gray-600">
-                                                    <th scope="row"
-                                                        class="flex px-6 py-4 font-medium text-gray-900 whitespace-nowrap :dark:text-white">
-                                                        <img src="../img/printer_icon.png" alt=""
-                                                            class="w-10 h-10 mr-4">
-                                                        <p class="my-auto">BoySiTinh2k3</p>
-                                                    </th>
-                                                    <td class="px-6 py-4 text-center">
-                                                        iPrint 69 Pro Max
-                                                    </td>
-                                                    <td class="px-6 py-4 text-center text-green-500">
-                                                        <div class="bg-gray-100 rounded-full">Online</div>
-                                                    </td>
-                                                    <td class="px-6 py-4 text-center">
-                                                        699.411.7.212
-                                                    </td>
-                                                    <td class="px-6 py-4 text-center">
-                                                        <button type="button" class="text-blue-700 hover:text-white border border-blue-700 
-                                        hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-100 
-                                         rounded-lg text-lg px-5 py-1 text-center me-2 mb-2 
-                                        :dark:border-blue-500 :dark:text-blue-500 :dark:hover:text-white 
-                                        :dark:hover:bg-blue-500 :dark:focus:ring-blue-800">Connect</button>
-                                                    </td>
-                                                </tr>
-                                                <tr
-                                                    class="bg-white border-b :dark:bg-gray-800 :dark:border-gray-700 hover:bg-gray-50 :dark:hover:bg-gray-600">
-                                                    <th scope="row"
-                                                        class="flex px-6 py-4 font-medium text-gray-900 whitespace-nowrap :dark:text-white">
-                                                        <img src="../img/printer_icon.png" alt=""
-                                                            class="w-10 h-10 mr-4">
-                                                        <p class="my-auto">NormalPrinter</p>
-                                                    </th>
-                                                    <td class="px-6 py-4 text-center">
-                                                        Undefined Printer
-                                                    </td>
-                                                    <td class="px-6 py-4 text-center text-green-500">
-                                                        <div class="bg-gray-100 rounded-full">Online</div>
-                                                    </td>
-                                                    <td class="px-6 py-4 text-center">
-                                                        231.456.2.218
-                                                    </td>
-                                                    <td class="px-6 py-4 text-center">
-                                                        <button type="button" class="text-blue-700 hover:text-white border border-blue-700 
-                                        hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-100 
-                                         rounded-lg text-lg px-5 py-1 text-center me-2 mb-2 
-                                        :dark:border-blue-500 :dark:text-blue-500 :dark:hover:text-white 
-                                        :dark:hover:bg-blue-500 :dark:focus:ring-blue-800">Connect</button>
-                                                    </td>
-                                                </tr>
+                                                <?php
+                                                }}?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -440,11 +346,17 @@ require_once '../../db/db_connection.php';
                                                                 class="my-2 text-xl font-semibold text-gray-900 :dark:text-white">
                                                                 Properties
                                                             </h3>
-                                                            <div class="my-2 text-gray-900">ID: Printer#1</div>
 
-                                                            <div class="my-2 text-gray-900">Model: HP Laser Jet Pro M20w
+                                                            <div class="my-2 text-gray-900">
+                                                                <p class="my-auto"><?='ID: '.$row['ID']?></p>
                                                             </div>
-                                                            <div class="my-2 text-gray-900">IP Address: 134.658.2.432
+
+                                                            <div class="my-2 text-gray-900">
+                                                                <?= 'Model: '.$row['Hang'] . ' - ' . $row['Model'] ?>
+                                                            </div>
+
+                                                            <div class="my-2 text-gray-900">
+                                                                <p class="my-auto"><?='IP Address: '.$row['DiaChiIP']?></p>
                                                             </div>
                                                         </div>
                                                         <div>
@@ -462,7 +374,7 @@ require_once '../../db/db_connection.php';
                                                         <div class="grid grid-cols-2 gap-4">
                                                             <div class="">
                                                                 <div class="my-2 text-gray-900">Status: <span
-                                                                        id="myToggle1"> Connected to system</span>
+                                                                        id="myToggle1"> Connected</span>
                                                                 </div>
                                                                 
                                                                 <button type="button" id="myToggleButton1"
@@ -472,9 +384,9 @@ require_once '../../db/db_connection.php';
                                                                 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Disconnect</button>
                                                             </div>
                                                             <div class="">
-                                                                <div class="my-2 text-gray-900">Mode: <span
-                                                                        id="myToggle2"> Enabled</span>
-                                                                </div>
+                                                            <div class="my-2 text-gray-900">
+                                                                <span id="myToggle2">Mode: <?php echo $row['TinhTrang']; ?></span>
+                                                            </div>
                                                                 <button type="button" id="myToggleButton2"
                                                                     onclick="myFunction1('myToggle2', 'myToggleButton2')"
                                                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
@@ -622,7 +534,7 @@ require_once '../../db/db_connection.php';
             var y = document.getElementById(toggleButton)
             if (x.innerHTML === "Enabled") {
                 x.innerHTML = "Disabled";
-                y.innerHTML = "Enable"
+                y.innerHTML = "Enabled"
             } else {
                 x.innerHTML = "Enabled";
                 y.innerHTML = "Disable"
