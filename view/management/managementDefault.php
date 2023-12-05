@@ -34,7 +34,7 @@ require_once '../../db/db_connection.php';
 
 <body class="bg-gray-100 :dark:bg-gray-900">
     <?php
-        $sqlShowPrinters = "SELECT ID, Hang, Model, TinhTrang, SoGiayA4, SoGiayA3 FROM mayin";
+        $sqlShowPrinters = "SELECT ID, Hang, Model, KetNoi, TinhTrang, SoGiayA4, SoGiayA3 FROM mayin";
         $printers = $conn->query($sqlShowPrinters);
     ?>
 
@@ -167,7 +167,7 @@ require_once '../../db/db_connection.php';
                         focus:ring-blue-300 font-extralight rounded-lg text-lg px-5 py-1 me-2 mb-2 
                         :dark:bg-blue-600 :dark:hover:bg-blue-700 focus:outline-none 
                         :dark:focus:ring-blue-800">
-                            <svg class="float-left w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
+                            <svg style="margin-top: 4px;" class="float-left w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="M9 1v16M1 9h16" />
@@ -405,6 +405,8 @@ require_once '../../db/db_connection.php';
                             <tbody>
                                 <?php
                                     while ($row = $printers->fetch_assoc()) {
+                                        $ketNoi = isset($row['KetNoi']) ? $row['KetNoi'] : null;
+                                        if ($ketNoi == "Connected") {
                                 ?>
 								<tr class="bg-white border-b :dark:bg-gray-800 :dark:border-gray-700 hover:bg-gray-50 :dark:hover:bg-gray-600">
                                     <th scope="row"
@@ -413,7 +415,7 @@ require_once '../../db/db_connection.php';
                                         <p class="my-auto"><?=$row['ID']?></p>
                                     </th>
 									<td class="px-6 py-4 text-center"><?= $row['Hang'] . ' - ' . $row['Model'] ?></td>
-									<td class="px-6 py-4 text-center <?php echo ($row['TinhTrang'] === 'Working') ? 'text-green-500' : (($row['TinhTrang'] === 'Disabled') ? 'text-red-500' : ''); ?>">
+									<td class="px-6 py-4 text-center <?php echo ($row['TinhTrang'] === 'Enabled') ? 'text-green-500' : (($row['TinhTrang'] === 'Disabled') ? 'text-red-500' : ''); ?>">
                                         <div class="bg-gray-100 rounded-full"><?=$row['TinhTrang']?></div>
                                     </td>
 									<td class="px-6 py-4 text-center"><?= $row['SoGiayA4'] + $row['SoGiayA3'] ?></td>
@@ -527,7 +529,7 @@ require_once '../../db/db_connection.php';
                                     </td>
 								</tr>
 								<?php
-								}
+								}}
 								?>
 							</tbody>
 						</table>
