@@ -1,43 +1,61 @@
 <?php
 require_once('../models/print_page_model.php');
+// require_once('../models/current_print_state.php');
 
 function validate() {
     $response = array();
     $response['status'] = 'OK';
-    $username = 'B.Tran';
+    $username = "B.Tran";
     $user_numberofpage = get_user_numberofpage($username);
-    $print_numberofpage = 0;
+    $normalized_numberofpage = 0;
     if ($_POST["pagesize"] == 'A4') {
-        $print_numberofpage = (int)$_POST['numberofpages'] * (int)$_POST['numberofcopy'];
+        $normalized_numberofpage = (int)$_POST['numberofpages'] * (int)$_POST['numberofcopy'];
     }
     else if ($_POST["pagesize"] == 'A3') {
-        $print_numberofpage = 2 * (int)$_POST['numberofpages'] * (int)$_POST['numberofcopy'];
+        $normalized_numberofpage = 2 * (int)$_POST['numberofpages'] * (int)$_POST['numberofcopy'];
     }
-    else if ($_POST["pagesize"] == 'A2') {
-        $print_numberofpage = 4 * (int)$_POST['numberofpages'] * (int)$_POST['numberofcopy'];
-    }
-    else if ($_POST["pagesize"] == 'A1') {
-        $print_numberofpage = 8 * (int)$_POST['numberofpages'] * (int)$_POST['numberofcopy'];
-    }
-    else if ($_POST["pagesize"] == 'A0') {
-        $print_numberofpage = 16 * (int)$_POST['numberofpages'] * (int)$_POST['numberofcopy'];
-    }
+    
     if ($_POST['twofaced'] == 'twofaced') {
-        $print_numberofpage = ceil($print_numberofpage / 2);
+        $normalized_numberofpage = ceil($normalized_numberofpage / 2);
     }
 
-    if ($user_numberofpage < $print_numberofpage) {
+    if ($user_numberofpage < $normalized_numberofpage) {
         $response['status'] = 'PAGE';
     }
     else {
         $response['status'] = 'OK';
+        $data = $_POST;
+        $data['printer_address'] = '';
+        $data['status'] = 'pending';
+        initialize_print_state();
+        set_print_state($data);
     }
     $response['info'] = '';
     header('Content-Type: application/json');
     echo json_encode($response);
 }
 
+function show_printer_list() {
+    $print_state = $_SESSION['print_state'];
+    $print_numberofpage = (int)$print_state['numberofcopy'] * (int)$print_state['numberofpages'];
+    $pagesize = $print_state['pagesize'];
+    $result = get_printer_list($print_numberofpage, $pagesize);
+    $response = array();
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $response[] = $row;
+        }
+    }
+    header('Content-Type: application/json');
+    echo json_encode($_SESSION['print_state']['numberofcopy']);
+}
+
 if ($_GET['action'] == 'validate') {
+    session_start();
     validate();
+}
+else if ($_GET['action'] == 'show-printer-list') {
+    session_start();
+    show_printer_list();
 }
 ?>

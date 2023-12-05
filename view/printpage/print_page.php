@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php session_start(); ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -169,24 +171,24 @@
                                 <select name="pagesize" id="size" class="bg-gray-50 border border-gray-300 pl-3 sm:pl-5 w-20 text-gray-400 text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     <option>A4</option>
                                     <option>A3</option>
-                                    <option>A2</option>
+                                    <!-- <option>A2</option>
                                     <option>A1</option>
-                                    <option>A0</option>
+                                    <option>A0</option> -->
                                 </select>
                             </div>
                         </div>
                         <div class="flex flew-col sm:flex-row mb-2">
                             <div class="mr-auto" style="width: 48%">
                                 <label for="pages" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Chế độ in</label>
-                                <fieldset class="flex m-auto" id="xxxx">
+                                <fieldset class="flex m-auto">
                                     <div class="flex items-center mb-4 mr-auto">
-                                        <input name="pagelandscape" id="option-1" type="radio" value="Dọc" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
+                                        <input name="orientation" id="option-1" type="radio" value="portrait" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
                                         <label for="option-1" class="block ms-2  text-lg text-gray-900 dark:text-gray-300">
                                             In dọc
                                         </label>
                                     </div>
                                     <div class="flex items-center mb-4 m-auto">
-                                        <input name="pagelandscape" id="option-2" type="radio" value="Ngang" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                        <input name="orientation" id="option-2" type="radio" value="landscape" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
                                         <label for="option-2" class="block ms-2 text-lg text-gray-900 dark:text-gray-300">
                                             In ngang
                                         </label>

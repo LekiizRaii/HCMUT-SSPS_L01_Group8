@@ -1,3 +1,9 @@
+fetch('../../controllers/print_page_controller.php?action=show-printer-list', {credentials: 'include'})
+.then(response => response.json())
+.then(response => {
+    alert(response);
+});
+
 $(document).ready(function () {
     loadPrintModal();
 });

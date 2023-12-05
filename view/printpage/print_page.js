@@ -10,8 +10,14 @@ function loadBugModal() {
         print_page_params["numberofcopy"] = document.getElementById("numberofcopy").value;
         print_page_params["numberofpages"] = document.getElementById("pages").value;
         print_page_params["pagesize"] = document.getElementById("size").value;
-        print_page_params["pagelandscape"] = $('input:radio[name=pagelandscape]:checked').val();
+        print_page_params["orientation"] = $('input:radio[name=pagelandscape]:checked').val();
         print_page_params["twofaced"] = $('input:checkbox[name=twofaced]:checked').val();
+        if (print_page_params["twofaced"]) {
+            print_page_params["twofaced"] = true;
+        }
+        else {
+            print_page_params["twofaced"] = false;
+        }
 
         var params = new FormData();
         for (var key in print_page_params) {
@@ -20,7 +26,8 @@ function loadBugModal() {
 
         fetch('../../controllers/print_page_controller.php?action=validate', {
             method: 'POST',
-            body: params
+            body: params,
+            credentials: 'include'
         })
         .then(response => response.json())
         .then(response => {
