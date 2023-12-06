@@ -154,7 +154,7 @@
                         <div class="mb-2">     
                             <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-white" for="file_input">Tải tệp lên</label>
                             <!-- <input name='file_input' data-modal-target="upload-modal" data-modal-toggle="upload-modal" accept=".docx, .pdf, .jpg, .png" class="block w-full text-lg text-gray-900 border border-gray-300 rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" onchange="previewFile(this);"/> -->
-                            <input name='file_input' accept=".docx, .pdf, .jpg, .png" class="block w-full text-lg text-gray-900 border border-gray-300 rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" onchange="previewFile(this);"/>
+                            <input name='file_input' accept=".docx, .pdf, .jpg, .png" class="block w-full text-lg text-gray-900 border border-gray-300 rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
                             <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">DOCX, PDF, JPG hoặc PNG (tối đa 500MBs)</p>
                         </div>
                         <div class="mb-2">
@@ -223,7 +223,7 @@
                         <div id="bodyModal"></div>
                         <button id="bug1" type="button" data-modal-hide="bug-modal" class="block text-lg m-auto px-4 sm:px-28 py-2 
                             bg-blue-500 text-white rounded-md mb-3">
-                            Trở về trang Cài đặt in
+                            Điều chỉnh lại
                         </button>
                         <div class="flex flex-row m-auto" id="bug2">
                             <button type="button" data-modal-hide="bug-modal" class="block text-lg text-center m-auto px-2 sm:px-8 py-2 

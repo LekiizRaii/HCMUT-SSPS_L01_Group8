@@ -76,18 +76,18 @@ function load_notification() {
                 var request = '';
                 if (response['error-type'] == 'PAGE') {
                     message = "Bạn chưa nhập số lượng giấy được cung cấp mỗi kỳ.";
-                    request = "Yêu cầu nhập một số nguyên dương và không có kí tự phía trước hay phía sau số đó.";
+                    request = "Vui lòng nhập một số nguyên dương và không có kí tự phía trước hay phía sau số đó.";
                 } else if (response['error-type'] == 'DATE') {
                     message = "Bạn chưa nhập thời gian cung cấp giấy.";
-                    request = "Yêu cầu chọn thời gian.";
+                    request = "Vui lòng chọn thời gian.";
                 }
                 else if (response['error-type'] == 'FORMAT') {
                     message = "Định dạng số lượng giấy được cung cấp mỗi học kỳ không phù hợp.";
-                    request = "Yêu cầu nhập một số nguyên dương và không có kí tự phía trước hay phía sau số đó.";
+                    request = "Vui lòng nhập một số nguyên dương và không có kí tự phía trước hay phía sau số đó.";
                 }
                 else if (response['error-type'] == 'PAST') {
                     message = "Thời gian cung cấp giấy là quá khứ so với hiện tại, chúng tôi không thể hiện thực tác vụ ở quá khứ.";
-                    request = "Yêu cầu chọn thời gian phù hợp.";
+                    request = "Vui lòng chọn thời gian phù hợp.";
                 }
                 var str = '';
                     str += `

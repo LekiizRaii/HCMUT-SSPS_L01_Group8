@@ -223,7 +223,7 @@
                         <div id="bodyModal"></div>
                         <button id="bug" type="button" data-modal-hide="bug-modal" class="block text-lg m-auto px-4 sm:px-28 py-2 
                             bg-blue-500 text-white rounded-md mb-3">
-                            Trở lại trang quản lý cài đặt in và điều chỉnh
+                            Điều chỉnh lại
                         </button>
                     </div>
                 </div>
