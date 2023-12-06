@@ -375,8 +375,8 @@ require_once '../../db/db_connection.php';
                                                                 <button type="button" id="connectionToggleButton<?php echo $row['ID']?>"
                                                                     onclick="changeConnection('connectionToggle<?php echo $row['ID']?>','connectionToggleButton<?php echo $row['ID']?>')"
                                                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
-                                                                            focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 
-                                                                            dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                                                            focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 :dark:bg-blue-600 
+                                                                            :dark:hover:bg-blue-700 focus:outline-none :dark:focus:ring-blue-800">
                                                                     <a href="../../controllers/spso/printerManagement/disconnectPrinter.php?id=<?=$row['ID']?>">Disconnect</a>
                                                                 </button>
                                                             </div>
@@ -387,8 +387,8 @@ require_once '../../db/db_connection.php';
                                                                 <button type="button" id="statusToggleButton<?php echo $row['ID']?>"
                                                                     onclick="changeStatus('statusToggle<?php echo $row['ID']?>', 'statusToggleButton<?php echo $row['ID']?>')"
                                                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
-                                                                            focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 
-                                                                            dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                                                            focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 :dark:bg-blue-600 
+                                                                            :dark:hover:bg-blue-700 focus:outline-none :dark:focus:ring-blue-800">
                                                                             <a href="../../controllers/spso/printerManagement/<?php echo ($row['TinhTrang'] == 'Enabled') ? 'disablePrinter.php' : 'enablePrinter.php'; ?>?id=<?=$row['ID']?>">
                                                                                 <?php echo ($row['TinhTrang'] == 'Enabled') ? 'Disable' : 'Enable'; ?>
                                                                             </a>
@@ -402,7 +402,7 @@ require_once '../../db/db_connection.php';
                                                         <div id="alert-border-5"
                                                             class="flex p-4 mb-4 text-yellow-800 border-s-4 border-yellow-300 bg-yellow-50 :dark:text-yellow-300 :dark:bg-gray-800 :dark:border-yellow-800"
                                                             role="alert">
-                                                            <svg class="w-[28px] h-[28px] text-yellow-800 dark:text-yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                            <svg class="w-[28px] h-[28px] text-yellow-800 :dark:text-yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                                                 <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
                                                             </svg>
                                                             <div class="ms-3 text-lg text-left">
@@ -414,9 +414,9 @@ require_once '../../db/db_connection.php';
                                                     <!-- Modal footer -->
                                                     <div class="text-right p-4 md:p-5 border-t border-gray-200 rounded-b :dark:border-gray-600">
                                                         <!-- <button data-modal-hide="<?= $modalId ?>" type="button"
-                                                            class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Cancel</button> -->
+                                                            class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 :dark:border-blue-500 :dark:text-blue-500 :dark:hover:text-white :dark:hover:bg-blue-500 :dark:focus:ring-blue-800">Cancel</button> -->
                                                         <button data-modal-hide="<?= $modalId ?>" type="button"
-                                                            class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Exit</button>
+                                                            class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center :dark:bg-blue-600 :dark:hover:bg-blue-700 :dark:focus:ring-blue-800">Exit</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -443,12 +443,15 @@ require_once '../../db/db_connection.php';
                 <div class="m-auto w-full lg:max-w-full p-6 bg-white rounded-lg shadow-xl :dark:bg-gray-800">
                     <!-- Phân trang -->
                     <nav class="mt-3">
-                        <ul class="pagination pagination-lg d-flex justify-content-center">
+                        <ul class="inline-flex -space-x-px text-sm">
                         <?php 
                             if ($currentPage > 1 && $totalPage > 1) {
                         ?>
                             <li class="page-item">
-                                <a href="<?php echo $rootPath?>/view/management/managementDefault.php?page=<?php echo ($currentPage - 1); ?>" class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" data-remote="true">&lsaquo; Prev</a>
+                                <a href="<?php echo $rootPath?>/view/management/managementDefault.php?page=<?php echo ($currentPage - 1); ?>" 
+                                class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border 
+                                border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 :dark:bg-gray-800 
+                                :dark:border-gray-700 :dark:text-gray-400 :dark:hover:bg-gray-700 :dark:hover:text-white" data-remote="true">&lsaquo; Prev</a>
                             </li>
                         <?php
                             }
@@ -459,13 +462,17 @@ require_once '../../db/db_connection.php';
                                 if ($i == $currentPage) {
                         ?>
                             <li class="page-item active">
-                                <span rel="prev" class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" data-remote="true"><?php echo $i ?></span>
+                                <span rel="prev" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 
+                                bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 :dark:bg-gray-800 
+                                :dark:border-gray-700 :dark:text-gray-400 :dark:hover:bg-gray-700 :dark:hover:text-white" data-remote="true"><?php echo $i ?></span>
                             </li>
                         <?php
                                 }  else {
                         ?>
                             <li class="page-item">
-                                <a data-remote="true" class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="<?php echo $rootPath ?>/view/management/managementDefault.php?page=<?php echo $i ?>"><?php echo $i ?></a>
+                                <a data-remote="true" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 
+                                bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 :dark:bg-gray-800 
+                                :dark:border-gray-700 :dark:text-gray-400 :dark:hover:bg-gray-700 :dark:hover:text-white" href="<?php echo $rootPath ?>/view/management/managementDefault.php?page=<?php echo $i ?>"><?php echo $i ?></a>
                             </li>
                         <?php
                                 } 
@@ -475,7 +482,10 @@ require_once '../../db/db_connection.php';
                             if ($currentPage < $totalPage && $totalPage > 1) {
                         ?>
                             <li class="page-item">
-                                <a href="<?php echo $rootPath;?>/view/management/managementDefault.php?page=<?php echo ($currentPage + 1) ?>" class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" data-remote="true">Next &rsaquo;</a>
+                                <a href="<?php echo $rootPath;?>/view/management/managementDefault.php?page=<?php echo ($currentPage + 1) ?>" 
+                                class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 
+                                rounded-e-lg hover:bg-gray-100 hover:text-gray-700 :dark:bg-gray-800 :dark:border-gray-700 :dark:text-gray-400 
+                                :dark:hover:bg-gray-700 :dark:hover:text-white" data-remote="true">Next &rsaquo;</a>
                             </li>
                         <?php
                             }
