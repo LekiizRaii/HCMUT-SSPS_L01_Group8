@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang In</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet"/>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
@@ -136,124 +136,18 @@
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
                             Danh sách máy in
                         </h3>
-                        <h3 class="ml-auto mr-24 text-lg text-gray-500 dark:text-white">
-                            Số lượng giấy hiện có (Tờ): 69
+                        <h3 id="current-user-pages" class="ml-auto mr-24 text-lg text-gray-500 dark:text-white">
+                            <!-- Auto add content here -->
                         </h3>
                     </div>
                     <hr class="m-auto w-full lg:max-w-full my-3 border-zinc-400">
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-xl text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                            <thead class="text-base text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3">
-                                        ID Máy In
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
-                                        Mẫu Máy In
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
-                                        Trạng thái
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
-                                        Số lượng giấy (Tờ)
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
-                                        <span class="sr-only">Chọn</span>
-                                    </th>
-                                </tr>
+                            <thead id="header-list-of-printer" class="text-base text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <!-- Auto add content here -->
                             </thead>
                             <tbody id='list-of-printer'>
-                                
-                                <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th scope="row" class="flex px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <img src="../img/printer_icon.png" alt="" class="w-10 h-10 mr-4">
-                                        <p class="my-auto">Printer#1</p>
-                                    </th>
-                                    <td class="px-6 py-4 text-center">
-                                        HP Laser Jet Pro M20w
-                                    </td>
-                                    <td class="px-6 py-4 text-center text-green-500">
-                                        Sẵn sàng
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        590
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        <a id="choose-printer" data-modal-target="print-modal" data-modal-toggle="print-modal" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Chọn</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th scope="row" class="flex px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <img src="../img/printer_icon.png" alt="" class="w-10 h-10 mr-4">
-                                        <p class="my-auto">Printer#2</p>
-                                    </th>
-                                    <td class="px-6 py-4 text-center">
-                                        Canon 2900 LBM
-                                    </td>
-                                    <td class="px-6 py-4 text-center text-green-500">
-                                        Sẵn sàng
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        467
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        <a id="choose-printer" data-modal-target="print-modal" data-modal-toggle="print-modal" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Chọn</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th scope="row" class="flex px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <img src="../img/printer_icon.png" alt="" class="w-10 h-10 mr-4">
-                                        <p class="my-auto">OptimusPrime</p>
-                                    </th>
-                                    <td class="px-6 py-4 text-center">
-                                        MayInVjpPr0
-                                    </td>
-                                    <td class="px-6 py-4 text-center text-green-500">
-                                        Sẵn sàng
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        420
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        <a id="choose-printer" data-modal-target="print-modal" data-modal-toggle="print-modal" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Chọn</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th scope="row" class="flex px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <img src="../img/printer_icon.png" alt="" class="w-10 h-10 mr-4">
-                                        <p class="my-auto">BoySiTinh2k3</p>
-                                    </th>
-                                    <td class="px-6 py-4 text-center">
-                                        iPrint 69 Pro Max
-                                    </td>
-                                    <td class="px-6 py-4 text-center text-green-500">
-                                        Sẵn sàng
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        389
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        <a id="choose-printer" data-modal-target="print-modal" data-modal-toggle="print-modal" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Chọn</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th scope="row" class="flex px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <img src="../img/printer_icon.png" alt="" class="w-10 h-10 mr-4">
-                                        <p class="my-auto">NormalPrinter</p>
-                                    </th>
-                                    <td class="px-6 py-4 text-center">
-                                        Undefined Printer
-                                    </td>
-                                    <td class="px-6 py-4 text-center text-green-500">
-                                        Sẵn sàng
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        230
-                                    </td>
-                                    <td class="px-6 py-4 text-center">
-                                        <a id="choose-printer" data-modal-target="print-modal" data-modal-toggle="print-modal" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Chọn</a>
-                                    </td>
-                                </tr> -->
+                                <!-- Auto add content here -->
                             </tbody>
                         </table>
                     </div>

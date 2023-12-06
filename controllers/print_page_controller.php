@@ -1,11 +1,12 @@
 <?php
 require_once('../models/print_page_model.php');
-// require_once('../models/current_print_state.php');
 
 function validate() {
+    //
+    $username = 'B.Tran';
+    //
     $response = array();
     $response['status'] = 'OK';
-    $username = "B.Tran";
     $user_numberofpage = get_user_numberofpage($username);
     $normalized_numberofpage = 0;
     if ($_POST["pagesize"] == 'A4') {
@@ -36,18 +37,24 @@ function validate() {
 }
 
 function show_printer_list() {
+    //
+    $username = 'B.Tran';
+    //
     $print_state = $_SESSION['print_state'];
     $print_numberofpage = (int)$print_state['numberofcopy'] * (int)$print_state['numberofpages'];
     $pagesize = $print_state['pagesize'];
     $result = get_printer_list($print_numberofpage, $pagesize);
     $response = array();
+    $response['pagesize'] = $pagesize;
+    $response['user_numberofpage'] = get_user_numberofpage($username);
+    $response['list-of-printer'] = array();
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            $response[] = $row;
+            $response['list-of-printer'][] = $row;
         }
     }
     header('Content-Type: application/json');
-    echo json_encode($_SESSION['print_state']['numberofcopy']);
+    echo json_encode($response);
 }
 
 if ($_GET['action'] == 'validate') {
