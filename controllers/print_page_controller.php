@@ -16,7 +16,7 @@ function validate() {
         $normalized_numberofpage = 2 * (int)$_POST['numberofpages'] * (int)$_POST['numberofcopy'];
     }
     
-    if ($_POST['twofaced'] == 'twofaced') {
+    if ($_POST['twofaced'] == 'true') {
         $normalized_numberofpage = ceil($normalized_numberofpage / 2);
     }
 
