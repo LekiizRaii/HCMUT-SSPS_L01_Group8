@@ -5,6 +5,22 @@ function validate() {
     $returned_data = array();
     $returned_data['status'] = 'OK';
     $returned_data['error-type'] = '';
+    if ($_POST['semester-pages'] == '') {
+        $returned_data['status'] = 'ERROR';
+        $returned_data['error-type'] = 'PAGE';
+    }
+    else if (!preg_match("/^[1-9][0-9]*/i", $_POST['semester-pages'])) {
+        $returned_data['status'] = 'ERROR';
+        $returned_data['error-type'] = 'FORMAT';
+    }
+    else if ($_POST['page-giving-date'] == '') {
+        $returned_data['status'] = 'ERROR';
+        $returned_data['error-type'] = 'DATE';
+    }
+    else if ($_POST['page-giving-date'] < date('Y-m-d')) {
+        $returned_data['status'] = 'ERROR';
+        $returned_data['error-type'] = 'PAST';
+    }
     return $returned_data;
 }
 
@@ -22,6 +38,7 @@ function save_setting_info() {
 if ($_GET['action'] == 'validate') {
 
 }
+
 else if ($_GET['action'] == 'save-setting-info') {
     session_start();
     save_setting_info();

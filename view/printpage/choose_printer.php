@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang In</title>
+    <title>Trang chọn máy in</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -128,7 +128,7 @@
     </div>
     
     <section class="bg-gray-100 dark:bg-gray-900">
-        <h1 class="mt-4 text-3xl font-bold text-black dark:text-white ml-4 xl:ml-36">In Ngay</h1>
+        <h1 class="mt-4 text-3xl font-bold text-black dark:text-white ml-4 xl:ml-36">Chọn máy in và in ngay</h1>
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-6 grid lg:grid-cols-1 gap-8 lg:gap-7">
             <div>
                 <div class="m-auto w-full lg:max-w-full p-6 bg-white rounded-lg shadow-xl dark:bg-gray-800">

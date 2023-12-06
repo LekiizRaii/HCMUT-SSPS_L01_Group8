@@ -6,7 +6,6 @@ function validate() {
     $username = 'B.Tran';
     //
     $response = array();
-    $response['status'] = 'OK';
     $user_numberofpage = get_user_numberofpage($username);
     $normalized_numberofpage = 0;
     if ($_POST["pagesize"] == 'A4') {
@@ -21,17 +20,18 @@ function validate() {
     }
 
     if ($user_numberofpage < $normalized_numberofpage) {
-        $response['status'] = 'PAGE';
+        $response['status'] = 'ERROR';
+        $response['error-type'] = 'PAGE';
     }
     else {
         $response['status'] = 'OK';
+        $response['error-type'] = '';
         $data = $_POST;
         $data['printer_address'] = '';
         $data['status'] = 'pending';
         initialize_print_state();
         set_print_state($data);
     }
-    $response['info'] = '';
     header('Content-Type: application/json');
     echo json_encode($response);
 }

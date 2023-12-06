@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- <?php session_start(); ?> -->
+<?php session_start(); ?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Cài đặt In</title>
+    <title>Trang quản lý cài đặt in</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,7 +30,7 @@
 <body class="bg-gray-100 dark:bg-gray-900">
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-full flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="../homepage/homepage.html" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="../homepage/homepage.php" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="../img/hcmut.png" class="h-8" alt="HCMUT Logo" />
                 <div class="ml-4">
                     <div class="self-center text-base font-semibold whitespace-nowrap dark:text-white">Trường Đại học Bách Khoa - ĐHQG TP.HCM</div>
@@ -205,14 +205,31 @@
                         </fieldset>
                         <p class="h-10"></p>
                         <div class="flex flex-col justify-center">
-                            <h1 id="test">Test</h1>
-                            <!-- <a href="../homepage/homepage.php" id="save-button" type="submit" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-xl w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Lưu</a> -->
+                            <a data-modal-target="bug-modal" data-modal-toggle="bug-modal" href="#" id="save-button" type="button" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-xl w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Lưu</a>
                         </div>
                       </form>
                 </div>
             </div>
         </div>
     </section>
+
+    <div id="bug-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-2xl max-h-full">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <div class="space-y-0">
+                    <div id="Modal1"
+                        class="grid grid-cols-1 gap-4 p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div id="bodyModal"></div>
+                        <button id="bug" type="button" data-modal-hide="bug-modal" class="block text-lg m-auto px-4 sm:px-28 py-2 
+                            bg-blue-500 text-white rounded-md mb-3">
+                            Trở lại trang quản lý cài đặt in và điều chỉnh
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <script src="../navbar/darkmode.js"></script>

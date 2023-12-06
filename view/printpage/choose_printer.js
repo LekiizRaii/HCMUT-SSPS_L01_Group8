@@ -1,3 +1,12 @@
+$(document).ready(function () {
+    Promise.all([load_list_of_printer()]).then(function() {
+        $(document).ready(function () {
+            load_notification();
+        });
+    });
+
+});
+
 function load_list_of_printer() {
     return fetch('../../controllers/print_page_controller.php?action=show-printer-list', {credentials: 'include'})
     .then(response => response.json())
@@ -56,13 +65,7 @@ function load_list_of_printer() {
     });
 }
 
-Promise.all([load_list_of_printer()]).then(function() {
-    $(document).ready(function () {
-        loadPrintModal();
-    });
-});
-
-function loadPrintModal() {
+function load_notification() {
     $('#choose-printer').click(function (e) {
         e.preventDefault();
 

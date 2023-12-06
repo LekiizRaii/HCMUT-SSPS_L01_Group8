@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang In</title>
+    <title>Trang cung cấp thông tin in</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -28,7 +28,7 @@
 <body class="bg-gray-100 dark:bg-gray-900">
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-full flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="../homepage/homepage.html" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="../homepage/homepage.php" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="../img/hcmut.png" class="h-8" alt="HCMUT Logo" />
                 <div class="ml-4">
                     <div class="self-center text-base font-semibold whitespace-nowrap dark:text-white">Trường Đại học Bách Khoa - ĐHQG TP.HCM</div>
@@ -129,7 +129,7 @@
     </div>
     
     <section class="bg-gray-100 dark:bg-gray-900">
-        <h1 class="mt-4 text-3xl font-bold text-black dark:text-white ml-4 sm:ml-40">In Ngay</h1>
+        <h1 class="mt-4 text-3xl font-bold text-black dark:text-white ml-4 sm:ml-40 text-align:left">Cung cấp thông tin in</h1>
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-6 grid lg:grid-cols-2 gap-8 lg:gap-7">
             <div>
                 <div class="m-auto w-full lg:max-w-xl p-6 bg-white rounded-lg shadow-xl dark:bg-gray-800">
