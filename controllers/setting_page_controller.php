@@ -9,17 +9,21 @@ function validate() {
 }
 
 function save_setting_info() {
-    $check = validate();
-    if ($check['status'] == 'OK') {
-        
+    $response = validate();
+    if ($response['status'] == 'OK') {
+        $data = $_POST;
+        $data['saving-date'] = date('Y-m-d');
+        insert_setting_info($data);
     }
+    header('Content-Type: application/json');
+    echo json_encode($response);
 }
 
 if ($_GET['action'] == 'validate') {
 
 }
 else if ($_GET['action'] == 'save-setting-info') {
-
+    session_start();
+    save_setting_info();
 }
-
 ?>

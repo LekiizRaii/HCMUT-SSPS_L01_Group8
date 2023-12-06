@@ -12,10 +12,10 @@ function get_printer_list($print_numberofpage, $pagesize) {
     $conn = DataBase::getInstance();
     $query = '';
     if ($pagesize == 'A4') {
-        $query = "SELECT * FROM mayin WHERE tinhtrang = 'Working' AND sogiayA4 >= $print_numberofpage";
+        $query = "SELECT * FROM mayin WHERE tinhtrang = 'Enabled' AND sogiayA4 >= $print_numberofpage";
     }
     else {
-        $query = "SELECT * FROM mayin WHERE tinhtrang = 'Working' AND sogiayA3 >= $print_numberofpage";
+        $query = "SELECT * FROM mayin WHERE tinhtrang = 'Enabled' AND sogiayA3 >= $print_numberofpage";
     }
     $result = $conn->query($query);
     return $result;

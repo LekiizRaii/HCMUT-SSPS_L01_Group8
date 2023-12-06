@@ -1,10 +1,10 @@
 <?php
 require_once("../models/db_connection.php");
 
-function get_user_numberofpage($username) {
+function insert_setting_info($data) {
     $conn = DataBase::getInstance();
-    $query = "INSERT INTO soluonggiay AS numberofpage FROM NguoiDung WHERE tendangnhap = '$username'";
-    $result = $conn->query($query);
-    return $result->fetch_assoc()['numberofpage'];
+    $query = "INSERT INTO quanlycaidatin(SoGiayMoiHK, ThoiGianCungCap, DinhDangChoPhep, ThoiGianThayDoi) VALUES 
+    ({$data['semester-pages']}, '{$data['page-giving-date']}', '{$data['supported-formats']}', '{$data['saving-date']}');";
+    $conn->query($query);
 }
 ?>

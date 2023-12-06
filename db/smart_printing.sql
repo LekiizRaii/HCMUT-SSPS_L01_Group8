@@ -2178,23 +2178,23 @@ INSERT INTO `nguoidung` (`ID`, `Ten`, `TenDangNhap`, `Password`, `SoLuongGiay`) 
 ('ND0009', 'Vũ Văn I', 'I.Vu', '$2y$10$sx8KX/ehJVDmyNi1eWFjouwasrtNGYh/4PDTNEhClkBQ0ODwUKeai', 85),
 ('ND0010', 'Trương Thị K', 'K.Truong', '$2y$10$r2HuXjZMjuieS8sz704V4.7DwNOCWTlkXs/sR5yH9vYpXAc5htvE.', 95);
 
------------------------------------------------------------
+-- ---------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `quanlycaidatin`
 --
 
-CREATE TABLE quanlycaidatin(
-    ID INT NOT NULL,
-    SoGiayMoiHK INT NOT NULL,
-    ThoiGianCungCap DATE NOT NULL,
-    DinhDangChoPhep VARCHAR(50) NOT NULL,
-    ThoiGianThayDoi DATE NOT NULL
-    CHECK (ThoiGianThayDoi <= ThoiGianCungCap),
+CREATE TABLE `quanlycaidatin`(
+    `ID` INT NOT NULL,
+    `SoGiayMoiHK` INT NOT NULL,
+    `ThoiGianCungCap` DATE NOT NULL,
+    `DinhDangChoPhep` VARCHAR(50) NOT NULL,
+    `ThoiGianThayDoi` DATE NOT NULL
+    CHECK (`ThoiGianThayDoi` <= `ThoiGianCungCap`),
     PRIMARY KEY (ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 DELIMITER //
-CREATE TRIGGER tang_id BEFORE INSERT ON quanlycaidatin
+CREATE TRIGGER `tang_id` BEFORE INSERT ON `quanlycaidatin`
 FOR EACH ROW
 BEGIN
 	SET NEW.ID = IF((SELECT (MAX(ID) + 1) FROM quanlycaidatin) IS NOT NULL, (SELECT (MAX(ID) + 1) FROM quanlycaidatin), 1);
@@ -2206,9 +2206,9 @@ DELIMITER ;
 --
 
 INSERT INTO `quanlycaidatin`(`SoGiayMoiHK`, `ThoiGianCungCap`, `DinhDangChoPhep`, `ThoiGianThayDoi`) VALUES 
-(0, `2000-01-01`, `PDF,DOCX`, `2000-01-01`);
+(0, '2000-01-01', 'PDF,DOCX', '2000-01-01');
 
------------------------------------------------------------
+-- ---------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `quanlymayin`
