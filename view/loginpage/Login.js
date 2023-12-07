@@ -11,10 +11,10 @@ document.getElementById("login-button").addEventListener("click", function (even
             // Định nghĩa đường dẫn tới trang đăng nhập dựa trên vai trò (actor) đã trích xuất
             if (actor === "student") {
                 localStorage.setItem('idRole', 1)
-                loginPage = "../homepage/homepage.html";
+                loginPage = "../homepage/homepage.php";
             } else if (actor === "SPSO") {
                 localStorage.setItem('idRole', 2)
-                loginPage = "../homepage/homepage.html";
+                loginPage = "../homepage/homepage.php";
             }
 
             // Chuyển hướng đến trang đăng nhập tương ứng
@@ -28,6 +28,6 @@ document.getElementById("login-button").addEventListener("click", function (even
 });
 
 document.getElementById("nav__login__button").addEventListener("click", function () {
-    window.location.href = "./ChooseActor.html";
+    window.location.href = "./ChooseActor.php";
 });
 
