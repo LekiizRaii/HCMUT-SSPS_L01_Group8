@@ -2,7 +2,7 @@
 // File: getprintcounts.php query number of print done in each month
 
 // Connect to the database (replace with your actual database credentials)
-$servername = "localhost:3307";
+$servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "smart_printing";
