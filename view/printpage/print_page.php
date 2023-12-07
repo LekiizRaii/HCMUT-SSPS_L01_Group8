@@ -230,7 +230,7 @@
                                 bg-white border border-blue-500 text-blue-500 rounded-md mb-3 mx-6">
                                 Điều chỉnh lại
                             </button>
-                            <a href="../homepage/homepage.php" type="button" class="block text-lg text-center m-auto px-2 sm:px-8 py-2 
+                            <a href="../homepage/homepage.html" type="button" class="block text-lg text-center m-auto px-2 sm:px-8 py-2 
                                 bg-blue-500 text-white rounded-md mb-3 mx-6">
                                 Mua thêm giấy
                             </a>

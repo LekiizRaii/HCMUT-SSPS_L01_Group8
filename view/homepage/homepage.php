@@ -169,7 +169,7 @@ $res_student = $conn->query($sql_student);
                 <img class="m-auto mt-4 w-48 h-48" src="../img/printer1.png" alt="homepage0">
                 <h2 class="text-3xl font-bold text-center mt-5 py-1 px-1">IN NGAY</h2>
             </a>
-            <a href="../history/history.php" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
+            <a href="../history/history.html" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
                 <img class="m-auto mt-4 w-48 h-48" src="../img/history1.png" alt="homepage0">
                 <h2 class="text-3xl font-bold text-center mt-5 py-1 px-1">LỊCH SỬ</h2>
             </a>
@@ -184,21 +184,21 @@ $res_student = $conn->query($sql_student);
                 <img class="m-auto mt-0 w-36 h-36" src="../img/printer1.png" alt="homepage0">
                 <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">IN NGAY</h2>
             </a>
-            <a href="../history/history.php" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
+            <a href="../history/history.html" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
                 <img class="m-auto mt-0 w-36 h-36" src="../img/history1.png" alt="homepage0">
                 <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">LỊCH SỬ</h2>
             </a>
-            <a href="../report/report.php" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
+            <a href="../report/report.html" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-6/12 lg:w-5/12 xl:w-4/12" style="border-radius: 40px;">
                 <img class="m-auto mt-0 w-36 h-36" src="../img/report.png" alt="homepage0">
                 <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">BÁO CÁO</h2>
             </a>
         </div>
         <div class="flex flex-col md:flex-row items-center justify-center">
-            <a href="../settingspage/settingspage.php" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-4/12 lg:w-3/12 xl:w-3/12" style="border-radius: 40px;">
+            <a href="../settingspage/settingspage.html" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-4/12 lg:w-3/12 xl:w-3/12" style="border-radius: 40px;">
                 <img class="m-auto mt-0 w-36 h-36" src="../img/setting.png" alt="homepage0">
                 <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">CÀI ĐẶT IN</h2>
             </a>
-            <a href="../management/managementDefault.php" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-4/12 lg:w-3/12 xl:w-3/12" style="border-radius: 40px;">
+            <a href="../management/managementDefault.html" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-4/12 lg:w-3/12 xl:w-3/12" style="border-radius: 40px;">
                 <img class="m-auto mt-0 w-36 h-36" src="../img/management.png" alt="homepage0">
                 <h2 class="text-3xl font-bold text-center mt-1 py-1 px-1">QUẢN LÝ MÁY IN</h2>
             </a>
