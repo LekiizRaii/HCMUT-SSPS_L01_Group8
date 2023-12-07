@@ -49,7 +49,7 @@
 <body class="bg-gray-100 dark:bg-gray-900">
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-full flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="../homepage/homepage.html" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="../homepage/homepage.php" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="../img/hcmut.png" class="h-8" alt="HCMUT Logo" />
                 <div class="ml-4">
                     <div class="self-center text-base font-semibold whitespace-nowrap dark:text-white">Trường Đại học Bách Khoa - ĐHQG TP.HCM</div>
@@ -82,8 +82,8 @@
                     </h2>
                     <form class="mt-8 space-y-6" action="#">
                         <div id="actor-buttons">
-                            <a class="actor-button bg-blue-600 dark:bg-blue-600" href="Login.html?actor=student" style="font-size: large;">Sinh viên</a>
-                            <a class="actor-button bg-blue-600 dark:bg-blue-600" href="Login.html?actor=SPSO" style="font-size: large;">SPSO</a>
+                            <a class="actor-button bg-blue-600 dark:bg-blue-600" href="Login.php?actor=student" style="font-size: large;">Sinh viên</a>
+                            <a class="actor-button bg-blue-600 dark:bg-blue-600" href="Login.php?actor=SPSO" style="font-size: large;">SPSO</a>
                         </div>
                     </form>
                 </div>
