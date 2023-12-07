@@ -16,7 +16,7 @@ function load_notification() {
         e.preventDefault();
 
         print_page_params = {};
-        print_page_params["file_input"] = document.getElementById("file_input").value;
+        print_page_params["path"] = document.getElementById("file_input").value;
         print_page_params["numberofcopy"] = document.getElementById("numberofcopy").value;
         print_page_params["numberofpages"] = document.getElementById("pages").value;
         print_page_params["pagesize"] = document.getElementById("size").value;

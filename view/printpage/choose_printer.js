@@ -71,8 +71,8 @@ function load_notification() {
 
         var isInProgress = true;
         var choose_printer_params = new Array();
-        choose_printer_params["printer-address"] = e.target.dataset.printerAddress;
-        choose_printer_params["printer-id"] = e.target.dataset.printerId;
+        choose_printer_params["printer_address"] = e.target.dataset.printerAddress;
+        choose_printer_params["printer_id"] = e.target.dataset.printerId;
 
         var params = new FormData();
         for (var key in choose_printer_params) {
@@ -91,6 +91,8 @@ function load_notification() {
             $('#return-home').hide();
 
             fetch('../../controllers/print_page_controller.php?action=do-print', {
+                method: 'POST',
+                body: params,
                 credentials: 'include'
             })
             .then(response => response.json())

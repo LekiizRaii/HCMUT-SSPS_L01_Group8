@@ -3,7 +3,7 @@ require_once('../models/print_page_model.php');
 
 function validate() {
     $response = array();
-    if ($_POST['file_input'] == '') {
+    if ($_POST['path'] == '') {
         $response['status'] = 'ERROR';
         $response['error-type'] = 'FILE';
     }
@@ -76,7 +76,7 @@ function validate() {
                 else {
                     $flag = FALSE;
                     $response['status'] = 'ERROR';
-                    $response['error-type'] = 'PAGE-LOGI';
+                    $response['error-type'] = 'PAGE-LOGIC';
                 }
             }      
         }
@@ -105,8 +105,9 @@ function validate() {
                 $data = $_POST;
                 $data['numberofpages'] = $numberofpages;
                 $data['numberofpages-format'] = $_POST['numberofpages'];
+                $data['printer_id'] = '';
                 $data['printer_address'] = '';
-                $data['status'] = 'pending';
+                $data['status'] = 'Working';
                 set_print_state($data);
             }
         }
@@ -137,22 +138,28 @@ function show_printer_list() {
 }
 
 function do_print() {
+    $response = 'OK';
+    $data = $_SESSION['print_state'];
     //
-    $print_status = TRUE
+    $print_status = TRUE;
     $user_id = "ND0002";
+    $user_name = "B.Tran";
     //
     $data['time'] = date("Y-m-d h:i:s");
+    $data['user-id'] = $user_id;
+    $data['printer_address'] = $_POST['printer_address'];
+    $data['printer_id'] = $_POST['printer_id'];
     if ($print_status) {
         $data['status'] = 'Done';
+        set_print_state($data);
+        insert_print_history($data);
+        modify_print_info($data);
     }
     else {
         $data['status'] = 'Error';
     }
-    
-    if ($print_status) {
-        insert_print_history();
-        modify_print_info();
-    }
+    header('Content-Type: application/json');
+    echo json_encode($response);
 }
 
 if ($_GET['action'] == 'validate') {
