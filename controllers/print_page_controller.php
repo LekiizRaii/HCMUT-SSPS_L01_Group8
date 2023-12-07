@@ -139,7 +139,16 @@ function show_printer_list() {
 function do_print() {
     //
     $print_status = TRUE
+    $user_id = "ND0002";
     //
+    $data['time'] = date("Y-m-d h:i:s");
+    if ($print_status) {
+        $data['status'] = 'Done';
+    }
+    else {
+        $data['status'] = 'Error';
+    }
+    
     if ($print_status) {
         insert_print_history();
         modify_print_info();
