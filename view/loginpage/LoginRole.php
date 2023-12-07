@@ -11,10 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Define the login page path based on the extracted actor role
         if ($actor === "student") {
             $_SESSION['idRole'] = 1;
-            $loginPage = "../homepage/homepage.html";
+            $loginPage = "../homepage/homepage.php";
         } elseif ($actor === "SPSO") {
             $_SESSION['idRole'] = 2;
-            $loginPage = "../homepage/homepage.html";
+            $loginPage = "../homepage/homepage.php";
         }
 
         // Redirect to the corresponding login page

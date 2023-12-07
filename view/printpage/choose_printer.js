@@ -57,7 +57,7 @@ function load_list_of_printer() {
                             ${numberofpages}
                         </td>
                         <td class="px-6 py-4 text-center">
-                            <a id="choose-printer" data-modal-target="print-modal" data-modal-toggle="print-modal" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Chọn</a>
+                            <a data-printer-address="${item['DiaChiIP']}" data-printer-id="${item['ID']}" id="${item['ID']}" name="choose-printer" data-modal-target="print-modal" data-modal-toggle="print-modal" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Chọn</a>
                         </td>
                     </tr>`;
         });
@@ -66,10 +66,18 @@ function load_list_of_printer() {
 }
 
 function load_notification() {
-    $('#choose-printer').click(function (e) {
+    $('[name=choose-printer]').click(function (e) {
         e.preventDefault();
 
         var isInProgress = true;
+        var choose_printer_params = new Array();
+        choose_printer_params["printer-address"] = e.target.dataset.printerAddress;
+        choose_printer_params["printer-id"] = e.target.dataset.printerId;
+
+        var params = new FormData();
+        for (var key in choose_printer_params) {
+            params.append(key, choose_printer_params[key]);
+        }
 
         if (isInProgress) {
             // Đang in
@@ -82,17 +90,23 @@ function load_notification() {
             $('#bodyModal').html(str);
             $('#return-home').hide();
 
-            // Simulate a delay of 1.5 seconds (1500 milliseconds) for printing
-            setTimeout(function () {
-                // After the delay, transition to the "In thành công" state
-                var successStr = `
-                    <div class="flex flex-col m-auto max-w-screen p-4">
-                        <h1 class="text-3xl text-center font-normal m-auto dark:text-white mb-4">File của bạn đã được in thành công.</h1>
-                        <img src="../img/happy-face.png" alt="Hình ảnh" class="w-6/12 m-auto my-3">
-                    </div>`;
-                $('#bodyModal').html(successStr);
-                $('#return-home').show();
-            }, 1500); // 1500 milliseconds (1.5 seconds)
+            fetch('../../controllers/print_page_controller.php?action=do-print', {
+                credentials: 'include'
+            })
+            .then(response => response.json())
+            .then(response => {
+                // Simulate a delay of 1.5 seconds (1500 milliseconds) for printing
+                setTimeout(function () {
+                    // After the delay, transition to the "In thành công" state
+                    var successStr = `
+                        <div class="flex flex-col m-auto max-w-screen p-4">
+                            <h1 class="text-3xl text-center font-normal m-auto dark:text-white mb-4">File của bạn đã được in thành công.</h1>
+                            <img src="../img/happy-face.png" alt="Hình ảnh" class="w-6/12 m-auto my-3">
+                        </div>`;
+                    $('#bodyModal').html(successStr);
+                    $('#return-home').show();
+                }, 1500); // 1500 milliseconds (1.5 seconds)
+            });
         }
     });
 }

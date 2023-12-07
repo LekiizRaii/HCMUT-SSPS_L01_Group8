@@ -21,6 +21,14 @@ function get_printer_list($print_numberofpage, $pagesize) {
     return $result;
 }
 
+function insert_print_history() {
+
+}
+
+function modify_print_info() {
+    
+}
+
 function set_print_state($data) {
     if (!isset($print_state)) {
         $print_state = array();
@@ -28,6 +36,7 @@ function set_print_state($data) {
     $print_state['path'] = $data['file_input'];
     $print_state['numberofcopy'] = $data['numberofcopy'];
     $print_state['numberofpages'] = $data['numberofpages'];
+    $print_state['numberofpages-format'] = $data['numberofpages-format'];
     $print_state['pagesize'] = $data['pagesize'];
     $print_state['orientation'] = $data['orientation'];
     $print_state['twofaced'] = $data['twofaced'];
@@ -43,6 +52,7 @@ function initialize_print_state() {
     $print_state['path'] = '';
     $print_state['numberofcopy'] = 0;
     $print_state['numberofpages'] = 0;
+    $print_state['numberofpages-format'] = 'All';
     $print_state['pagesize'] = 'A4';
     $print_state['orientation'] = 'portrait';
     $print_state['twofaced'] = 'true';

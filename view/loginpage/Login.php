@@ -3,7 +3,7 @@ session_start();
 ob_start();
 
 // Connect to the database (replace with your actual database credentials)
-$servername = "localhost:3307";
+$servername = "localhost";
 $username = "root";
 $dbpassword = "";
 $dbname = "smart_printing";

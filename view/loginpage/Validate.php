@@ -1,6 +1,6 @@
 <?php
 function checkTenDangNhapExist($TenDangNhap) {
-    $conn = @new mysqli("localhost:3307", "root", "", "smart_printing");
+    $conn = @new mysqli("localhost", "root", "", "smart_printing");
     $conn->error;
     if ($conn->error) {
         die('Kết nối thất bại'.$conn->error);

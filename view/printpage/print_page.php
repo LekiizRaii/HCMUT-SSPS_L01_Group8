@@ -164,16 +164,13 @@
                         <div class="flex flew-col sm:flex-row mb-2">
                             <div class="mr-auto" style="width: 48%">
                                 <label for="pages" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Số trang</label>
-                                <input name="numberofpages" type="text" id="pages" class="bg-gray-50 border border-gray-300 pl-3 sm:pl-5 text-gray-900 sm:text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="VD: tất cả, chẵn, 1-14">
+                                <input name="numberofpages" type="text" id="pages" class="bg-gray-50 border border-gray-300 pl-3 sm:pl-5 text-gray-900 sm:text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ví dụ: All, 12, 1-12, 1-12-2" value="All">
                             </div>
                             <div class="ml-auto" style="width: 48%">
                                 <label for="size" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Cỡ giấy</label>
                                 <select name="pagesize" id="size" class="bg-gray-50 border border-gray-300 pl-3 sm:pl-5 w-20 text-gray-400 text-lg rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     <option>A4</option>
                                     <option>A3</option>
-                                    <!-- <option>A2</option>
-                                    <option>A1</option>
-                                    <option>A0</option> -->
                                 </select>
                             </div>
                         </div>
@@ -230,7 +227,7 @@
                                 bg-white border border-blue-500 text-blue-500 rounded-md mb-3 mx-6">
                                 Điều chỉnh lại
                             </button>
-                            <a href="../homepage/homepage.html" type="button" class="block text-lg text-center m-auto px-2 sm:px-8 py-2 
+                            <a href="../homepage/homepage.php" type="button" class="block text-lg text-center m-auto px-2 sm:px-8 py-2 
                                 bg-blue-500 text-white rounded-md mb-3 mx-6">
                                 Mua thêm giấy
                             </a>

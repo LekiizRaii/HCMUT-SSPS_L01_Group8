@@ -42,7 +42,6 @@ function load_notification() {
         .then(response => response.json())
         .then(response => {
             if (response['status'] == 'OK') {
-                alert(response['error-type']);
                 $('#bug-modal').remove();
                 Swal.fire({
                     title: "Thành công",
@@ -65,7 +64,7 @@ function load_notification() {
                     if (result.dismiss === Swal.DismissReason.timer) {
                         console.log("I was closed by the timer");
                     }
-                    // window.location.replace("./choose_printer.php");
+                    window.location.replace("./choose_printer.php");
                 });
             } 
             else if (response['status'] == 'ERROR') {
@@ -109,6 +108,10 @@ function load_notification() {
                         message = "Định dạng số trang cần in không phù hợp.";
                         request = "Vui lòng nhập số trang cần in theo định dạng được quy định.";
                     }
+                    else if (response['error-type'] == 'PAGE-LOGIC') {
+                        message = "Bạn nhập vào số trang cần in không hợp lý.";
+                        request = "Vui lòng kiểm tra lại tính hợp lý của số trang cần in.";
+                    }
                     var str = '';
                     str += `
                             <div class="flex flex-col m-auto max-w-screen p-4">
@@ -151,7 +154,6 @@ function preview_file(input) {
         reader.onload = function (e) {
             e.preventDefault();
             var file = fileInput.files[0];
-            console.log(e.target.result);
 
             // Check if the file is a PDF
             if (file.type === 'application/pdf') {
