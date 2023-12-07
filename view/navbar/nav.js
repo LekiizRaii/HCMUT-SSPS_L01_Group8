@@ -189,7 +189,7 @@ function signout() {
                 }).then(() => {
                     localStorage.removeItem('idRole');
                     localStorage.removeItem('userInfo');
-                    window.location.replace("../homepage/homepage.html");
+                    window.location.replace("../homepage/homepage.php");
                 });
             }
         });
