@@ -97,7 +97,7 @@ function load_notification() {
                                 <img src="../img/error.png"
                                 alt="Hình ảnh" class="w-7/12 m-auto my-3">
                         
-                                <p class="font-bold text-xl text-center text-black m-auto dark:text-white mt-3" style="color:red">${message}</p>
+                                <p class="font-bold text-xl text-center text-black m-auto dark:text-white mt-3">${message}</p>
                                 <br>
                                 <p class="text-xl text-center text-black m-auto dark:text-white">${request}</p>
                             </div>   

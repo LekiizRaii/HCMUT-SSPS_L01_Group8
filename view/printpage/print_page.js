@@ -77,7 +77,7 @@ function load_notification() {
                                 <img src="../img/notenoughpage.png"
                                 alt="Hình ảnh" class="w-4/12 m-auto my-3">
                         
-                                <p class="text-xl text-center text-black m-auto dark:text-white mt-3 font-bold" style="color:red">Bạn không có đủ giấy để in file này.</p>
+                                <p class="text-xl text-center text-black m-auto dark:text-white mt-3 font-bold">Bạn không có đủ giấy để in file này.</p>
                                 <br>
                                 <p class="text-xl text-center text-black m-auto dark:text-white">Vui lòng mua thêm giấy in hoặc điều chỉnh lại thông tin in.</p>
                             </div>   
@@ -120,7 +120,7 @@ function load_notification() {
                                 <img src="../img/error.png"
                                 alt="Hình ảnh" class="w-7/12 m-auto my-3">
                         
-                                <p class="text-xl text-center text-black m-auto dark:text-white mt-3 font-bold" style="color:red">${message}</p>
+                                <p class="text-xl text-center text-black m-auto dark:text-white mt-3 font-bold">${message}</p>
                                 <br>
                                 <p class="text-xl text-center text-black m-auto dark:text-white">${request}</p>
                             </div>   

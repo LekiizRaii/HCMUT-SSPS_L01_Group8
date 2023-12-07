@@ -72,7 +72,7 @@ function modify_print_info($data) {
         $query = "UPDATE mayin SET SoGiayA4 = $printer_numberofpage WHERE ID = '{$data['printer_id']}';";
     }
     else {
-        $query = "UPDATE mayin SET SoGiayA3 = $print_numberofpage WHERE ID = '{$data['printer_id']}';";
+        $query = "UPDATE mayin SET SoGiayA3 = $printer_numberofpage WHERE ID = '{$data['printer_id']}';";
     }
     $conn->query($query);
 }
