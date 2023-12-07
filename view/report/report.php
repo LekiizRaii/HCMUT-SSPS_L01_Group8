@@ -75,8 +75,6 @@
                     <div class="mr-0.5">
                         <div class="self-center text-right text-base font-semibold whitespace-nowrap :dark:text-white">
                             Danh Hoang</div>
-                        <div class="self-center text-right text-sm whitespace-nowrap :dark:text-white"
-                            id="user__student">Student</div>
                         <div class="self-center text-right text-sm whitespace-nowrap :dark:text-white" id="user__SPSO">
                             SPSO</div>
                     </div>
@@ -886,6 +884,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-    <script src="/view/navbar/darkmode.js"></script>
-    <script src="/view/navbar/nav.js"></script>
+    <script src="../navbar/darkmode.js"></script>
+    <script src="../navbar/nav.js"></script>
 </body>
