@@ -11,7 +11,7 @@ function validate() {
         $response['status'] = 'ERROR';
         $response['error-type'] = 'COPY-NUMBER';
     }
-    else if (!preg_match("/^[1-9][0-9]*/i", $_POST['numberofcopy'])) {
+    else if (!preg_match("/^[1-9][0-9]*$/i", $_POST['numberofcopy'])) {
         $response['status'] = 'ERROR';
         $response['error-type'] = 'COPY-FORMAT';
     }
@@ -20,9 +20,9 @@ function validate() {
         $response['error-type'] = 'PAGE-NUMBER';
     }
     else if ($_POST['numberofpages'] != 'All'
-             and !preg_match("/^[1-9][0-9]*/i", $_POST['numberofpages'])
-             and !preg_match("/^[1-9][0-9]*-[1-9][0-9]*/i", $_POST['numberofpages'])
-             and !preg_match("/^[1-9][0-9]*-[1-9][0-9]*-[1-9][0-9]*/i", $_POST['numberofpages'])) {
+             and !preg_match("/^[1-9][0-9]*$/i", $_POST['numberofpages'])
+             and !preg_match("/^[1-9][0-9]*-[1-9][0-9]*$/i", $_POST['numberofpages'])
+             and !preg_match("/^[1-9][0-9]*-[1-9][0-9]*-[1-9][0-9]*$/i", $_POST['numberofpages'])) {
             $response['status'] = 'ERROR';
             $response['error-type'] = 'PAGE-FORMAT';
     }
@@ -162,6 +162,47 @@ function do_print() {
     echo json_encode($response);
 }
 
+function upload_file() {
+    $response = array();
+    if(isset($_FILES['file-properties']['name'])) {
+        // file name
+        $filename = $_FILES['file-properties']['name'];
+     
+        // Location
+        $location = "../uploads/".$filename;
+     
+        // file extension
+        $file_extension = pathinfo($location, PATHINFO_EXTENSION);
+        $file_extension = strtolower($file_extension);
+     
+        // Valid extensions
+        $format_str = get_file_format();
+        $format_str = strtolower($format_str);
+        $valid_ext = explode(",", $format_str);
+     
+        if(in_array($file_extension,$valid_ext)){
+            // Upload file
+            if(move_uploaded_file($_FILES['file-properties']['tmp_name'],$location)) {
+            $response['status'] = 'OK';
+            $response['error-type'] = '';
+            }
+        }
+        else {
+            $response['status'] = 'ERROR';
+            $response['error-type'] = 'SYSTEM';
+        }
+    } 
+    header('Content-Type: application/json');
+    echo json_encode($response);
+}
+
+function load_file_format() {
+    $format_str = get_file_format();
+    $response = explode(",", $format_str);
+    header('Content-Type: application/json');
+    echo json_encode($response);
+}
+
 if ($_GET['action'] == 'validate') {
     session_start();
     validate();
@@ -173,5 +214,13 @@ else if ($_GET['action'] == 'show-printer-list') {
 else if ($_GET['action'] == 'do-print') {
     session_start();
     do_print();
+}
+else if ($_GET['action'] == 'upload') {
+    session_start();
+    upload_file();
+}
+else if ($_GET['action'] == 'load-format') {
+    session_start();
+    load_file_format();
 }
 ?>

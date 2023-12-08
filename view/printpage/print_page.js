@@ -1,15 +1,40 @@
 $(document).ready(function () {
-    load_notification();
+    Promise.all([load_file_format()])
+    .then(function() {
+            load_notification();
 
-    // Load default preview image on document ready
-    // showDefaultPreview();
-    
-    // Attach event listener to file input change
-    $('#file_input').change(function (e) {
-        e.preventDefault();
-        preview_file(this);
-    });
+            // Load default preview image on document ready
+            // showDefaultPreview();
+            
+            // Attach event listener to file input change
+            $('#file_input').change(function (e) {
+                e.preventDefault();
+                preview_file();
+            });
+        }
+    );
 });
+
+function load_file_format() {
+    return fetch('../../controllers/print_page_controller.php?action=load-format', {credentials: 'include'})
+    .then(response => response.json())
+    .then(response => {
+        var format_str = "";
+        var accept_str = "";
+        for (var i = 0; i < response.length; i++) {
+            if (i > 0) {
+                format_str += `, ${response[i]}`;
+                accept_str += `, .${response[i]}`;
+            }
+            else {
+                format_str += `${response[i]}`
+                accept_str += `.${response[i]}`;
+            }
+        }
+        $("#file_input_help").html(`Hỗ trợ các định dạng file ${format_str} (tối đa 30MB)`);
+        document.getElementById("file_input").setAttribute("accept", accept_str);
+    });
+}
 
 function load_notification() {
     $('#save-button').click(function (e) {
@@ -81,7 +106,7 @@ function load_notification() {
                                 <br>
                                 <p class="text-xl text-center text-black m-auto dark:text-white">Vui lòng mua thêm giấy in hoặc điều chỉnh lại thông tin in.</p>
                             </div>   
-                            `
+                            `;
                     $('#bodyModal').html(str);
                     $('#bug1').remove();
                 }
@@ -115,7 +140,7 @@ function load_notification() {
                     var str = '';
                     str += `
                             <div class="flex flex-col m-auto max-w-screen p-4">
-                                <h1 class="text-2xl text-center font-bold m-auto dark:text-white mb-3">LỖI CÀI ĐẶT IN</h1>
+                                <h1 class="text-2xl text-center font-bold m-auto dark:text-white mb-3">LỖI THÔNG TIN IN</h1>
                         
                                 <img src="../img/error.png"
                                 alt="Hình ảnh" class="w-7/12 m-auto my-3">
@@ -124,7 +149,7 @@ function load_notification() {
                                 <br>
                                 <p class="text-xl text-center text-black m-auto dark:text-white">${request}</p>
                             </div>   
-                            `
+                            `;
                     $('#bodyModal').html(str);
                     $('#bug2').remove();
                 }
@@ -133,9 +158,46 @@ function load_notification() {
     });
 }
 
-function preview_file(input) {
+function preview_file() {
     var fileInput = $('#file_input')[0];
     var previewContainer = $('#preview');
+
+    if (fileInput.files && fileInput.files[0]) {
+        if (fileInput.files[0].size > 30000000) {
+            var str = '';
+            str += `
+                    <div class="flex flex-col m-auto max-w-screen p-4">
+                        <h1 class="text-2xl text-center font-bold m-auto dark:text-white mb-3">KÍCH THƯỚC KHÔNG PHÙ HỢP</h1>
+                
+                        <img src="../img/error.png"
+                        alt="Hình ảnh" class="w-4/12 m-auto my-3">
+                
+                        <p class="text-xl text-center text-black m-auto dark:text-white mt-3 font-bold">File bạn chọn có kích thước quá lớn.</p>
+                        <br>
+                        <p class="text-xl text-center text-black m-auto dark:text-white">Vui lòng chọn file có kích thước tối đa là 30MB</p>
+                    </div>   
+                    `;
+            $('#bodyModal').html(str);
+            $('#bug2').remove();
+            $('#upload').trigger('click');
+            return ;
+        }
+        var str = '';
+        str += `
+                <div class="flex flex-col m-auto max-w-screen p-4">
+                    <h1 class="text-2xl text-center font-bold m-auto dark:text-white mb-3">TẢI FILE LÊN</h1>
+            
+                    <img src="../img/upload.png"
+                    alt="Hình ảnh" class="w-4/12 m-auto my-3">
+            
+                    <p class="text-xl text-center text-black m-auto dark:text-white mt-3 font-bold">File của bạn đang được tải lên.</p>
+                </div>   
+                `;
+        $('#bodyModal').html(str);
+        $('#bug1').remove();
+        $('#bug2').remove();
+        $('#upload').trigger('click'); 
+    }
 
     // Clear previous content in the preview container
     previewContainer.empty();
@@ -143,16 +205,16 @@ function preview_file(input) {
     // Hide the default image
     $('#default-preview-image').hide();
 
-    // Hide the default image
-    // $('#default_preview').hide();
-
     // Check if a file is selected
     if (fileInput.files && fileInput.files[0]) {
+        // $('#upload').trigger('click'); 
+
         var reader = new FileReader();
 
         // Display the selected file in the preview container
         reader.onload = function (e) {
             e.preventDefault();
+
             var file = fileInput.files[0];
 
             // Check if the file is a PDF
@@ -184,6 +246,24 @@ function preview_file(input) {
                 });
                 previewContainer.append(previewImage);
             }
+
+            var params = new FormData();
+            params.append('file-type', file.type);
+            params.append('file-properties', file);
+
+            Promise.all([
+                fetch('../../controllers/print_page_controller.php?action=upload', {
+                    method: 'POST',
+                    body: params,
+                    credentials: 'include'
+                })
+                .then(response => response.json())
+                .then(response => {
+                    console.log(response);
+                })])
+            .then(function() {
+                $('#upload').trigger('click'); 
+            });
         };
 
         // Read the selected file as a data URL

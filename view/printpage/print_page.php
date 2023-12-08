@@ -11,6 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
     <!-- <script src="https://unpkg.com/pdfjs-dist/build/pdf.min.js"></script> -->
 
@@ -153,9 +154,12 @@
                     <form class="" action="controllers/print_page_controller.php" method="post">
                         <div class="mb-2">     
                             <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-white" for="file_input">Tải tệp lên</label>
-                            <!-- <input name='file_input' data-modal-target="upload-modal" data-modal-toggle="upload-modal" accept=".docx, .pdf, .jpg, .png" class="block w-full text-lg text-gray-900 border border-gray-300 rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" onchange="previewFile(this);"/> -->
-                            <input name='file_input' accept=".docx, .pdf, .jpg, .png" class="block w-full text-lg text-gray-900 border border-gray-300 rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
-                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">DOCX, PDF, JPG hoặc PNG (tối đa 500MBs)</p>
+                            <h1 hidden=true id="upload" data-modal-target="bug-modal" data-modal-toggle="bug-modal"></h1>
+                            <h1 hidden=true id="upload-close" data-modal-target="bug-modal" data-modal-toggle="bug-modal"></h1>
+                            <input name='file_input' class="block w-full text-lg text-gray-900 border border-gray-300 rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">
+                                <!-- Auto add content here -->
+                            </p>
                         </div>
                         <div class="mb-2">
                             <label for="numberofcopy" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Số lượng bản in</label>

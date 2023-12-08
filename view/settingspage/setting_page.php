@@ -185,8 +185,8 @@
                                     </div>
                                     <br>
                                     <div class="flex items-center m-auto">
-                                        <input id="PDS" name="file-format" type="checkbox" value="PDS" class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="PDS" class="ms-2 text-lg text-gray-500 dark:text-gray-300">PDS</label>
+                                        <input id="PDS" name="file-format" type="checkbox" value="PNG" class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="PDS" class="ms-2 text-lg text-gray-500 dark:text-gray-300">PNG</label>
                                     </div>
                                 </div>
 

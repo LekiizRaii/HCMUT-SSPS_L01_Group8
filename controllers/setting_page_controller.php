@@ -9,7 +9,7 @@ function validate() {
         $returned_data['status'] = 'ERROR';
         $returned_data['error-type'] = 'PAGE';
     }
-    else if (!preg_match("/^[1-9][0-9]*/i", $_POST['semester-pages'])) {
+    else if (!preg_match("/^[1-9][0-9]*$/i", $_POST['semester-pages'])) {
         $returned_data['status'] = 'ERROR';
         $returned_data['error-type'] = 'FORMAT';
     }

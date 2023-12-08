@@ -99,6 +99,16 @@ function set_print_state($data) {
     $_SESSION['print_state'] = $print_state;
 }
 
+function get_file_format() {
+    $conn = DataBase::getInstance();
+    $query = '';
+
+    $query = "SELECT dinhdangchophep AS format FROM quanlycaidatin 
+              WHERE STT = (SELECT MAX(STT) FROM quanlycaidatin);";
+    $result = $conn->query($query);
+    return $result->fetch_assoc()['format'];
+}
+
 function initialize_print_state() {
     if (!isset($print_state)) {
         $print_state = array();
