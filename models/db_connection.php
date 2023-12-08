@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
+$servername = "localhost:3307";
 $username = "root";
-$password = "Danh@mysql@23";
+$password = "";
 $dbname = "smart_printing";
 
 class DataBase
