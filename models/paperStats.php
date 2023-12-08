@@ -4,16 +4,11 @@ require_once("../models/db_connection.php");
 
 $conn = DataBase::getInstance();
 // Fetch print counts for each day in each month
-$sql = "SELECT 
-            SUBSTRING_INDEX(Ten, '.', -1) AS file_type,
-            COUNT(*) AS file_count
-        FROM 
-            TaiLieu
-        GROUP BY 
-            file_type
-        ORDER BY 
-            file_count DESC
-        LIMIT 7";
+$sql = "SELECT loaigiay, SUM(sotrang) AS total_sheets
+        FROM tailieu
+        GROUP BY loaigiay
+        ORDER BY total_sheets DESC
+        LIMIT 5";
 
 $result = $conn->query($sql);
 

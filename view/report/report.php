@@ -156,40 +156,43 @@
             <?php 
                 switch ($month) {
                     case '1':
-                        echo "January 2023";
+                        echo "Tháng 01/2023";
                         break;
                     case '2':
-                        echo "February 2023";
+                        echo "Tháng 02/2023";
                         break;
                     case '3':
-                        echo "March 2023";
+                        echo "Tháng 03/2023";
                         break;
                     case '4':
-                        echo "April 2023";
+                        echo "Tháng 04/2023";
                         break;
                     case '5':
-                        echo "May 2023";
+                        echo "Tháng 05/2023";
                         break;
                     case '6':
-                        echo "June 2023";
+                        echo "Tháng 06/2023";
                         break;
                     case '7':
-                        echo "July 2023";
+                        echo "Tháng 07/2023";
                         break;
                     case '8':
-                        echo "August 2023";
+                        echo "Tháng 08/2023";
                         break;
                     case '9':
-                        echo "January 2023";
+                        echo "Tháng 09/2023";
                         break;
                     case '10':
-                        echo "October 2023";
+                        echo "Tháng 10/2023";
                         break;
                     case '11':
-                        echo "November 2023";
+                        echo "Tháng 11/2023";
                         break;
+                    case '12':
+                            echo "Tháng 12/2023";
+                            break;
                     default:
-                        echo "November 2023";
+                        echo "Tháng 11/2023";
                 }
             ?>
             <svg class="w-2.5 m-2.5 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -205,64 +208,70 @@
                 <li>
                     <!-- <a href="./report.php?month=1" -->
                     <a href="./report.php?month=1"
-                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">January
-                        2023</a>
+                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">Tháng 01/2023
+                    </a>
                 </li>
                 <li>
                     <a href="./report.php?month=2"
-                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">February
-                        2023</a>
+                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">Tháng 02/2023
+                    </a>
                 </li>
                 <li>
                     <a href="./report.php?month=3"
                         class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">
-                        March 2023</a>
+                        Tháng 03/2023</a>
                 </li>
                 <li>
                     <a href="./report.php?month=4"
-                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">April
-                        2023</a>
+                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">
+                        Tháng 04/2023</a>
                 </li>
                 <li>
                     <a href="./report.php?month=5"
-                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">May
-                        2023
+                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">
+                        Tháng 05/2023
                     </a>
                 </li>
                 <li>
                     <a href="./report.php?month=6"
-                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">June
-                        2023
+                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">
+                        Tháng 6/2023
                     </a>
                 </li>
                 <li>
                     <a href="./report.php?month=7"
-                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">July
-                        2023
+                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">
+                        Tháng 07/2023
                     </a>
                 </li>
                 <li>
                     <a href="./report.php?month=8"
-                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">August
-                        2023
+                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">
+                        Tháng 08/2023
                     </a>
                 </li>
                 <li>
                     <a href="./report.php?month=9"
-                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">September
-                        2023
+                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">
+                        Tháng 09/2023
                     </a>
                 </li>
                 <li>
                     <a href="./report.php?month=10"
-                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">October
-                        2023
+                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">
+                        Tháng 10/2023
                     </a>
                 </li>
                 <li>
                     <a href="./report.php?month=11"
-                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">November
-                        2023
+                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">
+                        Tháng 11/2023
+                    </a>
+                </li>
+                <li>
+                    <a href="./report.php?month=12"
+                        class="block px-4 py-2 hover:bg-gray-100 :dark:hover:bg-gray-600 :dark:hover:text-white">
+                        Tháng 12/2023
                     </a>
                 </li>
             </ul>
@@ -295,7 +304,7 @@
                 </div>
             </div>
 
-            <div class=" text-sm font-normal text-gray-500 :dark:text-gray-400">Successful Log-ins</div>
+            <div class=" text-sm font-normal text-gray-500 :dark:text-gray-400">Số lượt đăng nhập thành công</div>
 
 
         </div>
@@ -315,7 +324,7 @@
                 </div>
             </div>
 
-            <div class=" text-sm font-normal text-gray-500 :dark:text-gray-400">Print Counts</div>
+            <div class=" text-sm font-normal text-gray-500 :dark:text-gray-400">Tổng số lượt in</div>
 
 
         </div>
@@ -340,14 +349,14 @@
                 </div>
             </div>
 
-            <div class=" text-sm font-normal text-gray-500 :dark:text-gray-400">Failed to Log-ins</div>
+            <div class=" text-sm font-normal text-gray-500 :dark:text-gray-400">Số lần đăng nhập thất bại</div>
 
 
         </div>
         <div class=" pb-4 mb-4 border-b border-gray-200 :dark:border-gray-700">
             <div class="flex flex-col-2 items-center">
                 <div>
-                    <h5 class="leading-none text-2xl font-bold text-gray-900 :dark:text-white pb-1">13.5K</h5>
+                    <h5 class="leading-none text-2xl font-bold text-gray-900 :dark:text-white pb-1">491.2K</h5>
                 </div>
                 <div
                     class="mx-auto  text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md :dark:bg-green-900 :dark:text-green-300">
@@ -360,7 +369,7 @@
                 </div>
             </div>
 
-            <div class=" text-sm font-normal text-gray-500 :dark:text-gray-400">Total Sheet Used</div>
+            <div class=" text-sm font-normal text-gray-500 :dark:text-gray-400">Số lượng giấy đã sử dụng</div>
 
 
         </div>
@@ -570,7 +579,7 @@
                             var options = {
                                 series: [
                                     {
-                                        name: "Printer counts",
+                                        name: "Số lượt sử dụng",
                                         color: "#80CAEE",
                                         data: count,
                                     },
@@ -668,7 +677,7 @@
             <div class="my-3 bg-white rounded-lg shadow :dark:bg-gray-800 p-4 md:p-6">
 
                 <div class="grid grid-cols-2 py-3">
-                    <h5 class="text-lg font-bold leading-none text-gray-900 :dark:text-white pe-1">Paper Sizes
+                    <h5 class="text-lg font-bold leading-none text-gray-900 :dark:text-white pe-1">Kích thước giấy in
                     </h5>
                 </div>
 
@@ -677,101 +686,114 @@
 
             <script>
                 // ApexCharts options and config
-                window.addEventListener("load", function () {
-                    var options = {
-                        series: [
-                            {
-                                name: "Print counts",
-                                color: "#80CAEE",
-                                data: ["142", "165", "182", "162", "142"],
-                            },
-                        ],
-                        chart: {
-                            sparkline: {
-                                enabled: false,
-                            },
-                            type: "bar",
-                            width: "100%",
-                            height: 200,
-                            toolbar: {
-                                show: false,
-                            }
-                        },
-                        fill: {
-                            opacity: 1,
-                        },
-                        plotOptions: {
-                            bar: {
-                                horizontal: true,
-                                columnWidth: "100%",
-                                borderRadiusApplication: "end",
-                                borderRadius: 6,
-                                dataLabels: {
-                                    position: "top",
-                                },
-                            },
-                        },
-                        legend: {
-                            show: true,
-                            position: "bottom",
-                        },
-                        dataLabels: {
-                            enabled: false,
-                        },
-                        tooltip: {
-                            shared: true,
-                            intersect: false,
-                            formatter: function (value) {
-                                return value
-                            }
-                        },
-                        xaxis: {
-                            labels: {
-                                show: true,
-                                style: {
-                                    fontFamily: "Inter, sans-serif",
-                                    cssClass: 'text-xs font-normal fill-gray-500 :dark:fill-gray-400'
-                                },
-                                formatter: function (value) {
-                                    return value
-                                }
-                            },
-                            categories: ["A4", "A3", "A5", "A2", "A1"],
-                            axisTicks: {
-                                show: false,
-                            },
-                            axisBorder: {
-                                show: false,
-                            },
-                        },
-                        yaxis: {
-                            labels: {
-                                show: true,
-                                style: {
-                                    fontFamily: "Inter, sans-serif",
-                                    cssClass: 'text-xs font-normal fill-gray-500 :dark:fill-gray-400'
-                                }
-                            }
-                        },
-                        grid: {
-                            show: true,
-                            strokeDashArray: 4,
-                            padding: {
-                                left: 2,
-                                right: 2,
-                                top: -20
-                            },
-                        },
-                        fill: {
-                            opacity: 1,
-                        }
-                    }
+                fetch("../../models/paperStats.php")
+                    .then(response => response.json())
+                    .then(dataPHP => {
+                        var paperType = [];
+                        var count = [];
 
-                    if (document.getElementById("bar-chart-1") && typeof ApexCharts !== 'undefined') {
-                        const chart = new ApexCharts(document.getElementById("bar-chart-1"), options);
-                        chart.render();
-                    }
-                });
+                        dataPHP.forEach(item => {
+                            paperType.push(item.loaigiay);
+                            count.push(item.total_sheets);
+                        });
+
+                        window.addEventListener("load", function () {
+                            var options = {
+                                series: [
+                                    {
+                                        name: "Số tờ đã sử dụng",
+                                        color: "#80CAEE",
+                                        data: count,
+                                    },
+                                ],
+                                chart: {
+                                    sparkline: {
+                                        enabled: false,
+                                    },
+                                    type: "bar",
+                                    width: "100%",
+                                    height: 200,
+                                    toolbar: {
+                                        show: false,
+                                    }
+                                },
+                                fill: {
+                                    opacity: 1,
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: true,
+                                        columnWidth: "100%",
+                                        borderRadiusApplication: "end",
+                                        borderRadius: 6,
+                                        dataLabels: {
+                                            position: "top",
+                                        },
+                                    },
+                                },
+                                legend: {
+                                    show: true,
+                                    position: "bottom",
+                                },
+                                dataLabels: {
+                                    enabled: false,
+                                },
+                                tooltip: {
+                                    shared: true,
+                                    intersect: false,
+                                    formatter: function (value) {
+                                        return value
+                                    }
+                                },
+                                xaxis: {
+                                    labels: {
+                                        show: true,
+                                        style: {
+                                            fontFamily: "Inter, sans-serif",
+                                            cssClass: 'text-xs font-normal fill-gray-500 :dark:fill-gray-400'
+                                        },
+                                        formatter: function (value) {
+                                            return value
+                                        }
+                                    },
+                                    categories: paperType,
+                                    axisTicks: {
+                                        show: false,
+                                    },
+                                    axisBorder: {
+                                        show: false,
+                                    },
+                                },
+                                yaxis: {
+                                    labels: {
+                                        show: true,
+                                        style: {
+                                            fontFamily: "Inter, sans-serif",
+                                            cssClass: 'text-xs font-normal fill-gray-500 :dark:fill-gray-400'
+                                        }
+                                    }
+                                },
+                                grid: {
+                                    show: true,
+                                    strokeDashArray: 4,
+                                    padding: {
+                                        left: 2,
+                                        right: 2,
+                                        top: -20
+                                    },
+                                },
+                                fill: {
+                                    opacity: 1,
+                                }
+                            }
+
+                            if (document.getElementById("bar-chart-1") && typeof ApexCharts !== 'undefined') {
+                                const chart = new ApexCharts(document.getElementById("bar-chart-1"), options);
+                                chart.render();
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error:', error));
             </script>
         </div>
     </div>
@@ -793,7 +815,7 @@
                     colors: ["#1A56DB", "#FDBA8C"],
                     series: [
                         {
-                            name: "Print count",
+                            name: "Số lượt in",
                             color: "#1A56DB",
                             data: reformattedArray,
                         },
