@@ -1,19 +1,7 @@
 <?php
-// File: getprintcounts.php get print counts for each day in each month
+require_once("../models/db_connection.php");
 
-// Connect to the database (replace with your actual database credentials)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "smart_printing";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+$conn = DataBase::getInstance();
 // Fetch print counts for each day in each month
 $sql = "SELECT 
             MayIn.ID, MayIn.Hang, MayIn.Model, COUNT(*) AS SoLuotIn 

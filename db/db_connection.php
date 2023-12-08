@@ -1,7 +1,7 @@
 <?php
 $hostName = 'localhost';
 $userName = 'root';
-$password = '';
+$password = 'Danh@mysql@23';
 $database = 'smart_printing';
 
 $conn = @new mysqli( $hostName, $userName, $password, $database);

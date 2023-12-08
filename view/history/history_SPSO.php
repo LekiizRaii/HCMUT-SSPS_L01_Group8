@@ -156,46 +156,54 @@ $countFlag = true;
     <section class="bg-gray-100 :dark:bg-gray-900">
         <h1 class="mt-4 text-3xl font-bold text-black :dark:text-white ml-4 xl:ml-36">Lịch sử in</h1>
         <div class="py-8 px-4 mx-auto max-w-screen-lg lg:py-6 grid lg:grid-cols-1 gap-8 lg:gap-7">
-            <div id="history1">
+            <div id="history2">
                 <div class="m-auto w-full lg:max-w-full p-6 bg-white rounded-lg shadow-xl :dark:bg-gray-800">
                     <div class="flex flex-row">
-                        <form method="post">
-                            <div date-rangepicker class="flex items-center">
-                                <span class="mx-4 text-gray-500">From</span>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                        <svg class="w-4 h-4 text-gray-500 :dark:text-gray-400" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                            <path
-                                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                                        </svg>
-                                    </div>
-                                    <input id="startDate" name="start" type="text"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  :dark:bg-gray-700 :dark:border-gray-600 :dark:placeholder-gray-400 :dark:text-white :dark:focus:ring-blue-500 :dark:focus:border-blue-500"
-                                        placeholder="dd/mm/yyyy">
+                    <form method="post" class="mx-auto flex flex-row">
+                        <div date-rangepicker class="flex items-center">
+                            <span class="mx-4 text-gray-500">From</span>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                    <svg class="w-4 h-4 text-gray-500 :dark:text-gray-400" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                    </svg>
                                 </div>
-                                <span class="mx-4 text-gray-500">To</span>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                        <svg class="w-4 h-4 text-gray-500 :dark:text-gray-400" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                            <path
-                                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                                        </svg>
-                                    </div>
-                                    <input id="endDate" name="end" type="text"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  :dark:bg-gray-700 :dark:border-gray-600 :dark:placeholder-gray-400 :dark:text-white :dark:focus:ring-blue-500 :dark:focus:border-blue-500"
-                                        placeholder="dd/mm/yyyy">
+                                <input name="start" type="text"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  :dark:bg-gray-700 :dark:border-gray-600 :dark:placeholder-gray-400 :dark:text-white :dark:focus:ring-blue-500 :dark:focus:border-blue-500"
+                                    placeholder="dd/mm/yyyy">
+                            </div>
+                            <span class="mx-4 text-gray-500">To</span>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                    <svg class="w-4 h-4 text-gray-500 :dark:text-gray-400" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                    </svg>
                                 </div>
+                                <input name="end" type="text"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  :dark:bg-gray-700 :dark:border-gray-600 :dark:placeholder-gray-400 :dark:text-white :dark:focus:ring-blue-500 :dark:focus:border-blue-500"
+                                    placeholder="dd/mm/yyyy">
+                            </div>
+                        </div>
+                                <input type="text" name="id" id="email" class="ms-20 bg-gray-50 border border-gray-300 
+                                text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                                :dark:bg-gray-700 :dark:border-gray-600 :dark:placeholder-gray-400 :dark:text-white 
+                                :dark:focus:ring-blue-500 :dark:focus:border-blue-500" placeholder="Enter student’s ID or printer ID" required>
                                 <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                     </svg>
+                                    <span class="sr-only">Search</span>
                                 </button>
-                            </div>
-                        </form>
-                        <h2 class="ms-auto me-3 font-medium text-xl">ID: <?php echo get_user_ID($username) ?></h2>
-                    </div>
+                    </form>
+
+
+
+
+                </div>
                     <hr class="m-auto w-full lg:max-w-full my-3 border-zinc-400">
                     <div class="flex flex-col items-center relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-lg text-left rtl:text-right text-gray-500 :dark:text-gray-400">
@@ -208,10 +216,10 @@ $countFlag = true;
                                         ID Máy in
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-center">
-                                        Bắt đầu
+                                        ID Người dùng
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-center">
-                                        Kết thúc
+                                        Thời gian
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-center">
                                         Trạng thái
@@ -225,7 +233,18 @@ $countFlag = true;
                                         $count = 1;
                                         $startDate = $_POST["start"];
                                         $endDate = $_POST["end"];
-                                        $data = get_history_student($username, $startDate, $endDate);
+                                        $ID = $_POST["id"];
+
+                                        $data = get_history_student($username, $startDate, $endDate); //dummy value, don't delete, it's important
+                                        $firstTwoCharacters = substr($ID, 0, 2);
+                                        if (($firstTwoCharacters == "ND")) {
+                                            $data = get_history_SPSO($ID, "", $startDate, $endDate);
+                                        }
+                                        else if ($firstTwoCharacters == "MI") {
+                                            $data = get_history_SPSO("", $ID, $startDate, $endDate);
+                                        }
+
+                                        
                                         while ($row = mysqli_fetch_assoc($data)) {
                                             if ($count <= 4) {
                                                 $count = $count + 1;
@@ -243,7 +262,7 @@ $countFlag = true;
                                         <?php echo $row['printer_id']; ?>
                                     </td>
                                     <td class="px-4 py-4 text-gray-600 text-center">
-                                        <?php echo $row['printTime']; ?>
+                                        <?php echo $row['user_id']; ?>
                                     </td>
                                     <td class="px-4 py-4 text-gray-600 text-center">
                                         <?php echo $row['printTime']; ?>
@@ -287,11 +306,9 @@ $countFlag = true;
                                     $data = get_history_student($username, $startDate, $endDate);
                                         while ($row = mysqli_fetch_assoc($data)) {
                                             if ($count <= 4) {
-                                                $count = $count + 1;
-                                            
+                                                $count = $count + 1;           
                                     ?>
-                                    <tr
-                                        class="item bg-white border-b :dark:bg-gray-800 :dark:border-gray-700 hover:bg-gray-50 :dark:hover:bg-gray-600">
+                                    <tr class="item bg-white border-b :dark:bg-gray-800 :dark:border-gray-700 hover:bg-gray-50 :dark:hover:bg-gray-600">
                                         <th scope="row" class="flex flex-col px-6 py-4  whitespace-nowrap :dark:text-white">
                                             <p class="my-auto font-thin text-blue-600"><?php echo $row['document_name']; ?></p>
                                             <p class="my-1 font-thin text-gray-900">
@@ -349,7 +366,6 @@ $countFlag = true;
                         rounded-lg text-base px-5 py-2.5 my-3 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 
                         dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Xem thêm</button>
                     </div>
-                    <script>src="history.js"</script>
                 </div>
             </div>
         </div>
