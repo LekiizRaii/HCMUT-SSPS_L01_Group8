@@ -18,7 +18,7 @@ function loadNav() {
         $('#homepage1').remove();
         $('#homepage2').remove();
         $('#nav__login__button').click(function () {
-            window.location.replace("../loginpage/ChooseActor.html");
+            window.location.replace("../loginpage/ChooseActor.php");
         });
     }
     else if (idRole === "1") {

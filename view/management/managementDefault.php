@@ -329,7 +329,7 @@ require_once '../../db/db_connection.php';
                                                                         <div class="my-2 text-gray-900">
                                                                             Status: <span id="connectionToggle<?php echo $row['ID'] ?>">Connected to System</span>
                                                                         </div>
-                                                                        <button type="button" id="connectionToggleButton<?php echo $row['ID'] ?>" onclick="changeConnection('connectionToggle<?php echo $row['ID'] ?>','connectionToggleButton<?php echo $row['ID'] ?>')" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
+                                                                        <button type="button" id="connectionToggleButton<?php echo $row['ID'] ?>" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
                                                                             focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 :dark:bg-blue-600 
                                                                             :dark:hover:bg-blue-700 focus:outline-none :dark:focus:ring-blue-800">
                                                                             <a href="../../controllers/spso/printerManagement/disconnectPrinter.php?id=<?= $row['ID'] ?>">Disconnect</a>
@@ -339,7 +339,7 @@ require_once '../../db/db_connection.php';
                                                                         <div class="my-2 text-gray-900">
                                                                             Mode: <span id="statusToggle<?php echo $row['ID'] ?>"><?php echo $row['TinhTrang']; ?></span>
                                                                         </div>
-                                                                        <button type="button" id="statusToggleButton<?php echo $row['ID'] ?>" onclick="changeStatus('statusToggle<?php echo $row['ID'] ?>', 'statusToggleButton<?php echo $row['ID'] ?>')" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
+                                                                        <button type="button" id="statusToggleButton<?php echo $row['ID'] ?>" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
                                                                             focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 :dark:bg-blue-600 
                                                                             :dark:hover:bg-blue-700 focus:outline-none :dark:focus:ring-blue-800">
                                                                             <a href="../../controllers/spso/printerManagement/<?php echo ($row['TinhTrang'] == 'Enabled') ? 'disablePrinter.php' : 'enablePrinter.php'; ?>?id=<?= $row['ID'] ?>">
