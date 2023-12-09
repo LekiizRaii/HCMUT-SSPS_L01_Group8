@@ -1,4 +1,3 @@
-// Update additional conditions for functions
 <?php
 require_once('../models/print_page_model.php');
 

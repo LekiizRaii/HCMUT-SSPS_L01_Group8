@@ -6,6 +6,9 @@ session_start();
 if (!isset($_SESSION['username'])) {
     header("Location: ../homepage/homepage.php");
 }
+else if ($_SESSION['print_state']['status'] == 'Not-set') {
+    header("Location: ./print_page.php");
+}
 ?>
 
 <head>

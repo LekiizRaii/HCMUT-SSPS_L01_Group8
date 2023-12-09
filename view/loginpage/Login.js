@@ -1,5 +1,5 @@
 async function fetchData(actor, username) {
-    // try {
+    try {
         const response = await fetch(actor === "student" ? 
                                      `get_student_data.php?username=${username}` : `get_spso_data.php?username=${username}`);
 
@@ -8,10 +8,10 @@ async function fetchData(actor, username) {
         }
 
         return await response.json();
-    // } catch (error) {
-    //     console.error(error);
-    //     throw new Error(`An error occurred while fetching data for ${actor}`);
-    // }
+    } catch (error) {
+        console.error(error);
+        throw new Error(`An error occurred while fetching data for ${actor}`);
+    }
 }
 
 
@@ -65,7 +65,7 @@ document.getElementById("login-button").addEventListener("click", async function
 
         var loginPage = "";
 
-        // try {
+        try {
             const data = await fetchData(actor, username);
             const pwdfromdb = getPassword(data, username);
             const user_id = get_user_id(data, username);
@@ -79,7 +79,7 @@ document.getElementById("login-button").addEventListener("click", async function
                     localStorage.setItem('user_real_name', user_real_name);
                     // loginPage = "../homepage/homepage.php";
                     window.location.replace(`../../controllers/login_controller.php?
-                                            username=${username}&user_id=${user_id}&action=login`);
+                                            username=${username}&user_id=${user_id}&action=login&user_role=${actor}`);
                 } else {
                     alert("Không thể đăng nhập. Vui lòng kiểm tra lại thông tin.");
                     // loginPage = "Login.html?actor=student";
@@ -91,15 +91,18 @@ document.getElementById("login-button").addEventListener("click", async function
                     localStorage.setItem('user_real_name', user_real_name);
                     // loginPage = "../homepage/homepage.php";
                     window.location.replace(`../../controllers/login_controller.php?
-                                            username=${username}&user_id=${user_id}&action=login`);
+                                            username=${username}&user_id=${user_id}&action=login&user_role=${actor}`);
                 } else {
                     alert("Không thể đăng nhập. Vui lòng kiểm tra lại thông tin.");
                     // loginPage = "Login.html?actor=SPSO";
                 }
             }
-        // } catch (error) {
-        //     alert("Xảy ra lỗi khi lấy dữ liệu.");
-        // }
+            else {
+                window.location.replace("./ChooseActor.php");
+            }
+        } catch (error) {
+            alert("Xảy ra lỗi khi lấy dữ liệu.");
+        }
 
         // Chuyển hướng đến trang đăng nhập tương ứng
 
