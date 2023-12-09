@@ -80,7 +80,7 @@ $countFlag = true;
                     </button>
                     <div class="mr-0.5">
                         <div class="self-center text-right text-base font-semibold whitespace-nowrap :dark:text-white">
-                            Danh Hoang</div>
+                            Username</div>
                         <div class="self-center text-right text-sm whitespace-nowrap :dark:text-white"
                             id="user__student">Sinh viên</div>
                         <div class="self-center text-right text-sm whitespace-nowrap :dark:text-white" id="user__SPSO">
@@ -101,7 +101,7 @@ $countFlag = true;
                         id="dropdown-user">
                         <!-- <div class="px-4 py-3" role="none">
                             <p class="text-sm text-gray-900 :dark:text-white" role="none">
-                                Danh Hoang
+                                Username
                             </p>
                             <p class="text-sm font-medium text-gray-900 truncate :dark:text-gray-300" role="none">
                                 name@flowbite.com
@@ -201,19 +201,19 @@ $countFlag = true;
                         <table class="w-full text-lg text-left rtl:text-right text-gray-500 :dark:text-gray-400">
                             <thead class="text-base text-gray-700 bg-gray-50 :dark:bg-gray-700 :dark:text-gray-400">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="px-4 py-3 text-center">
                                         Tên File
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
+                                    <th scope="col" class="px-4 py-3 text-center">
                                         ID Máy in
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
+                                    <th scope="col" class="px-4 py-3 text-center">
                                         Bắt đầu
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
+                                    <th scope="col" class="px-4 py-3 text-center">
                                         Kết thúc
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
+                                    <th scope="col" class="px-4 py-3 text-center">
                                         Trạng thái
                                     </th>
 

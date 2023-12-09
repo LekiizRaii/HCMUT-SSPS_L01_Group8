@@ -33,7 +33,7 @@
 <body class="bg-gray-100 :dark:bg-gray-900">
     <nav class="bg-white border-gray-200 :dark:bg-gray-900">
         <div class="max-w-screen-full flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="../homepage/homepage.html" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="../homepage/homepage.php" class="ml-5 flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="../img/hcmut.png" class="h-8" alt="HCMUT Logo" />
                 <div class="ml-4">
                     <div class="self-center text-base font-semibold whitespace-nowrap :dark:text-white">Ho Chi Minh
@@ -74,9 +74,7 @@
                     </button>
                     <div class="mr-0.5">
                         <div class="self-center text-right text-base font-semibold whitespace-nowrap :dark:text-white">
-                            Danh Hoang</div>
-                        <div class="self-center text-right text-sm whitespace-nowrap :dark:text-white"
-                            id="user__student">Student</div>
+                            Username</div>
                         <div class="self-center text-right text-sm whitespace-nowrap :dark:text-white" id="user__SPSO">
                             SPSO</div>
                     </div>
@@ -95,7 +93,7 @@
                         id="dropdown-user">
                         <!-- <div class="px-4 py-3" role="none">
                             <p class="text-sm text-gray-900 :dark:text-white" role="none">
-                                Danh Hoang
+                                Username
                             </p>
                             <p class="text-sm font-medium text-gray-900 truncate :dark:text-gray-300" role="none">
                                 name@flowbite.com

@@ -80,7 +80,7 @@ $countFlag = true;
                     </button>
                     <div class="mr-0.5">
                         <div class="self-center text-right text-base font-semibold whitespace-nowrap :dark:text-white">
-                            Danh Hoang</div>
+                            Username</div>
                         <div class="self-center text-right text-sm whitespace-nowrap :dark:text-white"
                             id="user__student">Sinh viên</div>
                         <div class="self-center text-right text-sm whitespace-nowrap :dark:text-white" id="user__SPSO">
@@ -101,7 +101,7 @@ $countFlag = true;
                         id="dropdown-user">
                         <!-- <div class="px-4 py-3" role="none">
                             <p class="text-sm text-gray-900 :dark:text-white" role="none">
-                                Danh Hoang
+                                Username
                             </p>
                             <p class="text-sm font-medium text-gray-900 truncate :dark:text-gray-300" role="none">
                                 name@flowbite.com
@@ -161,8 +161,8 @@ $countFlag = true;
                     <div class="flex flex-row">
                     <form method="post" class="mx-auto flex flex-row">
                         <div date-rangepicker class="flex items-center">
-                            <span class="mx-4 text-gray-500">From</span>
-                            <div class="relative">
+                            <span class="mx-2 text-gray-500">From</span>
+                            <div class="relative" >
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                     <svg class="w-4 h-4 text-gray-500 :dark:text-gray-400" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -174,7 +174,7 @@ $countFlag = true;
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  :dark:bg-gray-700 :dark:border-gray-600 :dark:placeholder-gray-400 :dark:text-white :dark:focus:ring-blue-500 :dark:focus:border-blue-500"
                                     placeholder="dd/mm/yyyy">
                             </div>
-                            <span class="mx-4 text-gray-500">To</span>
+                            <span class="mx-2 text-gray-500">To</span>
                             <div class="relative">
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                     <svg class="w-4 h-4 text-gray-500 :dark:text-gray-400" aria-hidden="true"
@@ -189,7 +189,7 @@ $countFlag = true;
                             </div>
                         </div>
                                 <input type="text" name="id" id="email" class="ms-20 bg-gray-50 border border-gray-300 
-                                text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                                text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 
                                 :dark:bg-gray-700 :dark:border-gray-600 :dark:placeholder-gray-400 :dark:text-white 
                                 :dark:focus:ring-blue-500 :dark:focus:border-blue-500" placeholder="Enter student’s ID or printer ID" required>
                                 <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -209,19 +209,19 @@ $countFlag = true;
                         <table class="w-full text-lg text-left rtl:text-right text-gray-500 :dark:text-gray-400">
                             <thead class="text-base text-gray-700 bg-gray-50 :dark:bg-gray-700 :dark:text-gray-400">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="px-4 py-3 text-center">
                                         Tên File
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
+                                    <th scope="col" class="px-4 py-3 text-center">
                                         ID Máy in
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
+                                    <th scope="col" class="px-4 py-3 text-center">
                                         ID Người dùng
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
+                                    <th scope="col" class="px-4 py-3 text-center">
                                         Thời gian
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
+                                    <th scope="col" class="px-4 py-3 text-center">
                                         Trạng thái
                                     </th>
 

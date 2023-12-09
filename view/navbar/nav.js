@@ -1,10 +1,10 @@
 var user = {
-    name: 'Mai Hoàng Danh',
-    dob: new Date(2003, 3, 1),
+    name: 'Username',
+    dob: new Date(1969, 8, 2),
     gender: 1,
-    address: 'KTX khu A thành phố Hồ Chí Minh',
-    phone: '0912345678',
-    email: 'neil.sims@flowbite.com',
+    address: 'Trường Đại học Bách Khoa TP. Hồ Chí Minh',
+    phone: '0919051890',
+    email: 'example@hcmut.edu.vn',
 }
 $(document).ready(function () {
     loadNav();
@@ -18,7 +18,7 @@ function loadNav() {
         $('#homepage1').remove();
         $('#homepage2').remove();
         $('#nav__login__button').click(function () {
-            window.location.replace("../loginpage/ChooseActor.html");
+            window.location.replace("../loginpage/ChooseActor.php");
         });
     }
     else if (idRole === "1") {

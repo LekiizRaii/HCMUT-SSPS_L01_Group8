@@ -60,7 +60,7 @@
                         </svg>
                     </button>
                     <div class="mr-0.5">
-                        <div class="self-center text-right text-base font-semibold whitespace-nowrap dark:text-white">Danh Hoang</div>
+                        <div class="self-center text-right text-base font-semibold whitespace-nowrap dark:text-white">Username</div>
                         <div class="self-center text-right text-sm whitespace-nowrap dark:text-white" id="user__student">Sinh viên</div>
                         <div class="self-center text-right text-sm whitespace-nowrap dark:text-white" id="user__SPSO">SPSO</div>
                     </div>
@@ -76,7 +76,7 @@
                         id="dropdown-user">
                         <!-- <div class="px-4 py-3" role="none">
                             <p class="text-sm text-gray-900 dark:text-white" role="none">
-                                Danh Hoang
+                                Username
                             </p>
                             <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
                                 name@flowbite.com

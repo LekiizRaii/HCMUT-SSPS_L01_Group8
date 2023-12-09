@@ -10,4 +10,17 @@ $conn->error;
 if ($conn->error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
+$result = $conn->query("SELECT * FROM quantrivien");
+$data = array();
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+}
+
+$conn->close();
+
+echo json_encode($data);
 ?>

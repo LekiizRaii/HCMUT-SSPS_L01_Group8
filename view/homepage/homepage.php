@@ -88,7 +88,7 @@ $res_student = $conn->query($sql_student);
                         id="dropdown-user">
                         <!-- <div class="px-4 py-3" role="none">
                             <p class="text-sm text-gray-900 dark:text-white" role="none">
-                                Danh Hoang
+                                Username
                             </p>
                             <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
                                 name@flowbite.com
@@ -194,7 +194,7 @@ $res_student = $conn->query($sql_student);
             </a>
         </div>
         <div class="flex flex-col md:flex-row items-center justify-center">
-            <a href="../settingspage/settingspage.php" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-4/12 lg:w-3/12 xl:w-3/12" style="border-radius: 40px;">
+            <a href="../settingspage/setting_page.php" class="rounded-4xl py-2 px-16 bg-white my-5 md:mx-10 xl:mx-16 hover:bg-blue-400 border-2 border-gray-500 w-9/12 md:w-4/12 lg:w-3/12 xl:w-3/12" style="border-radius: 40px;">
                 <img class="m-auto mt-0 w-36 h-36" src="../img/setting.png" alt="homepage0">
                 <h2 class="text-2xl font-bold text-center mt-1 py-1 px-1">CÀI ĐẶT IN</h2>
             </a>
