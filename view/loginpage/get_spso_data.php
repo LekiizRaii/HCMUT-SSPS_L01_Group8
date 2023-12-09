@@ -11,7 +11,7 @@ if ($conn->error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$result = $conn->query("SELECT * FROM quantrivien");
+$result = $conn->query("SELECT * FROM quantrivien WHERE tendangnhap = '{$_GET["username"]}'");
 $data = array();
 
 if ($result->num_rows > 0) {

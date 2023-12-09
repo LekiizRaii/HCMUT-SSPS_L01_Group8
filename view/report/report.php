@@ -1,4 +1,8 @@
 <?php
+    session_start(); 
+    if (!isset($_SESSION['username'])) {
+        header("Location: ../homepage/homepage.php");
+    }
     $currentDirectory = __DIR__;
     $url = dirname($currentDirectory);
     $month = $_GET['month'] ?? 11;
@@ -10,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Page</title>
+    <title>Trang báo cáo in</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
@@ -73,7 +77,7 @@
                         </svg>
                     </button>
                     <div class="mr-0.5">
-                        <div class="self-center text-right text-base font-semibold whitespace-nowrap :dark:text-white">
+                        <div id="user_real_name" class="self-center text-right text-base font-semibold whitespace-nowrap :dark:text-white">
                             Username</div>
                         <div class="self-center text-right text-sm whitespace-nowrap :dark:text-white" id="user__SPSO">
                             SPSO</div>
@@ -378,7 +382,7 @@
 
             <div class="flex justify-between mb-3">
                 <div class="flex justify-center items-center">
-                    <h5 class="text-xl font-bold leading-none text-gray-900 :dark:text-white pe-1"> Thống kê các loại File
+                    <h5 class="text-xl font-bold leading-none text-gray-900 :dark:text-white pe-1"> Thống kê các định dạng file
                     </h5>
                     <svg data-popover-target="chart-info" data-popover-placement="bottom"
                         class="w-3.5 h-3.5 text-gray-500 :dark:text-gray-400 hover:text-gray-900 :dark:hover:text-white cursor-pointer ms-1"
@@ -443,7 +447,7 @@
                     var fileCountsString = [];
 
                     dataPHP.forEach(item => {
-                        fileTypes.push(item.file_type);
+                        fileTypes.push(item.file_type.toUpperCase());
                         fileCountsString.push(item.file_count);
                     });
 
@@ -691,8 +695,10 @@
                         var count = [];
 
                         dataPHP.forEach(item => {
-                            paperType.push(item.loaigiay);
-                            count.push(item.total_sheets);
+                            if (item.loaigiay == "A4" || item.loaigiay == "A3") {
+                                paperType.push(item.loaigiay);
+                                count.push(item.total_sheets);
+                            }
                         });
 
                         window.addEventListener("load", function () {

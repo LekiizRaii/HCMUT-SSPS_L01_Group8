@@ -29,7 +29,7 @@ function validate() {
     }
     else {
         //
-        $username = 'B.Tran';
+        $username = $_SESSION["username"];
         //
         $flag = TRUE;
         $numberofpages = 0;
@@ -119,7 +119,7 @@ function validate() {
 
 function show_printer_list() {
     //
-    $username = 'B.Tran';
+    $username = $_SESSION["username"];
     //
     $print_state = $_SESSION['print_state'];
     $print_numberofpage = (int)$print_state['numberofcopy'] * (int)$print_state['numberofpages'];
@@ -143,8 +143,8 @@ function do_print() {
     $data = $_SESSION['print_state'];
     //
     $print_status = TRUE;
-    $user_id = "ND0002";
-    $user_name = "B.Tran";
+    $user_id = $_SESSION["user_id"];
+    $user_name = $_SESSION["username"];
     //
     $data['time'] = date("Y-m-d h:i:s");
     $data['user-id'] = $user_id;

@@ -1,12 +1,15 @@
 <?php
-session_start();
+session_start(); 
+if (!isset($_SESSION['username'])) {
+    header("Location: ../homepage/homepage.php");
+}
 ob_start();
 
 $rootPath = '/HCMUT-SSPS_L01_Group8';
 require_once("../../models/db_connection.php");
 require_once('../../models/historyFetch.php');
 
-$username = "A.Nguyen";
+$username = $_SESSION["username"];
 $countFlag = true;
 
 ?>
@@ -17,7 +20,7 @@ $countFlag = true;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History Page</title>
+    <title>Trang lịch sử in</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -79,7 +82,7 @@ $countFlag = true;
                         </svg>
                     </button>
                     <div class="mr-0.5">
-                        <div class="self-center text-right text-base font-semibold whitespace-nowrap :dark:text-white">
+                        <div id="user_real_name" class="self-center text-right text-base font-semibold whitespace-nowrap :dark:text-white">
                             Username</div>
                         <div class="self-center text-right text-sm whitespace-nowrap :dark:text-white"
                             id="user__student">Sinh viên</div>
@@ -161,7 +164,7 @@ $countFlag = true;
                     <div class="flex flex-row">
                     <form method="post" class="mx-auto flex flex-row">
                         <div date-rangepicker class="flex items-center">
-                            <span class="mx-2 text-gray-500">From</span>
+                            <span class="mx-2 text-gray-500">Từ</span>
                             <div class="relative" >
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                     <svg class="w-4 h-4 text-gray-500 :dark:text-gray-400" aria-hidden="true"
@@ -174,7 +177,7 @@ $countFlag = true;
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  :dark:bg-gray-700 :dark:border-gray-600 :dark:placeholder-gray-400 :dark:text-white :dark:focus:ring-blue-500 :dark:focus:border-blue-500"
                                     placeholder="dd/mm/yyyy">
                             </div>
-                            <span class="mx-2 text-gray-500">To</span>
+                            <span class="mx-2 text-gray-500">Đến</span>
                             <div class="relative">
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                     <svg class="w-4 h-4 text-gray-500 :dark:text-gray-400" aria-hidden="true"

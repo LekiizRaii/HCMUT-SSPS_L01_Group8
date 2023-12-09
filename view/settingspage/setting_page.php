@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php session_start(); ?>
+<?php 
+session_start(); 
+if (!isset($_SESSION['username'])) {
+    header("Location: ../homepage/homepage.php");
+}
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -61,7 +66,7 @@
                         </svg>
                     </button>
                     <div class="mr-0.5">
-                        <div class="self-center text-right text-base font-semibold whitespace-nowrap dark:text-white">Username</div>
+                        <div id="user_real_name" class="self-center text-right text-base font-semibold whitespace-nowrap dark:text-white">Username</div>
                         <div class="self-center text-right text-sm whitespace-nowrap dark:text-white" id="user__SPSO">SPSO</div>
                     </div>
                     <button id="dropdownInformationButton" aria-expanded="false" data-dropdown-toggle="dropdown-user" class="ml-1 mr-4 dark:text-white bg-white focus:ring-4 focus:outline-none focus:bg-blue-500 focus:ring-blue-600 font-medium rounded-lg text-sm px-1 py-1 text-center inline-flex items-center dark:bg-gray-900 dark:hover:bg-blue-500 dark:focus:ring-blue-600" type="button">

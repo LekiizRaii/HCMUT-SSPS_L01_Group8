@@ -72,7 +72,7 @@ $res_student = $conn->query($sql_student);
                         </svg>
                     </button>
                     <div class="mr-0.5">
-                        <div class="self-center text-right text-base font-semibold whitespace-nowrap dark:text-white">Username</div>
+                        <div id="user_real_name" class="self-center text-right text-base font-semibold whitespace-nowrap dark:text-white">Username</div>
                         <div class="self-center text-right text-sm whitespace-nowrap dark:text-white" id="user__student">Sinh viên</div>
                         <div class="self-center text-right text-sm whitespace-nowrap dark:text-white" id="user__SPSO">SPSO</div>
                     </div>

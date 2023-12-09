@@ -1,5 +1,5 @@
 var user = {
-    name: 'Username',
+    name: localStorage.getItem("user_real_name"),
     dob: new Date(1969, 8, 2),
     gender: 1,
     address: 'Trường Đại học Bách Khoa TP. Hồ Chí Minh',
@@ -26,12 +26,14 @@ function loadNav() {
         $('#user__SPSO').remove();
         $('#homepage0').remove();
         $('#homepage2').remove();
+        $('#user_real_name').html(user.name);
     }
     else if (idRole === "2") {
         $('#nav__login').remove();
         $('#user__student').remove();
         $('#homepage0').remove();
         $('#homepage1').remove();
+        $('#user_real_name').html(user.name);
     }
     
     // $('#my-class-link').attr('href', '../MyCourses/myCourses.html');
@@ -184,7 +186,8 @@ function signout() {
                 }).then(() => {
                     localStorage.removeItem('idRole');
                     localStorage.removeItem('userInfo');
-                    window.location.replace("../homepage/homepage.php");
+                    window.location.replace("../../controllers/login_controller.php?action=logout");
+                    // window.location.replace("../homepage/homepage.php");
                 });
             }
         });

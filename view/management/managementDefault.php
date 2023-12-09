@@ -1,5 +1,8 @@
 <?php
-session_start();
+session_start(); 
+if (!isset($_SESSION['username'])) {
+    header("Location: ../homepage/homepage.php");
+}
 ob_start();
 
 $rootPath = '/HCMUT-SSPS_L01_Group8';
@@ -14,7 +17,7 @@ require_once '../../db/db_connection.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Management Page</title>
+    <title>Trang quản lý máy in</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -70,7 +73,7 @@ require_once '../../db/db_connection.php';
                         </svg>
                     </button>
                     <div class="mr-0.5">
-                        <div class="self-center text-right text-base font-semibold whitespace-nowrap :dark:text-white">
+                        <div id="user_real_name" class="self-center text-right text-base font-semibold whitespace-nowrap :dark:text-white">
                             Username</div>
                         <div class="self-center text-right text-sm whitespace-nowrap :dark:text-white" id="user__SPSO">
                             SPSO</div>
