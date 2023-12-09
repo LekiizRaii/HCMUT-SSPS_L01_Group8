@@ -2176,16 +2176,16 @@ CREATE TABLE `nguoidung` (
 
 INSERT INTO `nguoidung` (`ID`, `Ten`, `TenDangNhap`, `Password`, `SoLuongGiay`) VALUES
 ('ND0000', 'Mọi người', 'everyone', '', 0),
-('ND0001', 'Nguyễn Văn A', 'A.Nguyen', '$2y$10$lCssFPK1RFB8mYhecHJGm.bS9qf.dB6eeCMef1f1Fg9p/lrSy6z4y', 80),
-('ND0002', 'Trần Thị B', 'B.Tran', '$2y$10$j9bymYP4kH0EzNqEAVr5c.Md.Zfq2wSZCibqm7SN1Q0tprYoWubKi', 120),
-('ND0003', 'Lê Văn C', 'C.Le', '$2y$10$Mhn.reuUc4WhBQ3K4Cae1eXdTwNgvh6/rTMwCw.ubeHVVvEJvsx9u', 90),
-('ND0004', 'Phạm Thị D', 'D.Pham', '$2y$10$r9x48nAs8BGoQhtyuKP5oeMoVki2DFlrFZhG.PTAhxAdxiq5yGELW', 110),
-('ND0005', 'Hoàng Văn E', 'E.Hoang', '$2y$10$0jPcFzpWQLIbCQKjGSe.AuY2wqwVnJ0bbOKfsMV5L9AdORQ9dWi0u', 70),
-('ND0006', 'Ngô Thị F', 'F.Ngo', '$2y$10$HYPOTNX3GYnqwq20X3CuWOURFC9xUgKZ/mxaBKhSJbqsshkk93.1W', 130),
-('ND0007', 'Đặng Văn G', 'G.Dang', '$2y$10$7pi3TqmLe08IGMvJCxbMvOI6NUgCCuus5TwvPklVlxgNzZYu3Hf7W', 100),
-('ND0008', 'Bùi Thị H', 'H.Bui', '$2y$10$/iUdsTP/QMeI0.m2Ao5zm.SCrncOnYXi2cwcHXVSKy2Nrvd0P64NO', 15),
-('ND0009', 'Vũ Văn I', 'I.Vu', '$2y$10$sx8KX/ehJVDmyNi1eWFjouwasrtNGYh/4PDTNEhClkBQ0ODwUKeai', 85),
-('ND0010', 'Trương Thị K', 'K.Truong', '$2y$10$r2HuXjZMjuieS8sz704V4.7DwNOCWTlkXs/sR5yH9vYpXAc5htvE.', 95);
+('ND0001', 'Nguyễn Văn A', 'A.Nguyen', '@A.NguyenSTUDENT', 80),
+('ND0002', 'Trần Thị B', 'B.Tran', '@B.TranSTUDENT', 120),
+('ND0003', 'Lê Văn C', 'C.Le', '@C.LeSTUDENT', 90),
+('ND0004', 'Phạm Thị D', 'D.Pham', '@D.PhamSTUDENT', 110),
+('ND0005', 'Hoàng Văn E', 'E.Hoang', '@E.HoangSTUDENT', 70),
+('ND0006', 'Ngô Thị F', 'F.Ngo', '@F.NgoSTUDENT', 130),
+('ND0007', 'Đặng Văn G', 'G.Dang', '@G.DangSTUDENT', 100),
+('ND0008', 'Bùi Thị H', 'H.Bui', '@H.BuiSTUDENT', 15),
+('ND0009', 'Vũ Văn I', 'I.Vu', '@I.VuSTUDENT', 85),
+('ND0010', 'Trương Thị K', 'K.Truong', '@K.TruongSTUDENT', 95);
 
 -- ---------------------------------------------------------
 
@@ -2267,12 +2267,12 @@ CREATE TABLE `quantrivien` (
 --
 
 INSERT INTO `quantrivien` (`ID`, `Ten`, `TenDangNhap`, `Password`, `ChucVu`) VALUES
-('QT0001', 'Nguyễn Thị L', 'L.Nguyen', '$2y$10$FqOv3PEfMCd5pXM4rjdDR./yG2iBx46hjwvm.9rz5dNUZCZ9u0m0q', 'Officer'),
-('QT0002', 'Trần Văn M', 'M.Tran', '$2y$10$oByOlkL.nxN7xUoc14x2XuSuZ7coESP7IECDCD78bBJi.8IZbfWk6', 'Manager'),
-('QT0003', 'Lê Thị N', 'N.Le', '$2y$10$emh9OMppZwUSIsYNPcxFv.yBvRQKee4pSmoTpMGMTmf88y2l.z9WO', ''),
-('QT0004', 'Phạm Văn P', 'P.Pham', '$2y$10$KSTngarNLTIOLzQs3DxGDOtvJXgYCm680M.CLJGUZTEQUjqbYA5f6', 'Manager'),
-('QT0005', 'Hoàng Thị Q', 'Q.Hoang', '$2y$10$mNASvFUjn7M721np0I762OrDL0uB9MUA/fWzoaNaDLTFtGpC4Ql1K', 'Officer'),
-('QT0006', 'Ngô Văn R', 'R.Ngo', '$2y$10$JvkOl7kx4Ghun11qnf6f6.DWGr.guH1.RJW/m3rOqAl/DSbWlyYnW', 'Director');
+('QT0001', 'Nguyễn Thị L', 'L.Nguyen', '@L.NguyenSPSO', 'Officer'),
+('QT0002', 'Trần Văn M', 'M.Tran', '@M.TranSPSO', 'Manager'),
+('QT0003', 'Lê Thị N', 'N.Le', '@N.LeSPSO', ''),
+('QT0004', 'Phạm Văn P', 'P.Pham', '@P.PhamSPSO', 'Manager'),
+('QT0005', 'Hoàng Thị Q', 'Q.Hoang', '@Q.HoangSPSO', 'Officer'),
+('QT0006', 'Ngô Văn R', 'R.Ngo', '@R.NgoSPSO', 'Director');
 
 -- --------------------------------------------------------
 
