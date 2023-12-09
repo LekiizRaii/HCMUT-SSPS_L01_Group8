@@ -21,7 +21,6 @@ $ketqua = $conn->query($sql);
 ?>
 
 <?php
-require("validate.php");
 $TenDangNhap = '';
 $Password = '';
 $ThongBao = '';
@@ -37,7 +36,7 @@ if (isset($_POST['login_user'])) {
         $ThongBao = "Vui lòng nhập các ô còn thiếu";
     }
 
-    if (checkTenDangNhapExist($TenDangNhap) == "") {
+    if (true) {
         $is_validated = false;
         $errorTenDangNhap = "TenDangNhap không tồn tại";
     }
@@ -132,15 +131,6 @@ if (isset($_POST['login_user'])) {
                             <label for="password" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">Mật khẩu</label>
                             <input type="password" name="Password" value="<?php echo $Password; ?>" placeholder="6+ ký tự, 1 ký tự in hoa" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                         </div>
-                        <?php
-                        if (!empty($ThongBao)) {
-                            echo '<div class="alert alert-danger">' . $ThongBao . '</div>';
-                        } else if (!empty($errorTenDangNhap)) {
-                            echo '<div class="alert alert-danger">' . $errorTenDangNhap . '</div>';
-                        } else if (!empty($errorPassword)) {
-                            echo '<div class="alert alert-danger">' . $errorPassword . '</div>';
-                        }
-                        ?>
                         <div class="flex flex-col justify-center">
                             <button type="submit" class="login_user text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Đăng nhập</button>
                         </div>
