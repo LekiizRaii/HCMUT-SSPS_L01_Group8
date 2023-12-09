@@ -94,6 +94,8 @@ function load_notification() {
             } 
             else if (response['status'] == 'ERROR') {
                 if (response['error-type'] == 'USER') {
+                    $('#bug1').show();
+                    $('#bug2').show();
                     var str = '';
                     str += `
                             <div class="flex flex-col m-auto max-w-screen p-4">
@@ -108,9 +110,11 @@ function load_notification() {
                             </div>   
                             `;
                     $('#bodyModal').html(str);
-                    $('#bug1').remove();
+                    $('#bug1').hide();
                 }
                 else {
+                    $('#bug1').show();
+                    $('#bug2').show();
                     var message = '';
                     var request = '';
                     if (response['error-type'] == 'FILE') {
@@ -151,7 +155,7 @@ function load_notification() {
                             </div>   
                             `;
                     $('#bodyModal').html(str);
-                    $('#bug2').remove();
+                    $('#bug2').hide();
                 }
             }
         });
@@ -164,6 +168,8 @@ function preview_file() {
 
     if (fileInput.files && fileInput.files[0]) {
         if (fileInput.files[0].size > 30000000) {
+            $('#bug1').show();
+            $('#bug2').show();
             var str = '';
             str += `
                     <div class="flex flex-col m-auto max-w-screen p-4">
@@ -178,10 +184,12 @@ function preview_file() {
                     </div>   
                     `;
             $('#bodyModal').html(str);
-            $('#bug2').remove();
+            $('#bug2').hide();
             $('#upload').trigger('click');
             return ;
         }
+        $('#bug1').show();
+        $('#bug2').show();
         var str = '';
         str += `
                 <div class="flex flex-col m-auto max-w-screen p-4">
@@ -194,8 +202,8 @@ function preview_file() {
                 </div>   
                 `;
         $('#bodyModal').html(str);
-        $('#bug1').remove();
-        $('#bug2').remove();
+        $('#bug1').hide();
+        $('#bug2').hide();
         $('#upload').trigger('click'); 
     }
 

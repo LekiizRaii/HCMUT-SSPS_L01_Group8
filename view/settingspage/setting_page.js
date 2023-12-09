@@ -68,7 +68,6 @@ function load_notification() {
                     if (result.dismiss === Swal.DismissReason.timer) {
                         console.log("I was closed by the timer");
                     }
-                    alert(12);
                     window.location.replace("../homepage/homepage.php");
                 });
             } else if (response['status'] === 'ERROR') { 
