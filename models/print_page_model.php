@@ -2,6 +2,9 @@
 require_once("../models/db_connection.php");
 
 function get_user_numberofpage($username) {
+    if ($_SESSION['user_role'] == 'SPSO') {
+        return 1000000;
+    }
     $conn = DataBase::getInstance();
     $query = "SELECT soluonggiay AS numberofpage FROM NguoiDung WHERE tendangnhap = '$username'";
     $result = $conn->query($query);
@@ -45,14 +48,19 @@ function modify_print_info($data) {
     $conn = DataBase::getInstance();
     $query = '';
 
-    $query = "SELECT soluonggiay AS numberofpage FROM NguoiDung WHERE ID = '{$data['user-id']}'";
-    $result = $conn->query($query);
-    $user_numberofpage = (int)$result->fetch_assoc()['numberofpage'];
-    if ($data['pagesize'] == 'A4') {
-        $user_numberofpage -= (int)$data['numberofpages'];
-    }
-    else {
-        $user_numberofpage -= (int)$data['numberofpages'] * 2;
+    if ($_SESSION['user_role'] != 'SPSO') {
+        $query = "SELECT soluonggiay AS numberofpage FROM NguoiDung WHERE ID = '{$data['user-id']}'";
+        $result = $conn->query($query);
+        $user_numberofpage = (int)$result->fetch_assoc()['numberofpage'];
+        if ($data['pagesize'] == 'A4') {
+            $user_numberofpage -= (int)$data['numberofpages'];
+        }
+        else {
+            $user_numberofpage -= (int)$data['numberofpages'] * 2;
+        }
+
+        $query = "UPDATE NguoiDung SET soluonggiay = $user_numberofpage WHERE ID = '{$data['user-id']}';";
+        $conn->query($query);
     }
 
     if ($data['pagesize'] == 'A4') {
@@ -64,9 +72,6 @@ function modify_print_info($data) {
     $result = $conn->query($query);
     $printer_numberofpage = (int)$result->fetch_assoc()['numberofpage'];
     $printer_numberofpage -= (int)$data['numberofpages'];
-
-    $query = "UPDATE NguoiDung SET soluonggiay = $user_numberofpage WHERE ID = '{$data['user-id']}';";
-    $conn->query($query);
 
     if ($data['pagesize'] == 'A4') {
         $query = "UPDATE mayin SET SoGiayA4 = $printer_numberofpage WHERE ID = '{$data['printer_id']}';";

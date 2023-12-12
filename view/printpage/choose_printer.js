@@ -11,7 +11,12 @@ function load_list_of_printer() {
     return fetch('../../controllers/print_page_controller.php?action=show-printer-list', {credentials: 'include'})
     .then(response => response.json())
     .then(response => {
-        $("#current-user-pages").html(`Số lượng giấy hiện có (tờ): ${response['user_numberofpage']}`);
+        if (localStorage.getItem('idRole') == "1") {
+            $("#current-user-pages").html(`Số lượng giấy hiện có (tờ): ${response['user_numberofpage']}`);
+        }
+        else {
+            $("#current-user-pages").hide();
+        }
 
         var str = "";
         str = `<tr>

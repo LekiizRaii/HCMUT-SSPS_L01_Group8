@@ -110,9 +110,8 @@ $res_student = $conn->query($sql_student);
                 </div>
 
                 <div class="flex items-center ml-3 mr-4" id="nav__login">
-                    <button id="nav__login__button" type="button" class="mr-7 w-30 text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium font-bold rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
-                        style="font-family: Montserrat;
-                        font-weight: 900;">
+                    <button id="nav__login__button" type="button" class="mr-7 w-30 text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
+                        style="font-weight: 700;">
                         ĐĂNG NHẬP
                     </button>
                 </div>

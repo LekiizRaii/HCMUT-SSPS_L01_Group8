@@ -150,7 +150,13 @@ function do_print() {
     $data['printer_address'] = $_POST['printer_address'];
     $data['printer_id'] = $_POST['printer_id'];
     if ($print_status) {
-        $data['status'] = 'Done';
+        $files = glob('../uploads/*');
+        foreach ($files as $file) {
+            if(is_file($file)) {
+                unlink($file);
+            }
+        }
+        $data['status'] = 'In thành công';
         set_print_state($data);
         insert_print_history($data);
         modify_print_info($data);
